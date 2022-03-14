@@ -1,0 +1,24 @@
+---
+title: "Readme.rmd"
+author: "Sergio Pedro R Oliveira"
+date: "`r Sys.Date()`"
+output:
+  md_document:
+    variant: markdown_github
+  word_document: default
+  html_document:
+    df_print: paged
+  github_document: default
+  odt_document: default
+  pdf_document: default
+---
+
+\newpage
+
+# Objetivo
+
+Estudo dirigido de MySQL.
+
+# Referência
+
+Vídeo aulas "O curso completo de Banco de Dados e SQL, sem mistérios" - Udemy.
