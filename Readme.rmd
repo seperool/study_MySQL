@@ -4,13 +4,13 @@ author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
   pdf_document: default
+  odt_document: default
   md_document:
     variant: markdown_github
+  github_document: default
+  word_document: default
   html_document:
     df_print: paged
-  github_document: default
-  odt_document: default
-  word_document: default
 ---
 
 \newpage
@@ -26,6 +26,8 @@ Vídeo aulas "O curso completo de Banco de Dados e SQL, sem mistérios" - Udemy.
 \newpage
 
 # Modulo 1 - Teoria
+
+## Modelagem
 
 1. Analise de requisitos\
   - Modelo das necessidades do Cliente, o que é do interesse do cliente e o que ele precisa no banco de dados.\
@@ -69,7 +71,38 @@ Vídeo aulas "O curso completo de Banco de Dados e SQL, sem mistérios" - Udemy.
       
       - Descobrindo como é a estrutura de uma tabela, verificando quais são as colunas.\
       **DESC** *nome_da_tabela*;\
+
+\newpage
+
+## Tipagem de campos
+A tipagem correta diminui o tempo de resposta, otimiza os processos.\
+
+1. Tipo caracteres\
+  - **CHAR**\
+    - Usado quando o numero de caracteres não varia, separa na memoria um espaço determinado para ser preenchido.\
+  - **VARCHAR**\
+    - Usado quando o numero de caracteres varia, dependendo da entrada adapta o espaço separado na memoria para caber os caracters.\
+
+2. Tipo **ENUM**\
+  - Conjunto de dados enumerados, ou seja, um conjunto fixo de dados.\
+  - Limita dados em uma coluna, lista de opções.\
+  - tipo caracterisco do **MySQL**.\
+
+3. Tipo numerico\
+  - **INT**\
+    - Para numeros inteiros.\
+    - Numero maximo de 11 digitos, para numeros maiores que isso usar **VARCHAR**.\
+  - **FLOAT**\
+    - Ponto flutuante, ou seja, numeros reais.\
+    - Para numeros com casas decimais.\
+    **FLOAT**(*total*, *virgula*)\
   
+4. Para fotos e documentos\
+  - **BLOB**\
+
+5. Tipo textos\
+  - **TEXT**\
+
 \newpage
 
 # Detalhes
@@ -95,4 +128,4 @@ mysql -u root -p\
 
 ## Assunto em andamento:
 
-Atualmente estou estudando Seção 2 - Teoria.\
+Atualmente estou estudando Seção 3 - Comandos.\

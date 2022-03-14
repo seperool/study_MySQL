@@ -9,6 +9,8 @@ Udemy.
 
 # Modulo 1 - Teoria
 
+## Modelagem
+
 1.  Analise de requisitos  
 
 -   Modelo das necessidades do Cliente, o que é do interesse do cliente
@@ -45,7 +47,7 @@ Udemy.
     -   Criando banco de dados.  
         **CREATE DATABASE** *nome_do_banco_de_dados*;  
 
-    -   Conectando-se ao banco de dados.  
+    -   Conectando-se a um dos banco de dados do sistema.  
         **USE** *nome_do_banco_de_dados*;  
 
     -   Criando tabela.  
@@ -64,6 +66,44 @@ Udemy.
     -   Descobrindo como é a estrutura de uma tabela, verificando quais
         são as colunas.  
         **DESC** *nome_da_tabela*;  
+
+## Tipagem de campos
+
+A tipagem correta diminui o tempo de resposta, otimiza os processos.  
+
+1.  Tipo caracteres  
+
+-   **CHAR**  
+    -   Usado quando o numero de caracteres não varia, separa na memoria
+        um espaço determinado para ser preenchido.  
+-   **VARCHAR**  
+    -   Usado quando o numero de caracteres varia, dependendo da entrada
+        adapta o espaço separado na memoria para caber os caracters.  
+
+1.  Tipo **ENUM**  
+
+-   Conjunto de dados enumerados, ou seja, um conjunto fixo de dados.  
+-   Limita dados em uma coluna, lista de opções.  
+-   tipo caracterisco do **MySQL**.  
+
+1.  Tipo numerico  
+
+-   **INT**  
+    -   Para numeros inteiros.  
+    -   Numero maximo de 11 digitos, para numeros maiores que isso usar
+        **VARCHAR**.  
+-   **FLOAT**  
+    -   Ponto flutuante, ou seja, numeros reais.  
+    -   Para numeros com casas decimais.  
+        **FLOAT**(*total*, *virgula*)  
+
+1.  Para fotos e documentos  
+
+-   **BLOB**  
+
+1.  Tipo textos  
+
+-   **TEXT**  
 
 # Detalhes
 
@@ -105,4 +145,4 @@ Udemy.
 
 ## Assunto em andamento:
 
-Atualmente estou estudando Seção 2 - Teoria.  
+Atualmente estou estudando Seção 3 - Comandos.  
