@@ -21,6 +21,7 @@ Udemy.
 
 -   Fases 01 e 02 do projeto de banco de dados são feitos pelo
     administrador de dados:  
+
     1.  Modelo conceitual  
 
     -   Rascunho dos requisitos do projeto.  
@@ -34,9 +35,11 @@ Udemy.
     -   Cria **entidades**, posteriormente serão tabelas.  
     -   Cria **atributos**, posteriormente serão campos, colunas nas
         tabelas.  
+
 -   Fase 03 do projeto de banco de dados é feita tanto pelo
     administrador de bancos de dados(DBA) quanto administrador de
     dados(AD):  
+
     1.  Modelo físico  
 
     -   Criando banco de dados.  
@@ -51,6 +54,9 @@ Udemy.
         *coluna2* *tipo*(*tamanho*),  
         …  
         );  
+
+    -   Verificando os banco de dados no sistema.  
+        **SHOW DATABASES**;  
 
     -   Verificando as tabelas do banco de dados.  
         **SHOW TABLE**;  
@@ -94,3 +100,9 @@ Udemy.
 -   Ao final dos comandos do **SQL** e do **MySQL**, usar o
     ‘;’(delimitador), ele informa que o comando acabou e deve ser
     executado.
+
+# Andamento dos Estudos
+
+## Assunto em andamento:
+
+Atualmente estou estudando Seção 2 - Teoria.  

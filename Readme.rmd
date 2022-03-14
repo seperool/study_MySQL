@@ -3,14 +3,14 @@ title: "Readme.rmd"
 author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
+  pdf_document: default
   md_document:
     variant: markdown_github
-  pdf_document: default
-  odt_document: default
-  github_document: default
-  word_document: default
   html_document:
     df_print: paged
+  github_document: default
+  odt_document: default
+  word_document: default
 ---
 
 \newpage
@@ -33,21 +33,25 @@ Vídeo aulas "O curso completo de Banco de Dados e SQL, sem mistérios" - Udemy.
   - É uma fase de muita conversa e reunião com o cliente para investigar as regras do negocio.\
 
 2. processos de modelagem\
+
   - Fases 01 e 02 do projeto de banco de dados são feitos pelo administrador de dados:\
     i. Modelo conceitual\
       - Rascunho dos requisitos do projeto.\
       - Desenho conceitual.\
       - Modelo **entidades-relacionamentos**, define os relacionamentos entre os agentes.\
+      
     ii. Modelo lógico\
       - Coloca os requisitos num programa de diagramas.\
       - Cria **entidades**, posteriormente serão tabelas.\
       - Cria **atributos**, posteriormente serão campos, colunas nas tabelas.\
+  
   - Fase 03 do projeto de banco de dados é feita tanto pelo administrador de bancos de dados(DBA) quanto administrador de dados(AD):\
+    
     iii. Modelo físico\
       - Criando banco de dados.\
       **CREATE DATABASE** *nome_do_banco_de_dados*;\
       
-      - Conectando-se ao banco de dados.\
+      - Conectando-se a um dos banco de dados do sistema.\
       **USE** *nome_do_banco_de_dados*;\
       
       - Criando tabela.\
@@ -56,6 +60,9 @@ Vídeo aulas "O curso completo de Banco de Dados e SQL, sem mistérios" - Udemy.
       *coluna2* *tipo*(*tamanho*),\
       ...\
       );\
+      
+       - Verificando os banco de dados no sistema.\
+      **SHOW DATABASES**;\
       
       - Verificando as tabelas do banco de dados.\
       **SHOW TABLE**;\
@@ -81,3 +88,11 @@ Vídeo aulas "O curso completo de Banco de Dados e SQL, sem mistérios" - Udemy.
 mysql -u root -p\
   - Depois colocar a senha.\
 - Ao final dos comandos do **SQL** e do **MySQL**, usar o ';'(delimitador), ele informa que o comando acabou e deve ser executado.
+
+\newpage
+
+# Andamento dos Estudos
+
+## Assunto em andamento:
+
+Atualmente estou estudando Seção 2 - Teoria.\
