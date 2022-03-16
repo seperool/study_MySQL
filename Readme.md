@@ -7,7 +7,7 @@ Estudo dirigido de MySQL.
 Vídeo aulas “O curso completo de Banco de Dados e SQL, sem mistérios” -
 Udemy.
 
-# Modulo 1 - Teoria
+# Módulo 2 - Teoria
 
 ## Modelagem
 
@@ -61,10 +61,10 @@ Udemy.
         **SHOW DATABASES**;  
 
     -   Verificando as tabelas do banco de dados.  
-        **SHOW TABLE**;  
+        **SHOW TABLES**;  
 
-    -   Descobrindo como é a estrutura de uma tabela, verificando quais
-        são as colunas.  
+    -   *Descrevendo* como é a estrutura de uma tabela, verificando
+        quais são as colunas.  
         **DESC** *nome_da_tabela*;  
 
 ## Tipagem de campos
@@ -104,6 +104,36 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
 1.  Tipo textos  
 
 -   **TEXT**  
+
+# Módulo 3 - Comandos
+
+## Inserir registros na tabela.
+
+-   Existem diversas formas de inserir dados na tabela, entre eles
+    temos:  
+    -   Omitindo colunas/campos.  
+        -   Determina apenas a tabela, que puxa todos os campos para
+            serem preenchidos, na ordem que aparece na tabela.  
+        -   Sintaxe:  
+            **INSERT INTO** *nome_da_tabela*  
+            **VALUES** (*valor_na_coluna_1*, *valor_na_coluna_2*,…);  
+    -   Colocando as colunas. 
+        -   Especifica a ordem das entradas e os campos a serem
+            preenchidos.  
+        -   Sintaxe:  
+            **INSERT INTO** *nome_da_tabela*(*coluna_3*, *coluna_1*,
+            *coluna_2*,…)  
+            **VALUES** (*valor_na_coluna_3*, *valor_na_coluna_1*,…);  
+    -   INSERT COMPACTO, somente **MySQL**.  
+        -   Insere diversos registros de uma vez, na ordem que aparecem
+            na tabela.  
+        -   Sintaxe:  
+            **INSERT INTO** *nome_da_tabela*  
+            **VALUES** (*valor_na_coluna_1\_registro1*,
+            *valor_na_coluna_2\_registro1*,…),  
+            (*valor_na_coluna_1\_registro2*,
+            *valor_na_coluna_2\_registro2*,…),  
+            …;  
 
 # Detalhes
 
