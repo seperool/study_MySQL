@@ -107,7 +107,7 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
 
 # Módulo 3 - Comandos
 
-## Inserir registros na tabela.
+## Inserir registros na tabela - **INSERT**
 
 -   Existem diversas formas de inserir dados na tabela, entre eles
     temos:  
@@ -134,6 +134,58 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
             (*valor_na_coluna_1\_registro2*,
             *valor_na_coluna_2\_registro2*,…),  
             …;  
+
+## Consultando campos na tabela - **SELECT**
+
+-   O comando **SELECT** serve para projeção, seleção e junção.  
+
+-   O comando **SELECT** seleciona os campos/colunas a serem
+    mostrados.  
+
+-   Projeta/constroi o que deve ser mostrado, não apenas os dados da
+    tabela.
+
+    -   Exemplo de codigo:  
+        **SELECT** ‘*SERGIO PEDRO*’ **AS** *MEU_NOME*;  
+    -   Sintaxe:  
+        **SELECT** ‘*algo a mostrar*’ **AS** *alias_da_coluna*;  
+
+-   Seleciona o que deve ser mostrado da tabela.  
+
+    -   Exemplo de codigo:  
+        **SELECT** *NOME*, *SEXO*, *EMAIL*, *ENDERECO* **FROM**
+        *CLIENTE*;  
+    -   Sintaxe:  
+        **SELECT** *coluna_1*, *coluna_6*, *coluna_3*, *coluna_5*
+        **FROM** *tabela*;  
+    -   Seleciona todas as colunas da tabela:  
+        **SELECT** \* **FROM** *tabela*;  
+        Obs.: ’\*’, Diminui a eficiencia da pesquisa na tabela.  
+
+## Consultando registros na tabela - **WHERE**
+
+-   O comando **WHERE** serve para filtrar os registros/linhas da
+    tabela, antes de mostrar.  
+    -   Sintaxe:  
+        **SELECT** *coluna_1*, *coluna_2* **FROM** *tabela*  
+        **WHERE** *coluna_1* **=** *criterio*;  
+-   O comando **WHERE** não precisa ter haver com a seleção
+    **SELECT**.  
+    -   Sintaxe:  
+        **SELECT** *coluna_1*, *coluna_3* **FROM** *tabela*  
+        **WHERE** *coluna_2* **=** *criterio*;  
+-   Para trabalhar com *strings*, é util usar o comando **LIKE** e os
+    *caracteres coringas*.  
+    -   Caracteres coringas:  
+        -   ‘%’  
+            Qualquer coisa.  
+        -   ’\_’  
+            Um único caracter.  
+    -   Sintaxe:  
+        **SELECT** *coluna_1*, *coluna_3* **FROM** *tabela*  
+        **WHERE** *coluna_2* **LIKE** ‘*string_procurada*’;  
+        Obs.: Os caracteres coringas podem entrar em qualquer lugar da
+        string para complementar o texto a procurar.  
 
 # Detalhes
 
