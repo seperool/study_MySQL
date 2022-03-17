@@ -67,6 +67,9 @@ Udemy.
         quais são as colunas.  
         **DESC** *nome_da_tabela*;  
 
+    -   Verificar em qual **DATABASE** esta conectado no momento.  
+        **STATUS**;  
+
 ## Tipagem de campos
 
 A tipagem correta diminui o tempo de resposta, otimiza os processos.  
@@ -94,6 +97,8 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
         **VARCHAR**.  
 -   **FLOAT**  
     -   Ponto flutuante, ou seja, numeros reais.  
+    -   Ao entrar com o valor (em **INSERT**, **UPDATE**, …), usar “.”
+        ao inves de “,” para separar as casas decimais.  
     -   Para numeros com casas decimais.  
         **FLOAT**(*total*, *virgula*)  
 
