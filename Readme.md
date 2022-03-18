@@ -70,6 +70,9 @@ Udemy.
     -   Verificar em qual **DATABASE** esta conectado no momento.  
         **STATUS**;  
 
+    -   Deletando um banco de dados.  
+        **DROP** **DATABASE** *nome_do_banco_de_dados*;  
+
 ## Tipagem de campos
 
 A tipagem correta diminui o tempo de resposta, otimiza os processos.  
@@ -192,12 +195,29 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
         Obs.: Os caracteres coringas podem entrar em qualquer lugar da
         string para complementar o texto a procurar.  
 
-# Módulo 5 - Lógica
+# Módulo 5 - Operadores Lógicos
+
+## Operadores Lógicos e Performance de operadores lógicos
 
 -   Operadores lógicos:  
     -   **OR**/OU  
+        -   Apenas uma condição precisa ser verdadeira para dar
+            verdadeiro.  
+        -   Sintaxe:  
+            **SELECT** \* **FROM** *tabela*  
+            **WHERE** (*condição_1* **OR** *condição_2*);  
     -   **AND**/E  
+        -   Todas as condições precisam ser verdadeiras para dar
+            verdadeiro.  
+        -   Sintaxe:  
+            **SELECT** \* **FROM** *tabela*  
+            **WHERE** (*condição_1* **AND** *condição_2*);  
     -   **NOT**/negação  
+        -   Nega e inverte e inverte o valor de uma expressão.  
+        -   Sintaxe:  
+            **SELECT** \* **FROM** *tabela*  
+            **WHERE** (*condição_1* **AND** **NOT** *condição_2*);  
+            Obs.: Inverte o resultado da *condição_2*.  
 -   *Tabela verdade*  
 
 <!-- -->
@@ -207,6 +227,46 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
     ## 2 V     F F     V      V       F
     ## 3 F     V V     F      V       F
     ## 4 F     V F     V      F       F
+
+-   Performance de operadores lógicos.  
+    -   Para melhorar a performance das consultas, com operadores
+        lógicos, dois casos podem ser avaliados:  
+        -   No caso **OR**:  
+            -   Colocar a condição que oferece maior incidencia de
+                verdadeiro na frente.  
+            -   Se a primeira condição é verdadeira, a segunda não é
+                avaliada, melhorando assim a performance da consulta.  
+        -   No caso **AND**:  
+            -   Colocar a condição que oference menor inicidencia de
+                verdadeiro na frente.  
+            -   Se a primeira condição for falsa, a segunda nem é
+                avaliada, pois o resultado é falso. Melhorando assim a
+                performance da consulta.  
+
+## Agregadores - CONT(\*) e **GROUP BY**
+
+-   **COUNT**(\*)  
+    -   Conta o numero de registros.  
+    -   Sintaxe:  
+        **SELECT** **COUNT** (\*) **FROM** *tabela*;  
+-   **GROUP BY**  
+    -   Agrupa dados em torno de determinado campo.  
+    -   Usar em conjunto com funções de agrupamento, como:  
+        -   **COUNT** (\*)  
+            Conta todos os registros.  
+        -   **COUNT** (*coluna_x*)  
+            Conta os registros da coluna x.  
+        -   **AVG** (*coluna_x*)  
+            Calcula a media dos valores da coluna x.  
+        -   **MAX** (*coluna_x*)  
+            Encontra o valor maximo da coluna x.  
+        -   **MIN** (*coluna_x*)  
+            Encontra o valor minimo da coluna x.  
+        -   **SUM** (*coluna_x*)  
+            Calcula a soma dos valores na coluna x.  
+    -   Sintaxe:  
+        **SELECT** **COUNT**(\*) **FROM** *tabela*  
+        **GROUP BY** *coluna_x*;  
 
 # Detalhes
 
