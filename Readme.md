@@ -192,6 +192,22 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
         Obs.: Os caracteres coringas podem entrar em qualquer lugar da
         string para complementar o texto a procurar.  
 
+# Módulo 5 - Lógica
+
+-   Operadores lógicos:  
+    -   **OR**/OU  
+    -   **AND**/E  
+    -   **NOT**/negação  
+-   *Tabela verdade*  
+
+<!-- -->
+
+    ##   A NOT_A B NOT_B A_OR_B A_AND_B
+    ## 1 V     F V     F      V       V
+    ## 2 V     F F     V      V       F
+    ## 3 F     V V     F      V       F
+    ## 4 F     V F     V      F       F
+
 # Detalhes
 
 -   ***Comentarios*** no **MySQL**, diferente do **SQL** onde

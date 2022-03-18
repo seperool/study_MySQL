@@ -5,12 +5,12 @@ date: "`r Sys.Date()`"
 output:
   md_document:
     variant: markdown_github
-  odt_document: default
+  pdf_document: default
+  word_document: default
+  github_document: default
   html_document:
     df_print: paged
-  github_document: default
-  word_document: default
-  pdf_document: default
+  odt_document: default
 ---
 
 \newpage
@@ -181,6 +181,29 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.\
   **WHERE** *coluna_2* **LIKE** '*string_procurada*';\
   Obs.: Os caracteres coringas podem entrar em qualquer lugar da string para complementar o texto a procurar.\
     
+\newpage
+
+# Módulo 5 - Lógica
+
+- Operadores lógicos:\
+  - **OR**/OU\
+  - **AND**/E\
+  - **NOT**/negação\
+- *Tabela verdade*\
+
+```{r echo=FALSE}
+
+A <- c('V','V','F','F')
+NOT_A <- c('F','F','V','V')
+B <- c('V','F','V','F')
+NOT_B <- c('F','V','F','V')
+A_OR_B <- c('V','V','V','F')
+A_AND_B <- c('V','F','F','F')
+
+TABLE_TRUE <- data.frame(A,NOT_A,B,NOT_B,A_OR_B,A_AND_B)
+TABLE_TRUE
+```
+
 \newpage
 
 # Detalhes
