@@ -243,7 +243,7 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
                 avaliada, pois o resultado é falso. Melhorando assim a
                 performance da consulta.  
 
-## Agregadores - CONT(\*) e **GROUP BY**
+## Agregador e funções de agregação - **GROUP BY**
 
 -   **COUNT**(\*)  
     -   Conta o numero de registros.  
@@ -251,22 +251,68 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
         **SELECT** **COUNT** (\*) **FROM** *tabela*;  
 -   **GROUP BY**  
     -   Agrupa dados em torno de determinado campo.  
+
     -   Usar em conjunto com funções de agrupamento, como:  
+
         -   **COUNT** (\*)  
             Conta todos os registros.  
+
         -   **COUNT** (*coluna_x*)  
             Conta os registros da coluna x.  
+
         -   **AVG** (*coluna_x*)  
             Calcula a media dos valores da coluna x.  
+
         -   **MAX** (*coluna_x*)  
             Encontra o valor maximo da coluna x.  
+
         -   **MIN** (*coluna_x*)  
             Encontra o valor minimo da coluna x.  
+
         -   **SUM** (*coluna_x*)  
             Calcula a soma dos valores na coluna x.  
+
     -   Sintaxe:  
-        **SELECT** **COUNT**(\*) **FROM** *tabela*  
+        **SELECT** *coluna_x*, **COUNT**(\*) **FROM** *tabela*  
         **GROUP BY** *coluna_x*;  
+
+    -   É possivel agrupar mais de uma coluna de uma vez.  
+
+        -   A ordem em que as colunas aparecem na instrução **GROUP
+            BY**, determinam a ordem de prioridade no agrupamento.  
+        -   Sintaxe:  
+            **SELECT** *coluna1*, *coluna2*,.. **FROM** *tabela*  
+            **GROUP BY** *coluna1*, *coluna2*;  
+            Obs.: Prioridade primeiro agrupar a *coluna1*, depois
+            agrupar em função da *coluna1* a *coluna2*.  
+
+## Ordenando registros - **ORDER BY**
+
+-   **ORDER BY**  
+    -   Organiza os dados segundo uma ordem.  
+
+    -   Por default é ordem crescente, **ASC**.  
+
+    -   Para ordem decrescente só adicionar ao final **DESC**.  
+
+    -   Utilizado normalmente ao final de **WHERE** ou **GROUP BY**.  
+
+    -   Ao inves de colocar o nome da coluna, pode indicar a numeração
+        da coluna na ordem em que aparece na instrução **SELECT**.  
+
+    -   Sintaxe:  
+        **SELECT** *coluna1*, *coluna2*, … **FROM** *tabela*  
+        **GROUP BY** *coluna1*  
+        **ORDER BY** *coluna2*; (ou **ORDER BY** *2*;)  
+
+    -   Também é possivel colocar em ordem, mais de uma coluna de uma
+        vez.  
+
+        -   Sintaxe:  
+            **SELECT** *coluna1*, *coluna2*, … **FROM** *tabela*  
+            **GROUP BY** *coluna1*  
+            **ORDER BY** *coluna2* **ASC**, *coluna1* **DESC**; (ou
+            **ORDER BY** *2* **ASC**, *1* **DESC**;)  
 
 # Detalhes
 
