@@ -1015,6 +1015,14 @@ insert into funcionarios values (999,'Kennedy','lkennedyrq@edublogs.org','Mascul
 insert into funcionarios values (1000,'Howard','showardrr@addtoany.com','Masculino','Bebês','11/7/2003',148687,'General Manager',3);
 
 /*EXERCICIO*/
+/*OBS.: VERIFICAR A PERFORMANCE DO OPERADOR LÓGICO*/
+	/*OR - COLOCAR A CONDIÇÃO DE MAIOR INCIDENCIA NA FRENTE, 
+	ASSIM A SEGUNDA CONDIÇÃO NÃO SERÁ AVALIADA,
+	SE A PRIMEIRA CONDIÇÃO É VERDADEIRA, A PREMISSA É VERDADEIRA*/
+
+	/*AND - COLOCAR A CONDIÇÃO DE MENOR INCIDENCIA NA FRENTE,
+	ASSIM A SEGUNDA CONDIÇÃO NÃO SERÁ AVALIADA,
+	SE A PRIMEIRA CONDIÇÃO FOR FALSA, A PREMISSA SERÁ FALSA*/
 
 SHOW DATABASES;
 USE TODOS_FUNC;
@@ -1022,8 +1030,9 @@ SHOW TABLES;
 
 /*QUESTÃO 01 - TRAGA OS FUNCIONARIOS QUE TRABALHEM NO DEPARTAMENTO DE FILMES OU NO DEPARTAMENTO DE ROUPAS*/
 
-SELECT COUNT(*), departamento FROM funcionarios
-GROUP BY departamento;
+SELECT departamento, COUNT(*) FROM funcionarios
+GROUP BY departamento
+ORDER BY 2;
 
 SELECT idFuncionario, nome, departamento FROM funcionarios
 WHERE departamento = 'Roupas' OR departamento = 'Filmes';
@@ -1031,13 +1040,19 @@ WHERE departamento = 'Roupas' OR departamento = 'Filmes';
 /*QUESTÃO 02 - O GESTOR DE MARKETING PEDIU A LISTA DOS FUNCIONAIROS QUE TRABALHEM NO DEPARTAMENTODE FILMES OU NO DEPARTAMENTO LAR.
 ELE NECESSITA ENVIAR UM EMAIL PARA AS COLABORADORAS DESSES SETORES*/
 
-SELECT idFuncionario, nome, departamento, email FROM funcionarios
-WHERE departamento = 'Lar' OR departamento = 'Filmes';
-
-/*COMO ESTAMOS TRABALHANDO COM AND, COLOCAMOS
-O DEPARMENTO PRIMEIRO, POIS ELE IRÁ CHECAR A SEGUNDA CONDIÇÃO UM NUMERO MENOR DE VEZES*/
+/*LAR 52 | FILMES 21*/
+SELECT departamento, COUNT(*) FROM funcionarios
+GROUP BY departamento
+ORDER BY 2;
+	
+SELECT idFuncionario, nome, departamento, email, sexo FROM funcionarios
+WHERE (departamento = 'Lar' OR departamento = 'Filmes') AND sexo = 'Feminino';
 
 /*QUESTÃO 03 - TRAGA OS FUNCIONAIROS DO SEXO MASCULINO OU OS FUNCIONARIOS QUE TRABALHEM NO JARDIM*/
+
+SELECT sexo, COUNT(*) FROM funcionarios
+GROUP BY sexo
+ORDER BY 2;
 
 SELECT idFuncionario, nome, departamento, sexo FROM funcionarios
 WHERE sexo = 'Masculino' OR departamento = 'Jardim';
