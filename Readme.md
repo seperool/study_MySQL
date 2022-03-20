@@ -213,7 +213,7 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
             **SELECT** *coluna1*, *coluna2*, … **FROM** *tabela*  
             **WHERE** *colunaX* **IS NOT NULL**;  
 
-# Módulo 5 - Operadores Lógicos
+# Módulo 5 - Operadores Lógicos, **GROUP BY** e **ORDER BY**
 
 ## Operadores Lógicos e Performance de operadores lógicos
 
@@ -332,7 +332,7 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
             **ORDER BY** *coluna2* **ASC**, *coluna1* **DESC**; (ou
             **ORDER BY** *2* **ASC**, *1* **DESC**;)  
 
-# Módulo 7 - Mais comandos
+# Módulo 7 - Mais comandos **UPDATE** e **DELETE**
 
 ## Atualizando registros na tabela - **UPDATE**
 
@@ -359,10 +359,32 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
 
 ## Deletando registros - **DELETE**
 
+-   Deletar todos os registros de uma tabela.  
+    -   Sintaxe:  
+        **DELETE** **FROM** *tabela*;  
+-   Deletar apenas determinados registros de uma tabela, usar **DELETE**
+    em conjunto com filtro **WHERER**.  
+    -   Sintaxe:  
+        **DELETE** **FROM** *tabela*  
+        **WHERE** *criterio_do_que_se_quer_deletar* **=** *valor*;  
+-   Dicas:  
+    -   Antes de deletar qualquer registro, deve-se conferir atraves de
+        uma consulta, se os dados que aparecem são os que querem ser
+        deletados.  
+        **SELECT** \* **FROM** *tabela*  
+        **WHERE** *mesmo_criterio_do_delete* **=** *valor*;  
+    -   Contar os registros antes, durante a consulta e depois do
+        **DELETE**. Para ter certeza sobre o que foi deletado.  
+        **SELECT** **COUNT**(\*) **FROM** *tabela*  
+        **WHERE** *mesmo_criterio_do_delete* **=** *valor*;  
+        Obs.: Exemplo de consulta de quantos registros devem ser
+        deletados.  
+
 # Detalhes
 
 -   ***Comentarios*** no **MySQL**, diferente do **SQL** onde
-    comentarios são ’/\*\*/‘, no MySQL é’#’.  
+    comentarios são ’/\*\*/‘, no MySQL é’\#‘. Ou’- -’ para comentario de
+    linha.  
 -   O que são e o que fazem os administradores:  
     -   Administrador de dados(AD):  
         O Administrador de Dados (AD) tem o objetivo de gerenciar o
@@ -399,4 +421,4 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
 
 ## Assunto em andamento:
 
-Atualmente estou estudando Seção 3 - Comandos.  
+Atualmente estou estudando Seção 8.  
