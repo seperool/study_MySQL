@@ -3,14 +3,14 @@ title: "Readme.rmd"
 author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
-  md_document:
-    variant: markdown_github
+  html_document:
+    df_print: paged
   word_document: default
   odt_document: default
   github_document: default
   pdf_document: default
-  html_document:
-    df_print: paged
+  md_document:
+    variant: markdown_github
 ---
 
 \newpage
@@ -183,7 +183,19 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.\
   **SELECT** *coluna_1*, *coluna_3* **FROM** *tabela*\
   **WHERE** *coluna_2* **LIKE** '*string_procurada*';\
   Obs.: Os caracteres coringas podem entrar em qualquer lugar da string para complementar o texto a procurar.\
-    
+  
+- Filtrando valores **NULL**.\
+
+  - Para filtrar valores **NULL**, basta utilizar o **IS NULL**, ao inves de '= **NULL**'.\
+    - Sintaxe:\
+    **SELECT** *coluna1*, *coluna2*, ... **FROM** *tabela*\
+    **WHERE** *colunaX* **IS NULL**;\
+
+  - Para filtrar valores não **NULL**, basta utilizar **IS NOT NULL**, ao inves de uma expressão.
+    - Sintaxe:\
+    **SELECT** *coluna1*, *coluna2*, ... **FROM** *tabela*\
+    **WHERE** *colunaX* **IS NOT NULL**;\
+
 \newpage
 
 # Módulo 5 - Operadores Lógicos
@@ -302,6 +314,32 @@ TABLE_TRUE
     **GROUP BY** *coluna1*\
     **ORDER BY** *coluna2* **ASC**, *coluna1* **DESC**; (ou **ORDER BY** *2* **ASC**, *1* **DESC**;)\
   
+\newpage
+
+# Módulo 7 - Mais comandos
+
+## Atualizando registros na tabela - **UPDATE**
+
+- Atualizar todos os dados de uma coluna/campo de uma tabela, de uma vez.\
+  - Para atualizar todos os dados, de uma determinada coluna/campo, de uma tabela, para um dado determinado, basta usar **UPDATE** sem filtros.\
+  - Muito cuidado ao utilizar esse comando assim, pois pode gerar muitos problemas.\
+  - Sintaxe:\
+  **UPDATE** *tabela* **SET** *coluna_a_atualizar* **=** *valor_atualizado*;\
+
+- Para atualizar um determinado registro.\
+  - Para atualizar um determinado dado de uma coluna/campo, utilizar o **UPDATE** em conjunto com a instrução **WHERE**.\
+  - Sintaxe:\
+  **UPDATE** *tabela* **SET** *coluna_a_atualizar* **=** *valor_atualizado*\
+  **WHERE** *condição* **=** *valor*;\
+  
+- Existe como voltar atrás de um **UPDATE**, desfazer um **UPDATE**.\
+  - **COMMIT**\
+  - **ROLLBACK**\
+  
+\newpage
+
+## Deletando registros - **DELETE**
+
 \newpage
 
 # Detalhes

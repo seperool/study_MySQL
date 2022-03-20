@@ -174,16 +174,21 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
 
 -   O comando **WHERE** serve para filtrar os registros/linhas da
     tabela, antes de mostrar.  
+
     -   Sintaxe:  
         **SELECT** *coluna_1*, *coluna_2* **FROM** *tabela*  
         **WHERE** *coluna_1* **=** *criterio*;  
+
 -   O comando **WHERE** não precisa ter haver com a seleção
     **SELECT**.  
+
     -   Sintaxe:  
         **SELECT** *coluna_1*, *coluna_3* **FROM** *tabela*  
         **WHERE** *coluna_2* **=** *criterio*;  
+
 -   Para trabalhar com *strings*, é util usar o comando **LIKE** e os
     *caracteres coringas*.  
+
     -   Caracteres coringas:  
         -   ‘%’  
             Qualquer coisa.  
@@ -194,6 +199,19 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
         **WHERE** *coluna_2* **LIKE** ‘*string_procurada*’;  
         Obs.: Os caracteres coringas podem entrar em qualquer lugar da
         string para complementar o texto a procurar.  
+
+-   Filtrando valores **NULL**.  
+
+    -   Para filtrar valores **NULL**, basta utilizar o **IS NULL**, ao
+        inves de ‘= **NULL**’.  
+        -   Sintaxe:  
+            **SELECT** *coluna1*, *coluna2*, … **FROM** *tabela*  
+            **WHERE** *colunaX* **IS NULL**;  
+    -   Para filtrar valores não **NULL**, basta utilizar **IS NOT
+        NULL**, ao inves de uma expressão.
+        -   Sintaxe:  
+            **SELECT** *coluna1*, *coluna2*, … **FROM** *tabela*  
+            **WHERE** *colunaX* **IS NOT NULL**;  
 
 # Módulo 5 - Operadores Lógicos
 
@@ -313,6 +331,33 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
             **GROUP BY** *coluna1*  
             **ORDER BY** *coluna2* **ASC**, *coluna1* **DESC**; (ou
             **ORDER BY** *2* **ASC**, *1* **DESC**;)  
+
+# Módulo 7 - Mais comandos
+
+## Atualizando registros na tabela - **UPDATE**
+
+-   Atualizar todos os dados de uma coluna/campo de uma tabela, de uma
+    vez.  
+    -   Para atualizar todos os dados, de uma determinada coluna/campo,
+        de uma tabela, para um dado determinado, basta usar **UPDATE**
+        sem filtros.  
+    -   Muito cuidado ao utilizar esse comando assim, pois pode gerar
+        muitos problemas.  
+    -   Sintaxe:  
+        **UPDATE** *tabela* **SET** *coluna_a\_atualizar* **=**
+        *valor_atualizado*;  
+-   Para atualizar um determinado registro.  
+    -   Para atualizar um determinado dado de uma coluna/campo, utilizar
+        o **UPDATE** em conjunto com a instrução **WHERE**.  
+    -   Sintaxe:  
+        **UPDATE** *tabela* **SET** *coluna_a\_atualizar* **=**
+        *valor_atualizado*  
+        **WHERE** *condição* **=** *valor*;  
+-   Existe como voltar atrás de um **UPDATE**, desfazer um **UPDATE**.  
+    -   **COMMIT**  
+    -   **ROLLBACK**  
+
+## Deletando registros - **DELETE**
 
 # Detalhes
 
