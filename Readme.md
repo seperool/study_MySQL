@@ -380,6 +380,35 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
         Obs.: Exemplo de consulta de quantos registros devem ser
         deletados.  
 
+# Módulo 8 - Modelagem
+
+## Primeira forma normal
+
+-   3 Regras:  
+    1.  Todo campo vetorizado se tornará outra tabela.  
+
+    -   Campo vetorizado é todo campo que apresenta algo como um vetor
+        dentro dele.  
+    -   Varios dados do mesmo tipo (vetor).  
+    -   Exemplo:  
+        *vetor* \[VERDE, AMARELO, LARANJA,…\]  
+
+    1.  Todo campo multivalorado se tornará outra tabela.  
+
+    -   Campo multivalorado é todo campo que apresenta algo como uma
+        lista dentro dele.  
+    -   Diversos dados de tipos diferentes (lista).  
+    -   Exemplo:  
+        *list* (1, VERDE, CASA, …)  
+
+    1.  Toda tabela necessita de pelo menos um campo que identifique
+        todo registro como sendo único (é o que chamamos de “**Chave
+        Primaria**” ou “**Primary Key**”).  
+
+## Segunda forma normal
+
+## Terceira forma normal
+
 # Detalhes
 
 -   ***Comentarios*** no **MySQL**, diferente do **SQL** onde
@@ -421,4 +450,4 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
 
 ## Assunto em andamento:
 
-Atualmente estou estudando Seção 8.  
+Atualmente estou estudando Módulo 8.  

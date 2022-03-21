@@ -3,14 +3,14 @@ title: "Readme.rmd"
 author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
-  html_document:
-    df_print: paged
   md_document:
     variant: markdown_github
-  pdf_document: default
-  github_document: default
   odt_document: default
   word_document: default
+  github_document: default
+  pdf_document: default
+  html_document:
+    df_print: paged
 ---
 
 \newpage
@@ -360,6 +360,30 @@ TABLE_TRUE
 
 \newpage
 
+# Módulo 8 - Modelagem
+
+## Primeira forma normal
+- 3 Regras:\
+  1. Todo campo vetorizado se tornará outra tabela.\
+    - Campo vetorizado é todo campo que apresenta algo como um vetor dentro dele.\
+    - Varios dados do mesmo tipo (vetor).\
+    - Exemplo:\
+    *vetor* [VERDE, AMARELO, LARANJA,...]\
+      
+  2. Todo campo multivalorado se tornará outra tabela.\
+    - Campo multivalorado é todo campo que apresenta algo como uma lista dentro dele.\
+    - Diversos dados de tipos diferentes (lista).\
+    - Exemplo:\
+    *list* (1, VERDE, CASA, ...)\
+      
+  3. Toda tabela necessita de pelo menos um campo que identifique todo registro como sendo único (é o que chamamos de "**Chave Primaria**" ou "**Primary Key**").\
+
+## Segunda forma normal
+
+## Terceira forma normal
+
+\newpage
+
 # Detalhes
 
 - ***Comentarios*** no **MySQL**, diferente do **SQL** onde comentarios são '/**/', no MySQL é '#'. Ou '- -' para comentario de linha.\
@@ -383,4 +407,4 @@ mysql -u root -p\
 
 ## Assunto em andamento:
 
-Atualmente estou estudando Seção 8.\
+Atualmente estou estudando Módulo 8.\
