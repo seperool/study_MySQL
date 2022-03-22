@@ -11,6 +11,9 @@ Udemy.
 
 ## Modelagem
 
+Obs.: alguns softwares (ex.: brModelo) chamam a modelagem lógica de
+modelo conceitual.  
+
 1.  Analise de requisitos  
 
 -   Modelo das necessidades do Cliente, o que é do interesse do cliente
@@ -28,8 +31,6 @@ Udemy.
 
     -   Rascunho dos requisitos do projeto.  
     -   Desenho conceitual.  
-    -   Modelo **entidades-relacionamentos**, define os relacionamentos
-        entre os agentes.  
 
     1.  Modelo lógico  
 
@@ -37,6 +38,46 @@ Udemy.
     -   Cria **entidades**, posteriormente serão tabelas.  
     -   Cria **atributos**, posteriormente serão campos, colunas nas
         tabelas.  
+    -   **Atributos identificador**, posteriormente será **Chave
+        Primaria** *Artificial*.  
+        -   Normalmente leva o nome “ID” + “o_nome_da_tabela”.  
+    -   Modelo **entidades-relacionamentos**, define os relacionamentos
+        entre os agentes.  
+        -   Relacionamentos:  
+            -   Obrigatoriedade  
+                A obrigatoriedade de preencher as duas
+                tabelas/entidades.  
+                Tipos:  
+                0  
+                Não existe obrigatoriedade, se entrar com dados em um,
+                não é obrigado a entrar com dados no outro.  
+                1  
+                Existe obrigatoriedade, se entrar com dados em um,
+                obrigatoriamente é necessario entrar com dados no
+                outro.  
+            -   Cardinalidade  
+                Maximo de preenchimentos:  
+                Se obrigatoriedade 0, no minimo 0 e no maximo n dados.  
+                Se obrigatoriedade 1, no minimo 1 e no maximo n dados.  
+        -   tipos de relacionamentos de entidade:  
+            -   (1,1)  
+                É obrigatorio, pode entrar apenas com 1 dado.  
+            -   (0,1)  
+                Não é obrigadorio, quando entrar, entrar com 1 dado.  
+            -   (1,n)  
+                É obrigatorio, pode entrar com varios dados.  
+            -   (0,n)  
+                Não é obrigatorio, pode entrar com varios dados.  
+        -   Como ler os relacionamentos entre entidades:  
+            Exemplos:  
+            -   (1,1) -> (0,n)  
+                Ignorar a primeira coordenanda de obrigatoriedade dos
+                dois relacionamentos, e fica 1 para n, logo “um para
+                muitos”.  
+            -   (0,n) -> (0,1)  
+                Ignorar a primeira coordenanda de obrigatoriedade dos
+                dois relacionamentos, e fica n para 1, logo “muitos para
+                um”.  
 
 -   Fase 03 do projeto de banco de dados é feita tanto pelo
     administrador de bancos de dados(DBA) quanto administrador de
@@ -404,6 +445,20 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
     1.  Toda tabela necessita de pelo menos um campo que identifique
         todo registro como sendo único (é o que chamamos de “**Chave
         Primaria**” ou “**Primary Key**”).  
+
+    -   Tipos de **CHAVE PRIMARIA**:  
+        -   NATURAL  
+            -   Pertence ao registro intrinsecamente.  
+            -   Muito útil, porem pouco confiavel. Depende de terceiros
+                para existir, como o governo por exemplo.  
+            -   Exemplo: CPF.  
+        -   ARTIFICIAL  
+            -   É criada pelo/para o banco de dados para identificar o
+                registro.  
+            -   Exemplo: ID.  
+            -   Mais indicado de se trabalhar, pois oferece controle
+                total por parte do administrador do banco de dados e não
+                depende de terceiros para existir.  
 
 ## Segunda forma normal
 
