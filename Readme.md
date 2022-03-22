@@ -123,15 +123,21 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
 -   **CHAR**  
     -   Usado quando o numero de caracteres não varia, separa na memoria
         um espaço determinado para ser preenchido.  
+    -   Sintaxe:  
+        **CHAR**(*numero_maximo_de_caracteres*)  
 -   **VARCHAR**  
     -   Usado quando o numero de caracteres varia, dependendo da entrada
         adapta o espaço separado na memoria para caber os caracters.  
+    -   Sintaxe:  
+        **VARCHAR**(*numero_maximo_de_caracteres*)  
 
 1.  Tipo **ENUM**  
 
 -   Conjunto de dados enumerados, ou seja, um conjunto fixo de dados.  
 -   Limita dados em uma coluna, lista de opções.  
 -   tipo caracterisco do **MySQL**.  
+-   Sintaxe:  
+    **ENUM**(‘*primeira_opção*’,‘*segunda_opção*’,…)  
 
 1.  Tipo numerico  
 
@@ -139,6 +145,8 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
     -   Para numeros inteiros.  
     -   Numero maximo de 11 digitos, para numeros maiores que isso usar
         **VARCHAR**.  
+    -   Sintaxe:  
+        **INT**  
 -   **FLOAT**  
     -   Ponto flutuante, ou seja, numeros reais.  
     -   Ao entrar com o valor (em **INSERT**, **UPDATE**, …), usar “.”
@@ -153,6 +161,14 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
 1.  Tipo textos  
 
 -   **TEXT**  
+
+## Subtipos - regras e restrições
+
+-   **PRIMARY KEY**  
+-   **FOREIGN KEY**  
+-   **UNIQUE**  
+-   **NOT NULL**  
+-   **AUTO_INCREMENT**  
 
 # Módulo 3 - Comandos
 
