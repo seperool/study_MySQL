@@ -114,6 +114,9 @@ modelo conceitual.
     -   Deletando um banco de dados.  
         **DROP** **DATABASE** *nome_do_banco_de_dados*;  
 
+    -   Deletando uma tabela.  
+        **DROP** **TABLE** *nome_da_tabela*;  
+
 ## Tipagem de campos
 
 A tipagem correta diminui o tempo de resposta, otimiza os processos.  
@@ -164,11 +167,48 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
 
 ## Subtipos - regras e restrições
 
+### Restrições
+
 -   **PRIMARY KEY**  
--   **FOREIGN KEY**  
+    -   Define que a coluna/campo é uma *Chave Primaria*.  
+    -   *Chave Primaria* é um campo que identifique todo registro como
+        sendo único.  
 -   **UNIQUE**  
+    -   Define aquela coluna/campo sem repetições.  
+    -   Tem valores unicos.  
 -   **NOT NULL**  
+    -   A coluna/campo não aceita valor NULL, deve ser preenchida.  
 -   **AUTO_INCREMENT**  
+    -   A coluna/campo se auto preenche com um valor inteiro não
+        repetido, a cada registro.  
+
+### Regras
+
+-   **FOREIGN KEY**  
+    -   *Chave Estrangeira* é a *Chave Primaria* de uma tabela, que vai
+        ate a outra tabela, para fazer referencia entre registros.  
+    -   Regra de onde fica a *Chave Estrangeira* (**FK**):  
+        -   1 x 1 (um pra um) a *Chave Estrangeira* fica na tabela mais
+            fraca.  
+            -   Se for 1 x 1, leva **UNIQUE**.  
+        -   1 x n (um pra muitos) a *Chave Estrangeira* fica na tabela
+            n.  
+        -   n x n (muitos pra muitos)…  
+    -   Sintaxe:  
+        **FOREIGN KEY**(*nome_da_coluna_da_chave_estrangeira*)  
+-   **REFERENCES**  
+    -   Aponta para onde a *Chave Estrangeira* faz referencia, qual
+        *Chave Primaria*.  
+    -   Sintaxe:  
+        **REFERENCES**
+        *nome_da_tabela_da_chave_primaria*(*nome_da_coluna_da_chave_primaria*)  
+
+Obs.: A sintaxe para inserção de *Chave Estrangeira* em **MySQL**
+fica:  
+**FOREIGN KEY**(*nome_da_coluna_da_chave_estrangeira*)  
+**REFERENCES**
+*nome_da_tabela_da_chave_primaria*(*nome_da_coluna_da_chave_primaria*)  
+Sem virgula entre eles.  
 
 # Módulo 3 - Comandos
 
