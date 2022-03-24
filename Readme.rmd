@@ -5,12 +5,12 @@ date: "`r Sys.Date()`"
 output:
   md_document:
     variant: markdown_github
+  odt_document: default
   html_document:
     df_print: paged
-  pdf_document: default
   github_document: default
-  odt_document: default
   word_document: default
+  pdf_document: default
 ---
 
 \newpage
@@ -89,9 +89,11 @@ Obs.: alguns softwares (ex.: brModelo) chamam a modelagem lógica de modelo conc
       
       - Criando tabela.\
       **CREATE** **TABLE** *nome_da_tabela*(\
-      *coluna1* *tipo*(*tamanho*),\
-      *coluna2* *tipo*(*tamanho*),\
-      ...\
+      *coluna1* *tipo*(*tamanho*) *chave_ou_não* *restrições*,\
+      *coluna2* *tipo*(*tamanho*) *restrições*,\
+      ...,\
+      **FOREIGN KEY**(*nome_da_coluna_da_chave_estrangeira*)\
+      **REFERENCES** *nome_da_tabela_da_chave_primaria*(*nome_da_coluna_da_chave_primaria*)\
       );\
       
        - Verificando os banco de dados no sistema.\
@@ -405,19 +407,18 @@ TABLE_TRUE
 
 - Atualizar todos os dados de uma coluna/campo de uma tabela, de uma vez.\
   - Para atualizar todos os dados, de uma determinada coluna/campo, de uma tabela, para um dado determinado, basta usar **UPDATE** sem filtros.\
+  
   - Muito cuidado ao utilizar esse comando assim, pois pode gerar muitos problemas.\
+  
   - Sintaxe:\
   **UPDATE** *tabela* **SET** *coluna_a_atualizar* **=** *valor_atualizado*;\
 
 - Para atualizar um determinado registro.\
   - Para atualizar um determinado dado de uma coluna/campo, utilizar o **UPDATE** em conjunto com a instrução **WHERE**.\
+  
   - Sintaxe:\
   **UPDATE** *tabela* **SET** *coluna_a_atualizar* **=** *valor_atualizado*\
   **WHERE** *condição* **=** *valor*;\
-  
-- Existe como voltar atrás de um **UPDATE**, desfazer um **UPDATE**.\
-  - **COMMIT**\
-  - **ROLLBACK**\
   
 \newpage
 
@@ -436,10 +437,40 @@ TABLE_TRUE
   - Antes de deletar qualquer registro, deve-se conferir atraves de uma consulta, se os dados que aparecem são os que querem ser deletados.\
   **SELECT** \* **FROM** *tabela*\
   **WHERE** *mesmo_criterio_do_delete* **=** *valor*;\
+  
   - Contar os registros antes, durante a consulta e depois do **DELETE**. Para ter certeza sobre o que foi deletado.\
   **SELECT** **COUNT**(\*) **FROM** *tabela*\
   **WHERE** *mesmo_criterio_do_delete* **=** *valor*;\
   Obs.: Exemplo de consulta de quantos registros devem ser deletados.\
+  
+\newpage
+
+## Transação - **START TRANSACTION**
+
+- **START TRANSACTION;**\
+  - As instruções dentro da transação, que serão avalidadas, ficam identadas dentro da transação.\
+  
+  - Sintaxe:\
+  **START TRANSACTION;**\
+    *instrução_1*;\
+    *instrução_2*;\
+    ...\
+
+- **COMMIT;**\
+  - aceita a transação (**START TRANSACTION;**). confirma as instruções da transação.\
+  
+  - Fica fora da identração da instrução **START TRANSACTION**.\
+
+- **ROLLBACK;**\
+  - Nega a transação (**START TRANSACTION;**). Desfaz as instruções da transação.\
+  
+  - Instrução para voltar atrás em instruções.\
+  
+  - Desfaz instruções (como **UPDATE**, **DELETE**, ...), tudo que estiver dentro de **START TRANSACTION**.\
+  
+  - Fica fora da identração da instrução **START TRANSACTION**.\
+
+Obs.: Essas instruções (**START TRANSACTION**, **COMMIT** e **ROLLBACK**) levam ";" ao final delas, não esta errado como escrito a cima.\
 
 \newpage
 

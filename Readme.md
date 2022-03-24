@@ -93,9 +93,12 @@ modelo conceitual.
 
     -   Criando tabela.  
         **CREATE** **TABLE** *nome_da_tabela*(  
-        *coluna1* *tipo*(*tamanho*),  
-        *coluna2* *tipo*(*tamanho*),  
-        …  
+        *coluna1* *tipo*(*tamanho*) *chave_ou_não* *restrições*,  
+        *coluna2* *tipo*(*tamanho*) *restrições*,  
+        …,  
+        **FOREIGN KEY**(*nome_da_coluna_da_chave_estrangeira*)  
+        **REFERENCES**
+        *nome_da_tabela_da_chave_primaria*(*nome_da_coluna_da_chave_primaria*)  
         );  
 
     -   Verificando os banco de dados no sistema.  
@@ -438,21 +441,21 @@ Sem virgula entre eles.
     -   Para atualizar todos os dados, de uma determinada coluna/campo,
         de uma tabela, para um dado determinado, basta usar **UPDATE**
         sem filtros.  
+
     -   Muito cuidado ao utilizar esse comando assim, pois pode gerar
         muitos problemas.  
+
     -   Sintaxe:  
         **UPDATE** *tabela* **SET** *coluna_a\_atualizar* **=**
         *valor_atualizado*;  
 -   Para atualizar um determinado registro.  
     -   Para atualizar um determinado dado de uma coluna/campo, utilizar
         o **UPDATE** em conjunto com a instrução **WHERE**.  
+
     -   Sintaxe:  
         **UPDATE** *tabela* **SET** *coluna_a\_atualizar* **=**
         *valor_atualizado*  
         **WHERE** *condição* **=** *valor*;  
--   Existe como voltar atrás de um **UPDATE**, desfazer um **UPDATE**.  
-    -   **COMMIT**  
-    -   **ROLLBACK**  
 
 ## Deletando registros - **DELETE**
 
@@ -470,12 +473,44 @@ Sem virgula entre eles.
         deletados.  
         **SELECT** \* **FROM** *tabela*  
         **WHERE** *mesmo_criterio_do_delete* **=** *valor*;  
+
     -   Contar os registros antes, durante a consulta e depois do
         **DELETE**. Para ter certeza sobre o que foi deletado.  
         **SELECT** **COUNT**(\*) **FROM** *tabela*  
         **WHERE** *mesmo_criterio_do_delete* **=** *valor*;  
         Obs.: Exemplo de consulta de quantos registros devem ser
         deletados.  
+
+## Transação - **START TRANSACTION**
+
+-   **START TRANSACTION;**  
+    -   As instruções dentro da transação, que serão avalidadas, ficam
+        identadas dentro da transação.  
+
+    -   Sintaxe:  
+        **START TRANSACTION;**  
+        *instrução_1*;  
+        *instrução_2*;  
+        …  
+-   **COMMIT;**  
+    -   aceita a transação (**START TRANSACTION;**). confirma as
+        instruções da transação.  
+
+    -   Fica fora da identração da instrução **START TRANSACTION**.  
+-   **ROLLBACK;**  
+    -   Nega a transação (**START TRANSACTION;**). Desfaz as instruções
+        da transação.  
+
+    -   Instrução para voltar atrás em instruções.  
+
+    -   Desfaz instruções (como **UPDATE**, **DELETE**, …), tudo que
+        estiver dentro de **START TRANSACTION**.  
+
+    -   Fica fora da identração da instrução **START TRANSACTION**.  
+
+Obs.: Essas instruções (**START TRANSACTION**, **COMMIT** e
+**ROLLBACK**) levam “;” ao final delas, não esta errado como escrito a
+cima.  
 
 # Módulo 8 - Modelagem
 
