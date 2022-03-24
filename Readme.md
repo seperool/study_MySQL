@@ -242,6 +242,10 @@ Sem virgula entre eles.
             (*valor_na_coluna_1\_registro2*,
             *valor_na_coluna_2\_registro2*,…),  
             …;  
+    -   Inserindo dados num campo com **AUTO_INCREMENT**.  
+        -   Na coluna/campo em que tem **AUTO_INCREMENT**, insere-se o
+            valor **NULL**, assim o **MySQL** entende que ele proprio
+            deve auto incrementar aquele campo.  
 
 ## Consultando campos na tabela - **SELECT**
 
