@@ -5,12 +5,12 @@ date: "`r Sys.Date()`"
 output:
   html_document:
     df_print: paged
-  pdf_document: default
-  word_document: default
-  github_document: default
   md_document:
     variant: markdown_github
+  pdf_document: default
+  github_document: default
   odt_document: default
+  word_document: default
 ---
 
 \newpage
@@ -533,4 +533,4 @@ mysql -u root -p\
 
 ## Assunto em andamento:
 
-Atualmente estou estudando Módulo 8.\
+Atualmente estou estudando Módulo 9.\

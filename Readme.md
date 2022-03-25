@@ -600,4 +600,4 @@ cima.
 
 ## Assunto em andamento:
 
-Atualmente estou estudando Módulo 8.  
+Atualmente estou estudando Módulo 9.  
