@@ -586,8 +586,46 @@ Principais passos de uma consulta.
     **SELECT** *coluna_1*, *coluna_2*, *coluna_3* (PROJEÇÃO)  
     **FROM** *tabela* (ORIGEM)  
     **WHERE** *critero* **=** *valor_do_criterio*; (SELEÇÃO)  
+    Obs.: o que esta entre parênteses é comentario.  
 
 ## JUNÇÃO
+
+### Junção forma errada - gambiarra
+
+-   Usa seleção como uma forma de juntar tabelas.  
+-   Como conseguencia:  
+    -   Uso de operadores lógicos para mais criterios de seleção -
+        **WHERE**.  
+    -   Ineficiencia na pesquisa, maior custo computacional.  
+-   Sintaxe comentada:  
+    **SELECT** *coluna1_tab1*, *coluna2_tab1*, *coluna1_tab2*
+    (PROJEÇÃO)  
+    **FROM** *tabela1*, *tabela2* (ORIGENS)  
+    **WHERE** *chave_primaria_tab1* **=**
+    *chave_estrangeira_tab2*;(JUNÇÃO)  
+    ou  
+    **SELECT** *coluna1_tab1*, *coluna2_tab1*, *coluna1_tab2*
+    (PROJEÇÃO)  
+    **FROM** *tabela1*, *tabela2* (ORIGENS)  
+    **WHERE** *chave_primaria_tab1* **=** *chave_estrangeira_tab2*
+    (JUNÇÃO)  
+    **AND** *criterio* **=** *valor*;(SELEÇÃO com operador lógico)  
+    Obs.: o que esta entre parênteses é comentario.  
+
+### junção forma certa - **JOIN**
+
+-   Junção **JOIN**, junta duas ou mais tabelas apartir das colunas de
+    *chaves primarias* e *chaves estrangeiras*.  
+-   Exclui os registros sem par (orfans) na outra tabela - **INNER**.  
+-   Admite seleção - **WHERE** - sem maiores custos computacionais.  
+-   Sintaxe comentada:  
+    **SELECT** *coluna1_tab1*, *coluna2_tab1*, *coluna1_tab2*
+    (PROJEÇÃO)  
+    **FROM** *tabela1* (ORIGEM)  
+    **INNER** **JOIN** *tabela2* (JUNÇÃO)  
+    **ON** *chave_primaria_tab1* **=** *chave_estrangeira_tab2*  
+    **WHERE** *criterio* **=** *valor*;(SELEÇÃO)  
+    Obs.: o que esta entre parênteses é comentario.  
 
 # Detalhes
 
