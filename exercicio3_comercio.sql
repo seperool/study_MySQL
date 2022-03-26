@@ -138,5 +138,3 @@ SELECT * FROM TELEFONE; /*VERIFICAR OS REGISTROS*/
 |          9 | RES  | 65465845 |          5 |
 |         10 | CEL  | 65412354 |          2 |
 +------------+------+----------+------------+
-
-
