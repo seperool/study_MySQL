@@ -3,14 +3,14 @@ title: "Readme.rmd"
 author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
-  html_document:
-    df_print: paged
+  pdf_document: default
+  odt_document: default
   md_document:
     variant: markdown_github
-  pdf_document: default
   github_document: default
-  odt_document: default
   word_document: default
+  html_document:
+    df_print: paged
 ---
 
 \newpage
@@ -507,6 +507,34 @@ Obs.: Essas instruções (**START TRANSACTION**, **COMMIT** e **ROLLBACK**) leva
 ## Segunda forma normal
 
 ## Terceira forma normal
+
+\newpage
+
+# Módulo 9 - PROJEÇÃO, SELEÇÃO E JUNÇÃO
+Principais passos de uma consulta.\
+
+## PROJEÇÃO
+
+- O primeiro passo de uma consulta é montar o que quer ver na tela - **SELECT**.\
+- É tudo que você quer ver na tela.\
+- Sintaxe comentada:\
+**SELECT** *coluna_1* (PROJEÇÃO)\
+**FROM** *tabela*; (ORIGEM)\
+ou\
+**SELECT** 2+2 **AS** *alias*; (PROJEÇÃO)\
+Obs.: o que esta entre parênteses é comentario.\
+
+## SELEÇÃO
+
+- O segundo passo de uma consulta é a seleção dos dados de uma consulta - **WHERE**.\
+- É filtrar.\
+- Trazer um subconjunto do conjunto total de registros de uma tabela.\
+- Sintaxe comentada:\
+**SELECT** *coluna_1*, *coluna_2*, *coluna_3* (PROJEÇÃO)\
+**FROM** *tabela* (ORIGEM)\
+**WHERE** *critero* **=** *valor_do_criterio*; (SELEÇÃO)\
+
+## JUNÇÃO
 
 \newpage
 

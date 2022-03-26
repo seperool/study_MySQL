@@ -559,6 +559,36 @@ cima.
 
 ## Terceira forma normal
 
+# Módulo 9 - PROJEÇÃO, SELEÇÃO E JUNÇÃO
+
+Principais passos de uma consulta.  
+
+## PROJEÇÃO
+
+-   O primeiro passo de uma consulta é montar o que quer ver na tela -
+    **SELECT**.  
+-   É tudo que você quer ver na tela.  
+-   Sintaxe comentada:  
+    **SELECT** *coluna_1* (PROJEÇÃO)  
+    **FROM** *tabela*; (ORIGEM)  
+    ou  
+    **SELECT** 2+2 **AS** *alias*; (PROJEÇÃO)  
+    Obs.: o que esta entre parênteses é comentario.  
+
+## SELEÇÃO
+
+-   O segundo passo de uma consulta é a seleção dos dados de uma
+    consulta - **WHERE**.  
+-   É filtrar.  
+-   Trazer um subconjunto do conjunto total de registros de uma
+    tabela.  
+-   Sintaxe comentada:  
+    **SELECT** *coluna_1*, *coluna_2*, *coluna_3* (PROJEÇÃO)  
+    **FROM** *tabela* (ORIGEM)  
+    **WHERE** *critero* **=** *valor_do_criterio*; (SELEÇÃO)  
+
+## JUNÇÃO
+
 # Detalhes
 
 -   ***Comentarios*** no **MySQL**, diferente do **SQL** onde
