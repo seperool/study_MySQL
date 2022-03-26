@@ -138,3 +138,106 @@ SELECT * FROM TELEFONE; /*VERIFICAR OS REGISTROS*/
 |          9 | RES  | 65465845 |          5 |
 |         10 | CEL  | 65412354 |          2 |
 +------------+------+----------+------------+
+
+/*----------*/
+
+/*JUNÇÃO -> JOIN*/
+
+SELECT NOME, EMAIL, IDCLIENTE
+FROM CLIENTE;
+
+SELECT ID_CLIENTE, BAIRRO, CIDADE
+FROM ENDERECO;
+
++--------+------------------+-----------+
+| NOME   | EMAIL            | IDCLIENTE |
++--------+------------------+-----------+
+| JOAO   | JOAO@GMAIL.COM   |         1 |
+| CARLOS | CARLOS@GMAIL.COM |         2 |
+| ANA    | ANA@GMAIL.COM    |         3 |
+| CLARA  | NULL             |         4 |
+| JORGE  | JORGE@GMAIL.COM  |         5 |
+| CELIA  | CELIA@GMAIL.COM  |         6 |
++--------+------------------+-----------+
+
++------------+----------+----------------+
+| ID_CLIENTE | BAIRRO   | CIDADE         |
++------------+----------+----------------+
+|          4 | CENTRO   | BELO HORIZONTE |
+|          1 | CENTRO   | RIO DE JANEIRO |
+|          3 | JARDINS  | SAO PAULO      |
+|          2 | ESTACIO  | RIO DE JANEIRO |
+|          6 | FLAMENGO | RIO DE JANEIRO |
+|          5 | CENTRO   | VITORIA        |
++------------+----------+----------------+
+
+/*FORMA ERRADA DE JUNÇÃO*/
+/*FUNCIONA POREM É UMA GAMBIARRA*/
+
+SELECT NOME, SEXO, BAIRRO, CIDADE /*PROJEÇÃO*/
+FROM CLIENTE, ENDERECO /*ORIGEM*/
+WHERE ID_CLIENTE = IDCLIENTE; /*JUNÇÃO*/
+/*NÃO TEM SELEÇÃO*/
+
++--------+------+----------+----------------+
+| NOME   | SEXO | BAIRRO   | CIDADE         |
++--------+------+----------+----------------+
+| JOAO   | M    | CENTRO   | RIO DE JANEIRO |
+| CARLOS | M    | ESTACIO  | RIO DE JANEIRO |
+| ANA    | F    | JARDINS  | SAO PAULO      |
+| CLARA  | F    | CENTRO   | BELO HORIZONTE |
+| JORGE  | M    | CENTRO   | VITORIA        |
+| CELIA  | F    | FLAMENGO | RIO DE JANEIRO |
++--------+------+----------+----------------+
+
+/*ADICIONANDO SELEÇÃO NA FORMA ERRADA - USO DE OPERADOR LOGICO*/
+
+SELECT NOME, SEXO, BAIRRO, CIDADE /*PROJEÇÃO*/
+FROM CLIENTE, ENDERECO /*ORIGEM*/
+WHERE ID_CLIENTE = IDCLIENTE /*ID_CLIENTE = IDCLIENTE É SEMPRE VERDADE*/ 
+AND SEXO = 'F'; /*JUNÇÃO*/
+/*TORNA A PESQUISA INEFICIENTE, MAIS CUSTOSA COMPUTACIONALMENTE*/
+
++-------+------+----------+----------------+
+| NOME  | SEXO | BAIRRO   | CIDADE         |
++-------+------+----------+----------------+
+| ANA   | F    | JARDINS  | SAO PAULO      |
+| CLARA | F    | CENTRO   | BELO HORIZONTE |
+| CELIA | F    | FLAMENGO | RIO DE JANEIRO |
++-------+------+----------+----------------+
+
+/*FORMA CERTA DE JUNÇÃO - JOIN*/
+
+SELECT NOME, SEXO, BAIRRO, CIDADE /*PROJEÇÃO*/
+FROM CLIENTE /*ORIGEM*/
+	INNER JOIN ENDERECO /*JUNÇÃO*/
+	ON ID_CLIENTE = IDCLIENTE
+WHERE SEXO = 'F'; /*SELEÇÃO*/
+
++-------+------+----------+----------------+
+| NOME  | SEXO | BAIRRO   | CIDADE         |
++-------+------+----------+----------------+
+| ANA   | F    | JARDINS  | SAO PAULO      |
+| CLARA | F    | CENTRO   | BELO HORIZONTE |
+| CELIA | F    | FLAMENGO | RIO DE JANEIRO |
++-------+------+----------+----------------+
+
+SELECT NOME, SEXO, EMAIL, TIPO, NUMERO /*PROJEÇÃO*/
+FROM CLIENTE /*ORIGEM*/
+INNER JOIN TELEFONE /*JUNÇÃO*/
+ON ID_CLIENTE = IDCLIENTE;
+
++--------+------+------------------+------+----------+
+| NOME   | SEXO | EMAIL            | TIPO | NUMERO   |
++--------+------+------------------+------+----------+
+| JORGE  | M    | JORGE@GMAIL.COM  | CEL  | 78945612 |
+| JORGE  | M    | JORGE@GMAIL.COM  | RES  | 45642321 |
+| JOAO   | M    | JOAO@GMAIL.COM   | CEL  | 79521321 |
+| CARLOS | M    | CARLOS@GMAIL.COM | COM  | 98654621 |
+| JOAO   | M    | JOAO@GMAIL.COM   | RES  | 46546874 |
+| ANA    | F    | ANA@GMAIL.COM    | CEL  | 13215464 |
+| ANA    | F    | ANA@GMAIL.COM    | CEL  | 98452154 |
+| JOAO   | M    | JOAO@GMAIL.COM   | COM  | 86546511 |
+| JORGE  | M    | JORGE@GMAIL.COM  | RES  | 65465845 |
+| CARLOS | M    | CARLOS@GMAIL.COM | CEL  | 65412354 |
++--------+------+------------------+------+----------+
