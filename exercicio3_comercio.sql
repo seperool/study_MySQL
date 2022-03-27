@@ -241,3 +241,34 @@ ON ID_CLIENTE = IDCLIENTE;
 | JORGE  | M    | JORGE@GMAIL.COM  | RES  | 65465845 |
 | CARLOS | M    | CARLOS@GMAIL.COM | CEL  | 65412354 |
 +--------+------+------------------+------+----------+
+
+/*NOME, SEXO, BAIRRO, CIDADE, TIPO, NUMERO*/
+
+SELECT 
+CLIENTE.NOME, 
+CLIENTE.SEXO, 
+ENDERECO.BAIRRO, 
+ENDERECO.CIDADE, 
+TELEFONE.TIPO, 
+TELEFONE.NUMERO /*PROJEÇÃO*/
+FROM CLIENTE /*ORIGEM*/
+INNER JOIN ENDERECO /*JUNÇÃO*/
+ON CLIENTE.IDCLIENTE = ENDERECO.ID_CLIENTE
+INNER JOIN TELEFONE /*JUNÇÃO*/
+ON TELEFONE.ID_CLIENTE = CLIENTE.IDCLIENTE;
+/*USAR O tabela.coluna PARA IDENTIFICAR AS COLUNAS*/
+
++--------+------+---------+----------------+------+----------+
+| NOME   | SEXO | BAIRRO  | CIDADE         | TIPO | NUMERO   |
++--------+------+---------+----------------+------+----------+
+| JOAO   | M    | CENTRO  | RIO DE JANEIRO | COM  | 86546511 |
+| JOAO   | M    | CENTRO  | RIO DE JANEIRO | RES  | 46546874 |
+| JOAO   | M    | CENTRO  | RIO DE JANEIRO | CEL  | 79521321 |
+| CARLOS | M    | ESTACIO | RIO DE JANEIRO | CEL  | 65412354 |
+| CARLOS | M    | ESTACIO | RIO DE JANEIRO | COM  | 98654621 |
+| ANA    | F    | JARDINS | SAO PAULO      | CEL  | 98452154 |
+| ANA    | F    | JARDINS | SAO PAULO      | CEL  | 13215464 |
+| JORGE  | M    | CENTRO  | VITORIA        | RES  | 65465845 |
+| JORGE  | M    | CENTRO  | VITORIA        | RES  | 45642321 |
+| JORGE  | M    | CENTRO  | VITORIA        | CEL  | 78945612 |
++--------+------+---------+----------------+------+----------+
