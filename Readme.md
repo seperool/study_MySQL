@@ -497,7 +497,7 @@ Sem virgula entre eles.
         *instrução_2*;  
         …  
 -   **COMMIT;**  
-    -   aceita a transação (**START TRANSACTION;**). confirma as
+    -   Aceita a transação (**START TRANSACTION;**). Confirma as
         instruções da transação.  
 
     -   Fica fora da identração da instrução **START TRANSACTION**.  
@@ -616,16 +616,58 @@ Principais passos de uma consulta.
 
 -   Junção **JOIN**, junta duas ou mais tabelas apartir das colunas de
     *chaves primarias* e *chaves estrangeiras*.  
+
 -   Exclui os registros sem par (orfans) na outra tabela - **INNER**.  
+
 -   Admite seleção - **WHERE** - sem maiores custos computacionais.  
--   Sintaxe comentada:  
-    **SELECT** *coluna1_tab1*, *coluna2_tab1*, *coluna1_tab2*
-    (PROJEÇÃO)  
-    **FROM** *tabela1* (ORIGEM)  
-    **INNER** **JOIN** *tabela2* (JUNÇÃO)  
-    **ON** *chave_primaria_tab1* **=** *chave_estrangeira_tab2*  
-    **WHERE** *criterio* **=** *valor*;(SELEÇÃO)  
-    Obs.: o que esta entre parênteses é comentario.  
+
+-   Consulta com duas tabelas.  
+
+    -   Sintaxe comentada:  
+        **SELECT** *coluna1_tab1*, *coluna2_tab1*, *coluna1_tab2*
+        (PROJEÇÃO)  
+        **FROM** *tabela1* (ORIGEM)  
+        **INNER** **JOIN** *tabela2* (JUNÇÃO)  
+        **ON** *chave_primaria_tab1* **=** *chave_estrangeira_tab2*  
+        **WHERE** *criterio* **=** *valor*;(SELEÇÃO)  
+
+-   Consulta com mais de duas colunas.  
+
+    -   Indicar de onde vem cada coluna atraves de
+        “*nome_da_tabela*.*nome_da_coluna*”.  
+    -   Sintaxe comentada:  
+        **SELECT**  
+        *tabela1*.*coluna1_tab1*,  
+        *tabela1*.*coluna2_tab1*,  
+        *tabela2*.*coluna1_tab2*,  
+        *tabela3*.*coluna1_tab3* (PROJEÇÃO)  
+        **FROM** *tabela1* (ORIGEM)  
+        **INNER** **JOIN** *tabela2* (JUNÇÃO)  
+        **ON** *tabela1*.*chave_primaria_tab1* **=**
+        *tabela2*.*chave_estrangeira_tab2*  
+        **INNER** **JOIN** *tabela3* (JUNÇÃO)  
+        **ON** *tabela1*.*chave_primaria_tab1* **=**
+        *tabela3*.*chave_estrangeira_tab3*  
+        **WHERE** *criterio* **=** *valor*;(SELEÇÃO)  
+        Obs.: o que esta entre parênteses é comentario.  
+
+-   Ponteiramento (alias para tabelas)  
+
+    -   Melhora a performance da consulta.  
+    -   Sintaxe comentada:  
+        **SELECT**  
+        *A*.*coluna1_tab1*,  
+        *A*.*coluna2_tab1*,  
+        *B*.*coluna1_tab2*,  
+        *C*.*coluna1_tab3*  
+        **FROM** *tabela1* *A* (PONTEIRAMENTO DA TABELA 1)  
+        **INNER** **JOIN** *tabela2* *B* (PONTEIRAMENTO DA TABELA 2)  
+        **ON** *A*.*chave_primaria_tab1* **=**
+        *B*.*chave_estrangeira_tab2*  
+        **INNER** **JOIN** *tabela3* *C* (PONTEIRAMENTO DA TABELA 3)  
+        **ON** *A*.*chave_primaria_tab1* **=**
+        *C*.*chave_estrangeira_tab3*  
+        **WHERE** *criterio* **=** *valor*;  
 
 # Detalhes
 

@@ -5,12 +5,12 @@ date: "`r Sys.Date()`"
 output:
   md_document:
     variant: markdown_github
+  word_document: default
   odt_document: default
+  github_document: default
   html_document:
     df_print: paged
-  github_document: default
   pdf_document: default
-  word_document: default
 ---
 
 \newpage
@@ -460,7 +460,7 @@ TABLE_TRUE
     ...\
 
 - **COMMIT;**\
-  - aceita a transação (**START TRANSACTION;**). confirma as instruções da transação.\
+  - Aceita a transação (**START TRANSACTION;**). Confirma as instruções da transação.\
   
   - Fica fora da identração da instrução **START TRANSACTION**.\
 
@@ -557,15 +557,49 @@ Obs.: o que esta entre parênteses é comentario.\
 ### junção forma certa - **JOIN**
 
 - Junção **JOIN**, junta duas ou mais tabelas apartir das colunas de *chaves primarias* e *chaves estrangeiras*.\
+
 - Exclui os registros sem par (orfans) na outra tabela - **INNER**.\
+
 - Admite seleção - **WHERE** - sem maiores custos computacionais.\
-- Sintaxe comentada:\
-**SELECT** *coluna1_tab1*, *coluna2_tab1*, *coluna1_tab2* (PROJEÇÃO)\
-**FROM** *tabela1* (ORIGEM)\
-**INNER** **JOIN** *tabela2* (JUNÇÃO)\
-**ON** *chave_primaria_tab1* **=** *chave_estrangeira_tab2*\
-**WHERE** *criterio* **=** *valor*;(SELEÇÃO)\
-Obs.: o que esta entre parênteses é comentario.\
+
+- Consulta com duas tabelas.\
+  - Sintaxe comentada:\
+  **SELECT** *coluna1_tab1*, *coluna2_tab1*, *coluna1_tab2* (PROJEÇÃO)\
+  **FROM** *tabela1* (ORIGEM)\
+  **INNER** **JOIN** *tabela2* (JUNÇÃO)\
+  **ON** *chave_primaria_tab1* **=** *chave_estrangeira_tab2*\
+  **WHERE** *criterio* **=** *valor*;(SELEÇÃO)\
+
+- Consulta com mais de duas colunas.\
+  - Indicar de onde vem cada coluna atraves de "*nome_da_tabela*.*nome_da_coluna*".\
+  - Sintaxe comentada:\
+  **SELECT** \
+  *tabela1*.*coluna1_tab1*,\
+  *tabela1*.*coluna2_tab1*,\
+  *tabela2*.*coluna1_tab2*,\
+  *tabela3*.*coluna1_tab3*  (PROJEÇÃO)\
+  **FROM** *tabela1* (ORIGEM)\
+  **INNER** **JOIN** *tabela2* (JUNÇÃO)\
+  **ON** *tabela1*.*chave_primaria_tab1* **=** *tabela2*.*chave_estrangeira_tab2*\
+  **INNER** **JOIN** *tabela3* (JUNÇÃO)\
+  **ON** *tabela1*.*chave_primaria_tab1* **=** *tabela3*.*chave_estrangeira_tab3*\
+  **WHERE** *criterio* **=** *valor*;(SELEÇÃO)\
+  Obs.: o que esta entre parênteses é comentario.\
+
+- Ponteiramento (alias para tabelas)\
+  - Melhora a performance da consulta.\
+  - Sintaxe comentada:\
+  **SELECT** \
+  *A*.*coluna1_tab1*,\
+  *A*.*coluna2_tab1*,\
+  *B*.*coluna1_tab2*,\
+  *C*.*coluna1_tab3*\
+  **FROM** *tabela1* *A* (PONTEIRAMENTO DA TABELA 1)\
+  **INNER** **JOIN** *tabela2* *B* (PONTEIRAMENTO DA TABELA 2)\
+  **ON** *A*.*chave_primaria_tab1* **=** *B*.*chave_estrangeira_tab2*\
+  **INNER** **JOIN** *tabela3* *C* (PONTEIRAMENTO DA TABELA 3)\
+  **ON** *A*.*chave_primaria_tab1* **=** *C*.*chave_estrangeira_tab3*\
+  **WHERE** *criterio* **=** *valor*;\
 
 \newpage
 
