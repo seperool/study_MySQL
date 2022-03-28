@@ -612,7 +612,7 @@ Principais passos de uma consulta.
     **AND** *criterio* **=** *valor*;(SELEÇÃO com operador lógico)  
     Obs.: o que esta entre parênteses é comentario.  
 
-### junção forma certa - **JOIN**
+### Junção forma certa - **JOIN**
 
 -   Junção **JOIN**, junta duas ou mais tabelas apartir das colunas de
     *chaves primarias* e *chaves estrangeiras*.  
@@ -668,6 +668,30 @@ Principais passos de uma consulta.
         **ON** *A*.*chave_primaria_tab1* **=**
         *C*.*chave_estrangeira_tab3*  
         **WHERE** *criterio* **=** *valor*;  
+
+# Categoria de comandos
+
+-   **DML** - *Data Manipulation Language* (Linguagem de Manipulação de
+    Dados)  
+    -   **INSERT**  
+    -   **UPDATE**  
+    -   **DELETE**  
+-   **DDL** - *Data Definition Language* (Linguagem de definição de
+    dados)  
+    -   **CREATE**  
+        -   **DATABESE**  
+        -   **TABLE**  
+    -   **DROP**  
+    -   **ALTER**  
+    -   **TRUNCATE**  
+    -   **COMMENT**  
+    -   **RENAME**  
+-   **DCL** - *Data Control Language* (Linguagem de Controle de Dados)  
+    -   **GRANT**  
+        Permite conceder ou remover privilégios de outros usuários.  
+    -   **REVOKE**  
+-   **TCL** - *Tool Command Language* (Linguagem de Comandos de
+    Ferramentas)  
 
 # Detalhes
 
