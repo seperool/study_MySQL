@@ -272,3 +272,33 @@ ON TELEFONE.ID_CLIENTE = CLIENTE.IDCLIENTE;
 | JORGE  | M    | CENTRO  | VITORIA        | RES  | 45642321 |
 | JORGE  | M    | CENTRO  | VITORIA        | CEL  | 78945612 |
 +--------+------+---------+----------------+------+----------+
+
+/*JUNÇÃO - JOIN PONTEIRAMENTO (ALIAS PARA TABELAS)*/
+SELECT 
+C.NOME, 
+C.SEXO, 
+E.BAIRRO, 
+E.CIDADE, 
+T.TIPO, 
+T.NUMERO /*PROJEÇÃO*/
+FROM CLIENTE C /*ORIGEM*/
+INNER JOIN ENDERECO E /*JUNÇÃO*/
+ON C.IDCLIENTE = E.ID_CLIENTE
+INNER JOIN TELEFONE T /*JUNÇÃO*/
+ON T.ID_CLIENTE = C.IDCLIENTE;
+/*MELHORA O PROCESSAMENTO*/
+
++--------+------+---------+----------------+------+----------+
+| NOME   | SEXO | BAIRRO  | CIDADE         | TIPO | NUMERO   |
++--------+------+---------+----------------+------+----------+
+| JOAO   | M    | CENTRO  | RIO DE JANEIRO | COM  | 86546511 |
+| JOAO   | M    | CENTRO  | RIO DE JANEIRO | RES  | 46546874 |
+| JOAO   | M    | CENTRO  | RIO DE JANEIRO | CEL  | 79521321 |
+| CARLOS | M    | ESTACIO | RIO DE JANEIRO | CEL  | 65412354 |
+| CARLOS | M    | ESTACIO | RIO DE JANEIRO | COM  | 98654621 |
+| ANA    | F    | JARDINS | SAO PAULO      | CEL  | 98452154 |
+| ANA    | F    | JARDINS | SAO PAULO      | CEL  | 13215464 |
+| JORGE  | M    | CENTRO  | VITORIA        | RES  | 65465845 |
+| JORGE  | M    | CENTRO  | VITORIA        | RES  | 45642321 |
+| JORGE  | M    | CENTRO  | VITORIA        | CEL  | 78945612 |
++--------+------+---------+----------------+------+----------+
