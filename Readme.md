@@ -671,27 +671,96 @@ Principais passos de uma consulta.
 
 # Categoria de comandos
 
--   **DML** - *Data Manipulation Language* (Linguagem de Manipulação de
-    Dados)  
-    -   **INSERT**  
-    -   **UPDATE**  
-    -   **DELETE**  
--   **DDL** - *Data Definition Language* (Linguagem de definição de
-    dados)  
-    -   **CREATE**  
-        -   **DATABESE**  
-        -   **TABLE**  
-    -   **DROP**  
-    -   **ALTER**  
-    -   **TRUNCATE**  
-    -   **COMMENT**  
-    -   **RENAME**  
--   **DCL** - *Data Control Language* (Linguagem de Controle de Dados)  
-    -   **GRANT**  
-        Permite conceder ou remover privilégios de outros usuários.  
-    -   **REVOKE**  
--   **TCL** - *Tool Command Language* (Linguagem de Comandos de
-    Ferramentas)  
+## **DML** - *Data Manipulation Language* (Linguagem de Manipulação de Dados) 
+
+-   **INSERT**  
+    -   Adiciona registros numa tabela.  
+    -   Sintaxe:  
+        **INSERT INTO** *nome_da_tabela*  
+        **VALUES**  
+        (*valor_na_coluna_1\_registro1*,
+        *valor_na_coluna_2\_registro1*,…),  
+        (*valor_na_coluna_1\_registro2*,
+        *valor_na_coluna_2\_registro2*,…),  
+        …;  
+-   **UPDATE**  
+    -   Altera os dados de um ou mais registros em uma tabela.  
+    -   Sintaxe:  
+        **UPDATE** *tabela* **SET** *coluna_a\_atualizar* **=**
+        *valor_atualizado*  
+        **WHERE** *condição* **=** *valor*;  
+-   **DELETE**  
+    -   Remove um ou mais registros de uma tabela.  
+    -   Sintaxe:  
+        **DELETE** **FROM** *tabela*  
+        **WHERE** *criterio_do_que_se_quer_deletar* **=** *valor*;  
+
+## **DDL** - *Data Definition Language* (Linguagem de definição de dados) 
+
+-   **CREATE**  
+    Utilizada para construir um novo banco de dados, tabela, índice ou
+    consulta armazenada.  
+
+    -   **DATABESE**  
+        -   Criação de banco de dados.  
+        -   Sintaxe:  
+            **CREATE** **DATABASE** *nome_banco_de_dados*;  
+    -   **TABLE**  
+        -   Criação de tabela.  
+        -   Sintaxe:  
+            **CREATE** **TABLE** *nome_tabela* (  
+            *coluna1* *tipo* *regra* *retrições*,  
+            *coluna2* *tipo* *regra* *retrições*,  
+            …  
+            );  
+
+-   **DROP**  
+    Remove um banco de dados, tabela, índice ou visão existente.  
+
+    -   **DATABESE**  
+        -   Remove banco de dados.  
+        -   Sintaxe:  
+            **DROP** **DATABASE** *nome_do_banco_de_dados*;  
+    -   **TABLE**  
+        -   Remove tabela.  
+        -   Sintaxe:  
+            **DROP** **TABLE** *nome_da_tabela*;  
+
+-   **ALTER**  
+
+    -   Modifica um objeto existente do banco de dados.  
+    -   É possível incluir, eliminar e alterar colunas.  
+    -   Sintaxe:  
+        **ALTER TABLE** \[nome_database.\]*nome_tabela* **ADD**
+        *nome_coluna* *tipo*;  
+        **ALTER TABLE** \[nome_database.\]*nome_tabela* **DROP**
+        *column_name*;  
+        **ALTER** *nome_coluna* **SET** *modificação*;  
+
+-   **TRUNCATE**  
+
+    -   Esvazia imediatamente todo o conteúdo de uma tabela ou objeto
+        que contenha dados.  
+    -   É muito mais rápido que um comando DELETE, pois, ao contrário
+        deste, não armazena os dados sendo removidos no log de
+        transações. Por esse motivo, em vários SGBDs é um comando
+        não-transacional e irrecuperável, não sendo possível desfazê-lo
+        com **ROLLBACK**.  
+    -   Sintaxe:  
+        **TRUNCATE** **TABLE** *nome_tabela*;  
+
+-   **COMMENT**  
+
+-   **RENAME**  
+
+## **DCL** - *Data Control Language* (Linguagem de Controle de Dados) 
+
+-   **GRANT**  
+    -   Permite conceder ou remover privilégios de outros usuários.  
+    -   Sintaxe:  
+-   **REVOKE**  
+
+## **TCL** - *Tool Command Language* (Linguagem de Comandos de Ferramentas) 
 
 # Detalhes
 
