@@ -1,15 +1,15 @@
-# Objetivo
+# 1 Objetivo
 
 Estudo dirigido de MySQL.
 
-# Referência
+# 2 Referência
 
 Vídeo aulas “O curso completo de Banco de Dados e SQL, sem mistérios” -
 Udemy.
 
-# Módulo 2 - Teoria
+# 3 Módulo 2 - Teoria
 
-## Modelagem
+## 3.1 Modelagem
 
 Obs.: alguns softwares (ex.: brModelo) chamam a modelagem lógica de
 modelo conceitual.  
@@ -120,7 +120,7 @@ modelo conceitual.
     -   Deletando uma tabela.  
         **DROP** **TABLE** *nome_da_tabela*;  
 
-## Tipagem de campos
+## 3.2 Tipagem de campos
 
 A tipagem correta diminui o tempo de resposta, otimiza os processos.  
 
@@ -168,9 +168,9 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
 
 -   **TEXT**  
 
-## Subtipos - regras e restrições
+## 3.3 Subtipos - regras e restrições
 
-### Restrições
+### 3.3.1 Restrições
 
 -   **PRIMARY KEY**  
     -   Define que a coluna/campo é uma *Chave Primaria*.  
@@ -185,7 +185,7 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
     -   A coluna/campo se auto preenche com um valor inteiro não
         repetido, a cada registro.  
 
-### Regras
+### 3.3.2 Regras
 
 -   **FOREIGN KEY**  
     -   *Chave Estrangeira* é a *Chave Primaria* de uma tabela, que vai
@@ -213,9 +213,9 @@ fica:
 *nome_da_tabela_da_chave_primaria*(*nome_da_coluna_da_chave_primaria*)  
 Sem virgula entre eles.  
 
-# Módulo 3 - Comandos
+# 4 Módulo 3 - Comandos
 
-## Inserir registros na tabela - **INSERT**
+## 4.1 Inserir registros na tabela - **INSERT**
 
 -   Existem diversas formas de inserir dados na tabela, entre eles
     temos:  
@@ -247,7 +247,7 @@ Sem virgula entre eles.
             valor **NULL**, assim o **MySQL** entende que ele proprio
             deve auto incrementar aquele campo.  
 
-## Consultando campos na tabela - **SELECT**
+## 4.2 Consultando campos na tabela - **SELECT**
 
 -   O comando **SELECT** serve para projeção, seleção e junção.  
 
@@ -274,7 +274,7 @@ Sem virgula entre eles.
         **SELECT** \* **FROM** *tabela*;  
         Obs.: ’\*’, Diminui a eficiencia da pesquisa na tabela.  
 
-## Consultando registros na tabela - **WHERE**
+## 4.3 Consultando registros na tabela - **WHERE**
 
 -   O comando **WHERE** serve para filtrar os registros/linhas da
     tabela, antes de mostrar.  
@@ -317,9 +317,9 @@ Sem virgula entre eles.
             **SELECT** *coluna1*, *coluna2*, … **FROM** *tabela*  
             **WHERE** *colunaX* **IS NOT NULL**;  
 
-# Módulo 5 - Operadores Lógicos, **GROUP BY** e **ORDER BY**
+# 5 Módulo 5 - Operadores Lógicos, **GROUP BY** e **ORDER BY**
 
-## Operadores Lógicos e Performance de operadores lógicos
+## 5.1 Operadores Lógicos e Performance de operadores lógicos
 
 -   Operadores lógicos:  
     -   **OR**/OU  
@@ -365,7 +365,7 @@ Sem virgula entre eles.
                 avaliada, pois o resultado é falso. Melhorando assim a
                 performance da consulta.  
 
-## Agregador e funções de agregação - **GROUP BY**
+## 5.2 Agregador e funções de agregação - **GROUP BY**
 
 -   **COUNT**(\*)  
     -   Conta o numero de registros.  
@@ -408,7 +408,7 @@ Sem virgula entre eles.
             Obs.: Prioridade primeiro agrupar a *coluna1*, depois
             agrupar em função da *coluna1* a *coluna2*.  
 
-## Ordenando registros - **ORDER BY**
+## 5.3 Ordenando registros - **ORDER BY**
 
 -   **ORDER BY**  
     -   Organiza os dados segundo uma ordem.  
@@ -436,9 +436,9 @@ Sem virgula entre eles.
             **ORDER BY** *coluna2* **ASC**, *coluna1* **DESC**; (ou
             **ORDER BY** *2* **ASC**, *1* **DESC**;)  
 
-# Módulo 7 - Mais comandos **UPDATE** e **DELETE**
+# 6 Módulo 7 - Mais comandos **UPDATE** e **DELETE**
 
-## Atualizando registros na tabela - **UPDATE**
+## 6.1 Atualizando registros na tabela - **UPDATE**
 
 -   Atualizar todos os dados de uma coluna/campo de uma tabela, de uma
     vez.  
@@ -461,7 +461,7 @@ Sem virgula entre eles.
         *valor_atualizado*  
         **WHERE** *condição* **=** *valor*;  
 
-## Deletando registros - **DELETE**
+## 6.2 Deletando registros - **DELETE**
 
 -   Deletar todos os registros de uma tabela.  
     -   Sintaxe:  
@@ -485,7 +485,7 @@ Sem virgula entre eles.
         Obs.: Exemplo de consulta de quantos registros devem ser
         deletados.  
 
-## Transação - **START TRANSACTION**
+## 6.3 Transação - **START TRANSACTION**
 
 -   **START TRANSACTION;**  
     -   As instruções dentro da transação, que serão avalidadas, ficam
@@ -516,9 +516,9 @@ Obs.: Essas instruções (**START TRANSACTION**, **COMMIT** e
 **ROLLBACK**) levam “;” ao final delas, não esta errado como escrito a
 cima.  
 
-# Módulo 8 - Modelagem
+# 7 Módulo 8 - Modelagem
 
-## Primeira forma normal
+## 7.1 Primeira forma normal
 
 -   3 Regras:  
     1.  Todo campo vetorizado se tornará outra tabela.  
@@ -555,15 +555,15 @@ cima.
                 total por parte do administrador do banco de dados e não
                 depende de terceiros para existir.  
 
-## Segunda forma normal
+## 7.2 Segunda forma normal
 
-## Terceira forma normal
+## 7.3 Terceira forma normal
 
-# Módulo 9 - PROJEÇÃO, SELEÇÃO E JUNÇÃO
+# 8 Módulo 9 - PROJEÇÃO, SELEÇÃO E JUNÇÃO
 
 Principais passos de uma consulta.  
 
-## PROJEÇÃO
+## 8.1 PROJEÇÃO
 
 -   O primeiro passo de uma consulta é montar o que quer ver na tela -
     **SELECT**.  
@@ -575,7 +575,7 @@ Principais passos de uma consulta.
     **SELECT** 2+2 **AS** *alias*; (PROJEÇÃO)  
     Obs.: o que esta entre parênteses é comentario.  
 
-## SELEÇÃO
+## 8.2 SELEÇÃO
 
 -   O segundo passo de uma consulta é a seleção dos dados de uma
     consulta - **WHERE**.  
@@ -588,9 +588,9 @@ Principais passos de uma consulta.
     **WHERE** *critero* **=** *valor_do_criterio*; (SELEÇÃO)  
     Obs.: o que esta entre parênteses é comentario.  
 
-## JUNÇÃO
+## 8.3 JUNÇÃO
 
-### Junção forma errada - gambiarra
+### 8.3.1 Junção forma errada - gambiarra
 
 -   Usa seleção como uma forma de juntar tabelas.  
 -   Como conseguencia:  
@@ -612,7 +612,7 @@ Principais passos de uma consulta.
     **AND** *criterio* **=** *valor*;(SELEÇÃO com operador lógico)  
     Obs.: o que esta entre parênteses é comentario.  
 
-### Junção forma certa - **JOIN**
+### 8.3.2 Junção forma certa - **JOIN**
 
 -   Junção **JOIN**, junta duas ou mais tabelas apartir das colunas de
     *chaves primarias* e *chaves estrangeiras*.  
@@ -669,9 +669,9 @@ Principais passos de uma consulta.
         *C*.*chave_estrangeira_tab3*  
         **WHERE** *criterio* **=** *valor*;  
 
-# Categoria de comandos
+# 9 Categoria de comandos
 
-## **DML** - *Data Manipulation Language* (Linguagem de Manipulação de Dados)
+## 9.1 **DML** - *Data Manipulation Language* (Linguagem de Manipulação de Dados)
 
 É um conjunto de instruções usada nas consultas e modificações dos dados
 armazenados nas tabelas do banco de dados.  
@@ -698,7 +698,7 @@ armazenados nas tabelas do banco de dados.
         **DELETE** **FROM** *tabela*  
         **WHERE** *criterio_do_que_se_quer_deletar* **=** *valor*;  
 
-## **DDL** - *Data Definition Language* (Linguagem de definição de dados)
+## 9.2 **DDL** - *Data Definition Language* (Linguagem de definição de dados)
 
 É um conjunto de instruções usado para criar e modificar as estruturas
 dos objetos armazenados no banco de dados.  
@@ -759,7 +759,7 @@ dos objetos armazenados no banco de dados.
 
 -   **RENAME**  
 
-## **DCL** - *Data Control Language* (Linguagem de Controle de Dados)
+## 9.3 **DCL** - *Data Control Language* (Linguagem de Controle de Dados)
 
 São usados para controle de acesso e gerenciamento de permissões para
 usuários em no banco de dados. Com eles, pode facilmente permitir ou
@@ -782,7 +782,7 @@ nível de linha).
     -   **EXECUTE**  
     -   **USAGE**  
 
-## **TCL** - *Tool Command Language* (Linguagem de Comandos de Ferramentas)
+## 9.4 **TCL** - *Tool Command Language* (Linguagem de Comandos de Ferramentas)
 
 São usados para gerenciar as mudanças feitas por instruções DML. Ele
 permite que as declarações a serem agrupadas em transações lógicas.  
@@ -790,7 +790,7 @@ permite que as declarações a serem agrupadas em transações lógicas.
 -   **BACKROLL**  
 -   **COMMIT**  
 
-# Detalhes
+# 10 Detalhes
 
 -   ***Comentarios*** no **MySQL**, diferente do **SQL** onde
     comentarios são ’/\*\*/‘, no MySQL é’\#‘. Ou’- -’ para comentario de
@@ -827,8 +827,8 @@ permite que as declarações a serem agrupadas em transações lógicas.
     ‘;’(delimitador), ele informa que o comando acabou e deve ser
     executado.
 
-# Andamento dos Estudos
+# 11 Andamento dos Estudos
 
-## Assunto em andamento:
+## 11.1 Assunto em andamento:
 
 Atualmente estou estudando Módulo 9.  

@@ -5,13 +5,21 @@ author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
   md_document:
+    number_sections: true
     variant: markdown_github
-  pdf_document: default
-  word_document: default
-  github_document: default
   html_document:
+    number_sections: true
     df_print: paged
-  odt_document: default
+  pdf_document:
+    number_sections: true
+    toc: TRUE
+  github_document: default
+  odt_document:
+    toc: TRUE
+    number_sections: true
+  word_document:
+    toc: TRUE
+    number_sections: true
 ---
 
 \newpage
