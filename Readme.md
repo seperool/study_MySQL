@@ -671,7 +671,10 @@ Principais passos de uma consulta.
 
 # Categoria de comandos
 
-## **DML** - *Data Manipulation Language* (Linguagem de Manipulação de Dados) 
+## **DML** - *Data Manipulation Language* (Linguagem de Manipulação de Dados)
+
+É um conjunto de instruções usada nas consultas e modificações dos dados
+armazenados nas tabelas do banco de dados.  
 
 -   **INSERT**  
     -   Adiciona registros numa tabela.  
@@ -695,7 +698,10 @@ Principais passos de uma consulta.
         **DELETE** **FROM** *tabela*  
         **WHERE** *criterio_do_que_se_quer_deletar* **=** *valor*;  
 
-## **DDL** - *Data Definition Language* (Linguagem de definição de dados) 
+## **DDL** - *Data Definition Language* (Linguagem de definição de dados)
+
+É um conjunto de instruções usado para criar e modificar as estruturas
+dos objetos armazenados no banco de dados.  
 
 -   **CREATE**  
     Utilizada para construir um novo banco de dados, tabela, índice ou
@@ -753,14 +759,36 @@ Principais passos de uma consulta.
 
 -   **RENAME**  
 
-## **DCL** - *Data Control Language* (Linguagem de Controle de Dados) 
+## **DCL** - *Data Control Language* (Linguagem de Controle de Dados)
+
+São usados para controle de acesso e gerenciamento de permissões para
+usuários em no banco de dados. Com eles, pode facilmente permitir ou
+negar algumas ações para usuários nas tabelas ou registros (segurança de
+nível de linha).  
 
 -   **GRANT**  
-    -   Permite conceder ou remover privilégios de outros usuários.  
+    -   Permitir que usuários especificados realizem tarefas
+        especificadas.  
     -   Sintaxe:  
 -   **REVOKE**  
+    -   Cancela permissões previamente concedidas ou negadas.  
+    -   Sintaxe:  
+-   Privilégios que podem ser CONCEDIDOS à ou REVOCADOS de um usuário:  
+    -   **CONNECT**  
+    -   **SELECT**  
+    -   **INSERT**  
+    -   **UPDATE**  
+    -   **DELETE**  
+    -   **EXECUTE**  
+    -   **USAGE**  
 
-## **TCL** - *Tool Command Language* (Linguagem de Comandos de Ferramentas) 
+## **TCL** - *Tool Command Language* (Linguagem de Comandos de Ferramentas)
+
+São usados para gerenciar as mudanças feitas por instruções DML. Ele
+permite que as declarações a serem agrupadas em transações lógicas.  
+
+-   **BACKROLL**  
+-   **COMMIT**  
 
 # Detalhes
 
