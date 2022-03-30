@@ -302,3 +302,72 @@ ON T.ID_CLIENTE = C.IDCLIENTE;
 | JORGE  | M    | CENTRO  | VITORIA        | RES  | 45642321 |
 | JORGE  | M    | CENTRO  | VITORIA        | CEL  | 78945612 |
 +--------+------+---------+----------------+------+----------+
+
+/*DDL*/
+
+CREATE TABLE PRODUTO(
+IDPRODUTO INT PRIMARY KEY AUTO_INCREMENT,
+NOME_PRODUTO VARCHAR(30) NOT NULL,
+PRECO INT,
+FRETE FLOAT(10,2) NOT NULL
+);
+
+/*ALTER TABLE*/
+
+/*ALTERAR NOME DE UMA COLUNA - CHANGE*/
+
+ALTER TABLE PRODUTO
+CHANGE PRECO VALOR_UNITARIO INT NOT NULL;
+
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| IDPRODUTO      | int         | NO   | PRI | NULL    | auto_increment |
+| NOME_PRODUTO   | varchar(30) | NO   |     | NULL    |                |
+| VALOR_UNITARIO | int         | NO   |     | NULL    |                |
+| FRETE          | float(10,2) | NO   |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+
+/*ALTERAR O TIPO DE UMA COLUNA - MODIFY*/
+
+ALTER TABLE PRODUTO
+MODIFY VALOR_UNITARIO VARCHAR(50) NOT NULL;
+
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| IDPRODUTO      | int         | NO   | PRI | NULL    | auto_increment |
+| NOME_PRODUTO   | varchar(30) | NO   |     | NULL    |                |
+| VALOR_UNITARIO | varchar(50) | NO   |     | NULL    |                |
+| FRETE          | float(10,2) | NO   |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+
+/*ADICIONANDO UM COLUNA*/
+
+ALTER TABLE PRODUTO
+ADD PESO FLOAT(10,2) NOT NULL;
+
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| IDPRODUTO      | int         | NO   | PRI | NULL    | auto_increment |
+| NOME_PRODUTO   | varchar(30) | NO   |     | NULL    |                |
+| VALOR_UNITARIO | varchar(50) | NO   |     | NULL    |                |
+| FRETE          | float(10,2) | NO   |     | NULL    |                |
+| PESO           | float(10,2) | NO   |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
+
+/*APAGANDO UMA COLUNA - DROP COLUMN*/
+
+ALTER TABLE PRODUTO
+DROP COLUMN PESO;
+
+/*ADICIONAR A COLUNA NA POSIÇÃO ESPECIFICA*/
+
+ALTER TABLE PRODUTO
+ADD COLUMN PESO FLOAT(10,2) NOT NULL
+FIRST;
+
+ALTER TABLE PRODUTO
+ADD COLUMN PESO FLOAT(10,2) NOT NULL
+AFTER NOME_PRODUTO;
