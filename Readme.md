@@ -736,12 +736,40 @@ dos objetos armazenados no banco de dados.
 
     -   Modifica um objeto existente do banco de dados.  
     -   É possível incluir, eliminar e alterar colunas.  
-    -   Sintaxe:  
-        **ALTER TABLE** \[nome_database.\]*nome_tabela* **ADD**
-        *nome_coluna* *tipo*;  
-        **ALTER TABLE** \[nome_database.\]*nome_tabela* **DROP**
-        *column_name*;  
-        **ALTER** *nome_coluna* **SET** *modificação*;  
+        -   **CHANGE**  
+            -   Altera o nome e o tipo da coluna/campo.  
+            -   Para alterar apenas o tipo, é necessario repetir o nome
+                da coluna/campo.  
+            -   Sintaxe:  
+                **ALTER TABLE** *nome_tabela*  
+                **CHANGE** *nome_coluna* *(novo)nome_coluna*
+                *modificação_tipo*;  
+        -   **MODIFY**  
+            -   Altera o tipo e regras de uma coluna/campo.  
+            -   Sintaxe:  
+                **ALTER TABLE** *nome_tabela*  
+                **MODIFY** *nome_coluna* *modificação_tipo*;  
+        -   **ADD C0LUMN**  
+            -   Adicionando uma nova coluna.  
+            -   Sintaxe:  
+                **ALTER TABLE** \[nome_database.\]*nome_tabela*  
+                **ADD COLUMN** *nome_coluna* *tipo*;  
+            -   Para alterar a posição de entrada da coluna na tabela,
+                usar **FIRST** (para aparecer na primeira posição da
+                tabela) ou **AFTER** (depois de tal coluna).  
+            -   Sintaxe:  
+                **ALTER TABLE** \[nome_database.\]*nome_tabela*  
+                **ADD COLUMN** *nome_coluna* *tipo*  
+                **FIRST**;  
+                ou  
+                **ALTER TABLE** \[nome_database.\]*nome_tabela*  
+                **ADD COLUMN** *nome_coluna* *tipo*  
+                **AFTER** *coluna_de_referencia*;  
+        -   **DROP COLUMN**  
+            -   Deleta uma determinada coluna de uma tabela.  
+            -   Sintaxe:  
+                **ALTER TABLE** \[nome_database.\]*nome_tabela*  
+                **DROP COLUMN** *nome_coluna*;  
 
 -   **TRUNCATE**  
 
