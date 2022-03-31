@@ -371,3 +371,13 @@ FIRST;
 ALTER TABLE PRODUTO
 ADD COLUMN PESO FLOAT(10,2) NOT NULL
 AFTER NOME_PRODUTO;
+
++----------------+-------------+------+-----+---------+----------------+
+| Field          | Type        | Null | Key | Default | Extra          |
++----------------+-------------+------+-----+---------+----------------+
+| PESO           | float(10,2) | NO   |     | NULL    |                |
+| IDPRODUTO      | int         | NO   | PRI | NULL    | auto_increment |
+| NOME_PRODUTO   | varchar(30) | NO   |     | NULL    |                |
+| VALOR_UNITARIO | varchar(50) | NO   |     | NULL    |                |
+| FRETE          | float(10,2) | NO   |     | NULL    |                |
++----------------+-------------+------+-----+---------+----------------+
