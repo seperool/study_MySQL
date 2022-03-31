@@ -800,18 +800,71 @@ usuários em no banco de dados. Com eles, pode facilmente permitir ou
 negar algumas ações para usuários nas tabelas ou registros (segurança de
 nível de linha).  
 
+-   USER - usuário  
+
+    -   **CREATE USER**  
+        -   Comando para criação de usuários.  
+        -   Determina user = usuário, host = local (IP do servidor ou
+            *localhost* - maquina local) e password = senha.  
+        -   Sintaxe:  
+            **CREATE USER** ‘*user*’@‘*host*’ **IDENTIFIED BY**
+            ‘*password*’;  
+    -   Listar usuários:  
+        **SELECT** **user** **FROM** **mysql.user**;  
+    -   Mostrar usuário conectado atual:  
+        **SELECT** **user()**;  
+    -   Removendo usuários:  
+        **DROP USER** ‘*exemplo*’@‘*host*’;  
+    -   Conectando ao MySQL por um usuário:  
+        mysql -u *nome_usuário* -p *password*  
+
 -   **GRANT**  
+
     -   Permitir que usuários especificados realizem tarefas
         especificadas.  
+    -   Tambem permite gerenciar permissão para realizar tarefas
+        especificas em database e/ou tabelas especificas.  
     -   Sintaxe:  
+        **GRANT** *tipo_de_permissão* **ON**
+        *nome_database*.*nome_tabela* **TO**
+        ‘*username*’@‘*localhost*’;  
+        ou para dar permissão de root:  
+        **GRANT** **ALL PRIVILEGES** **ON** \* . \* **TO**
+        ‘*newuser*’@‘*localhost*’;  
+    -   Carregar/atualizar permissões:  
+        **FLUSH PRIVILEGES**;  
+    -   Revisar as permissões atuais de um usuário:  
+        **SHOW GRANTS** **FOR** ‘*username*’@‘*localhost*’;  
+
 -   **REVOKE**  
-    -   Cancela permissões previamente concedidas ou negadas.  
+
+    -   Cancela/revoga permissões previamente concedidas.  
     -   Sintaxe:  
+        **REVOKE** *tipo_de_permissão* **ON**
+        *nome_database*.*nome_tabela* **FROM**
+        ‘*username*’@‘*localhost*’;  
+        Obs.: Note que no **REVOKE** é usado **FROM** e no **GRANT** é
+        usado **TO**.  
+
 -   Privilégios que podem ser CONCEDIDOS à ou REVOCADOS de um usuário:  
+
+    -   **ALL PRIVILEGES** — como vimos anteriormente, isso garante ao
+        usuário do MySQL acesso completo a um banco de dados (ou, se
+        nenhum banco de dados for selecionado, acesso global a todo o
+        sistema).  
+    -   **CREATE** — permite criar novas tabelas ou bancos de dados.  
+    -   **DROP** — permite deletar tabelas ou bancos de dados.  
+    -   **DELETE** — permite excluir linhas de tabelas.  
+    -   **INSERT** — permite inserir linhas em tabelas.  
+    -   **SELECT** - permite usar o comando SELECT para ler os bancos de
+        dados.  
+    -   **UPDATE** — permite atualizar linhas de tabelas.  
+    -   **GRANT OPTION** — permite conceder ou remover privilégios de
+        outros usuários.  
+
+    (conferir):
+
     -   **CONNECT**  
-    -   **SELECT**  
-    -   **INSERT**  
-    -   **UPDATE**  
     -   **DELETE**  
     -   **EXECUTE**  
     -   **USAGE**  
@@ -821,6 +874,7 @@ nível de linha).
 São usados para gerenciar as mudanças feitas por instruções DML. Ele
 permite que as declarações a serem agrupadas em transações lógicas.  
 
+-   **START TRANSACTION**  
 -   **BACKROLL**  
 -   **COMMIT**  
 
