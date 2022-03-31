@@ -4,21 +4,21 @@ subtitle: "Readme.rmd"
 author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
+  html_document:
+    number_sections: true
+    df_print: paged
+  word_document:
+    toc: TRUE
+    number_sections: true
+  pdf_document:
+    number_sections: true
+    toc: TRUE
+  github_document: default
   md_document:
     number_sections: true
     variant: markdown_github
   odt_document:
     number_sections: true
-  word_document:
-    toc: TRUE
-    number_sections: true
-  github_document: default
-  pdf_document:
-    number_sections: true
-    toc: TRUE
-  html_document:
-    number_sections: true
-    df_print: paged
 ---
 
 \newpage
@@ -712,10 +712,13 @@ Remove um banco de dados, tabela, índice ou visão existente.\
   - É muito mais rápido que um comando DELETE, pois, ao contrário deste, não armazena os dados sendo removidos no log de transações. Por esse motivo, em vários SGBDs é um comando não-transacional e irrecuperável, não sendo possível desfazê-lo com **ROLLBACK**.\
   - Sintaxe:\
   **TRUNCATE** **TABLE** *nome_tabela*;\
-  
-- **COMMENT**\
 
 - **RENAME**\
+  - Mudar nome da tabela e/ou database.\
+  - Sintaxe:\
+  **RENAME TABLE** *nome_database*.*nome_tabela* **TO** *nome_database*.*novo_nome_tabela*;\
+  ou\
+  **RENAME TABLE** *nome_database*.*nome_tabela* **TO** *novo_nome_database*.*nome_tabela*;\
 
 ##  **DCL** - *Data Control Language* (Linguagem de Controle de Dados)
 São usados para controle de acesso e gerenciamento de permissões para usuários em no banco de dados. Com eles, pode facilmente permitir ou negar algumas ações para usuários nas tabelas ou registros (segurança de nível de linha).\
@@ -768,4 +771,4 @@ mysql -u root -p\
 
 ## Assunto em andamento:
 
-Atualmente estou estudando Módulo 9.\
+Atualmente estou estudando Módulo 10.\

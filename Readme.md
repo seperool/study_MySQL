@@ -783,9 +783,15 @@ dos objetos armazenados no banco de dados.
     -   Sintaxe:  
         **TRUNCATE** **TABLE** *nome_tabela*;  
 
--   **COMMENT**  
-
 -   **RENAME**  
+
+    -   Mudar nome da tabela e/ou database.  
+    -   Sintaxe:  
+        **RENAME TABLE** *nome_database*.*nome_tabela* **TO**
+        *nome_database*.*novo_nome_tabela*;  
+        ou  
+        **RENAME TABLE** *nome_database*.*nome_tabela* **TO**
+        *novo_nome_database*.*nome_tabela*;  
 
 ## 9.3 **DCL** - *Data Control Language* (Linguagem de Controle de Dados)
 
@@ -859,4 +865,4 @@ permite que as declarações a serem agrupadas em transações lógicas.
 
 ## 11.1 Assunto em andamento:
 
-Atualmente estou estudando Módulo 9.  
+Atualmente estou estudando Módulo 10.  
