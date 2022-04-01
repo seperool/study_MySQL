@@ -4,20 +4,20 @@ subtitle: "Readme.rmd"
 author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
-  md_document:
-    number_sections: true
-    variant: markdown_github
-  word_document:
-    toc: TRUE
-    number_sections: true
   pdf_document:
     number_sections: true
     toc: TRUE
-  github_document: default
   html_document:
     number_sections: true
     df_print: paged
+  md_document:
+    number_sections: true
+    variant: markdown_github
+  github_document: default
   odt_document:
+    number_sections: true
+  word_document:
+    toc: TRUE
     number_sections: true
 ---
 
