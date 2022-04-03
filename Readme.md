@@ -340,6 +340,13 @@ Sem virgula entre eles.
             **SELECT** \* **FROM** *tabela*  
             **WHERE** (*condição_1* **AND** **NOT** *condição_2*);  
             Obs.: Inverte o resultado da *condição_2*.  
+    -   **IN**  
+        -   Lista determinados valores validos de uma coluna.  
+        -   Pode ser usado em conjunto com o operador **NOT**, para
+            negar a lista (exceto a lista). 
+        -   Sintaxe:  
+            **UPDATE** *tabela* **SET** *coluna* **=** *valor_novo*  
+            **WHERE** *coluna* **IN** (*valor_1*, *valor_2*, …);  
 -   *Tabela verdade*  
 
 <!-- -->
