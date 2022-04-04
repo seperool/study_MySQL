@@ -582,9 +582,14 @@ FROM TELEFONE
 GROUP BY TIPO;
 
 -- REPOSTA
-SELECT DISTINCT
+SELECT
 C.IDCLIENTE, 
-C.EMAIL
+C.EMAIL,
+C.NOME,
+C.SEXO,
+E.BAIRRO,
+E.CIDADE,
+T.TIPO
 FROM CLIENTE C
 
 INNER JOIN ENDERECO E
@@ -598,3 +603,77 @@ NOT T.TIPO = 'CEL' AND
 E.BAIRRO = 'CENTRO' AND
 E.CIDADE = 'RIO DE JANEIRO' AND
 C.SEXO = 'F';
+
++-----------+-------------------+---------+------+--------+----------------+------+
+| IDCLIENTE | EMAIL             | NOME    | SEXO | BAIRRO | CIDADE         | TIPO |
++-----------+-------------------+---------+------+--------+----------------+------+
+|        10 | NULL              | GIOVANA | F    | CENTRO | RIO DE JANEIRO | COM  |
+|        18 | CARMEM@IG.COM     | CARMEM  | F    | CENTRO | RIO DE JANEIRO | RES  |
+|        18 | CARMEM@IG.COM     | CARMEM  | F    | CENTRO | RIO DE JANEIRO | RES  |
+|        19 | ADRIANA@GMAIL.COM | ADRIANA | F    | CENTRO | RIO DE JANEIRO | RES  |
+|        19 | ADRIANA@GMAIL.COM | ADRIANA | F    | CENTRO | RIO DE JANEIRO | COM  |
++-----------+-------------------+---------+------+--------+----------------+------+
+
+
+/* PARA UMA CAMPANHA DE MARKETING, O SETOR SOLICITOU UM
+RELATÓRIO COM O NOME, EMAIL E TELEFONE CELULAR 
+DOS CLIENTES QUE MORAM NO ESTADO DO RIO DE JANEIRO 
+VOCÊ TERÁ QUE PASSAR A QUERY PARA GERAR O RELATORIO PARA
+O PROGRAMADOR */
+
+SELECT
+C.IDCLIENTE, 
+C.NOME,
+C.EMAIL,
+T.NUMERO AS CELULAR
+FROM CLIENTE C
+
+INNER JOIN ENDERECO E
+ON C.IDCLIENTE = E.ID_CLIENTE
+
+INNER JOIN TELEFONE T
+ON T.ID_CLIENTE = C.IDCLIENTE
+
+WHERE (T.TIPO = 'CEL' AND E.ESTADO = 'RJ');
+
++-----------+---------+------------------+----------+
+| IDCLIENTE | NOME    | EMAIL            | CELULAR  |
++-----------+---------+------------------+----------+
+|         1 | JOAO    | JOAO@GMAIL.COM   | 79521321 |
+|         2 | CARLOS  | CARLOS@GMAIL.COM | 65412354 |
+|        10 | GIOVANA | NULL             | 33567765 |
+|        10 | GIOVANA | NULL             | 88668786 |
+|        20 | JOICE   | JOICE@GMAIL.COM  | 44522578 |
++-----------+---------+------------------+----------+
+
+
+/* PARA UMA CAMPANHA DE PRODUTOS DE BELEZA, O COMERCIAL SOLICITOU UM
+RELATÓRIO COM O NOME, EMAIL E TELEFONE CELULAR 
+ DAS MULHERES QUE MORAM NO ESTADO DE SÃO PAULO 
+VOCÊ TERÁ QUE PASSAR A QUERY PARA GERAR O RELATORIO PARA
+O PROGRAMADOR */
+
+SELECT
+C.IDCLIENTE, 
+C.NOME,
+C.EMAIL,
+T.NUMERO AS CELULAR
+FROM CLIENTE C
+
+INNER JOIN ENDERECO E
+ON C.IDCLIENTE = E.ID_CLIENTE
+
+INNER JOIN TELEFONE T
+ON T.ID_CLIENTE = C.IDCLIENTE
+
+WHERE 
+C.SEXO = 'F' AND
+T.TIPO = 'CEL' AND 
+E.ESTADO = 'SP';
+
++-----------+------+---------------+----------+
+| IDCLIENTE | NOME | EMAIL         | CELULAR  |
++-----------+------+---------------+----------+
+|         3 | ANA  | ANA@GMAIL.COM | 13215464 |
+|         3 | ANA  | ANA@GMAIL.COM | 98452154 |
++-----------+------+---------------+----------+
