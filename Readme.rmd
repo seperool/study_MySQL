@@ -4,21 +4,21 @@ subtitle: "Readme.rmd"
 author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
+  pdf_document:
+    number_sections: true
+    toc: TRUE
+  odt_document:
+    number_sections: true
+  word_document:
+    toc: TRUE
+    number_sections: true
+  github_document: default
   html_document:
     number_sections: true
     df_print: paged
   md_document:
     number_sections: true
     variant: markdown_github
-  odt_document:
-    number_sections: true
-  github_document: default
-  word_document:
-    toc: TRUE
-    number_sections: true
-  pdf_document:
-    number_sections: true
-    toc: TRUE
 ---
 
 \newpage
@@ -644,6 +644,8 @@ Obs.: o que esta entre parênteses é comentario.\
   **DELETE** **FROM** *tabela*\
   **WHERE** *criterio_do_que_se_quer_deletar* **=** *valor*;\
 
+\newpage
+
 ## **DDL** - *Data Definition Language* (Linguagem de definição de dados)
 É um conjunto de instruções usado para criar e modificar as estruturas dos objetos armazenados no banco de dados.\
 
@@ -727,6 +729,8 @@ Remove um banco de dados, tabela, índice ou visão existente.\
   ou\
   **RENAME TABLE** *nome_database*.*nome_tabela* **TO** *novo_nome_database*.*nome_tabela*;\
 
+\newpage
+
 ##  **DCL** - *Data Control Language* (Linguagem de Controle de Dados)
 São usados para controle de acesso e gerenciamento de permissões para usuários em no banco de dados. Com eles, pode facilmente permitir ou negar algumas ações para usuários nas tabelas ou registros (segurança de nível de linha).\
 
@@ -774,19 +778,33 @@ São usados para controle de acesso e gerenciamento de permissões para usuário
   - **UPDATE** — permite atualizar linhas de tabelas.\
   - **GRANT OPTION** — permite conceder ou remover privilégios de outros usuários.\
   
-  (conferir):
+  Outras instruções:\
   - **CONNECT**\
-  - **DELETE**\
   - **EXECUTE**\
   - **USAGE**\
+
+\newpage
 
 ## **TCL** - *Tool Command Language* (Linguagem de Comandos de Ferramentas)
 São usados para gerenciar as mudanças feitas por instruções DML. Ele permite que as declarações a serem agrupadas em transações lógicas.\
 
 - **START TRANSACTION**\
+  - O comando garante que diversas instruções sejam executadas, porem se alguma for mal sucedida todas falham.\
+  - É possivel avaliar o processo de implementação das instruções e seus resultados e caso necessario regredir ao estado anterior as instruções ou confirmar sua implementação.\
+  - Principais instruções que são comuns de serem usadas na transação são as **DML** (**INSERT**, **UPDATE** e **DELETE**).\ 
+  - Sintaxe:\
+  **START TRANSACTION**;\
+  
 - **BACKROLL**\
+  - Regressão para o estado anterior ao inicio da transação (**START TRANSACTION**).\
+  - Sintaxe:\
+  **BACKROLL**;\
+  
 - **COMMIT**\
-
+  - Confirmação de que as instruções da transação (**START TRANSACTION**) podem ser implementadas sem problemas.\
+  - Sintaxe:\
+  **COMMIT**;\
+  
 \newpage
 
 # Detalhes
@@ -812,4 +830,4 @@ mysql -u root -p\
 
 ## Assunto em andamento:
 
-Atualmente estou estudando Módulo 10.\
+Atualmente estou estudando Módulo 11.\

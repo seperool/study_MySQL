@@ -869,10 +869,9 @@ nível de linha).
     -   **GRANT OPTION** — permite conceder ou remover privilégios de
         outros usuários.  
 
-    (conferir):
+    Outras instruções:  
 
     -   **CONNECT**  
-    -   **DELETE**  
     -   **EXECUTE**  
     -   **USAGE**  
 
@@ -882,8 +881,25 @@ São usados para gerenciar as mudanças feitas por instruções DML. Ele
 permite que as declarações a serem agrupadas em transações lógicas.  
 
 -   **START TRANSACTION**  
+    -   O comando garante que diversas instruções sejam executadas,
+        porem se alguma for mal sucedida todas falham.  
+    -   É possivel avaliar o processo de implementação das instruções e
+        seus resultados e caso necessario regredir ao estado anterior as
+        instruções ou confirmar sua implementação.  
+    -   Principais instruções que são comuns de serem usadas na
+        transação são as **DML** (**INSERT**, **UPDATE** e **DELETE**). 
+    -   Sintaxe:  
+        **START TRANSACTION**;  
 -   **BACKROLL**  
+    -   Regressão para o estado anterior ao inicio da transação (**START
+        TRANSACTION**).  
+    -   Sintaxe:  
+        **BACKROLL**;  
 -   **COMMIT**  
+    -   Confirmação de que as instruções da transação (**START
+        TRANSACTION**) podem ser implementadas sem problemas.  
+    -   Sintaxe:  
+        **COMMIT**;  
 
 # 10 Detalhes
 
@@ -926,4 +942,4 @@ permite que as declarações a serem agrupadas em transações lógicas.
 
 ## 11.1 Assunto em andamento:
 
-Atualmente estou estudando Módulo 10.  
+Atualmente estou estudando Módulo 11.  
