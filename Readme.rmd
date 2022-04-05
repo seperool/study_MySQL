@@ -7,18 +7,18 @@ output:
   pdf_document:
     number_sections: true
     toc: TRUE
-  odt_document:
-    number_sections: true
   word_document:
     toc: TRUE
     number_sections: true
-  github_document: default
   html_document:
     number_sections: true
     df_print: paged
+  github_document: default
   md_document:
     number_sections: true
     variant: markdown_github
+  odt_document:
+    number_sections: true
 ---
 
 \newpage
@@ -804,7 +804,32 @@ São usados para gerenciar as mudanças feitas por instruções DML. Ele permite
   - Confirmação de que as instruções da transação (**START TRANSACTION**) podem ser implementadas sem problemas.\
   - Sintaxe:\
   **COMMIT**;\
-  
+
+\newpage
+
+# Módulo 11 - Funções e VIEWS
+
+## Funções
+Função é um bloco de programação que executa algo.\
+
+- **IFNULL**()\
+  - Converte os valores **NULL** de uma coluna em um valor-padrão especificado.\
+  - Os argumentos da função são a coluna a ser checada e o valor-padrão.\ 
+  - Se o valor-padrão for um texto, ele entra entre aspas ('*valor-padrão*').\
+  - Uma observação é quanto ao cabeçalho da coluna/campo, o ideal é que ele seja modificado com uso do **AS** para um novo nome, senão ele imprime em tela a formulação que esta passando a coluna.\
+  - É igual a função *coalesce*() em SQL.\
+  - Sintaxe:\
+  **SELECT**\
+  ...\
+  **IFNULL**(*coluna*,*valor-padrão*) **AS** *novo_nome_coluna*,\
+  ...\
+
+- **NOW**()\
+
+\newpage
+
+## VIEWS
+
 \newpage
 
 # Detalhes

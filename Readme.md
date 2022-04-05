@@ -901,7 +901,34 @@ permite que as declarações a serem agrupadas em transações lógicas.
     -   Sintaxe:  
         **COMMIT**;  
 
-# 10 Detalhes
+# 10 Módulo 11 - Funções e VIEWS
+
+## 10.1 Funções
+
+Função é um bloco de programação que executa algo.  
+
+-   **IFNULL**()  
+    -   Converte os valores **NULL** de uma coluna em um valor-padrão
+        especificado.  
+    -   Os argumentos da função são a coluna a ser checada e o
+        valor-padrão. 
+    -   Se o valor-padrão for um texto, ele entra entre aspas
+        (‘*valor-padrão*’).  
+    -   Uma observação é quanto ao cabeçalho da coluna/campo, o ideal é
+        que ele seja modificado com uso do **AS** para um novo nome,
+        senão ele imprime em tela a formulação que esta passando a
+        coluna.  
+    -   É igual a função *coalesce*() em SQL.  
+    -   Sintaxe:  
+        **SELECT**  
+        …  
+        **IFNULL**(*coluna*,*valor-padrão*) **AS** *novo_nome_coluna*,  
+        …  
+-   **NOW**()  
+
+## 10.2 VIEWS
+
+# 11 Detalhes
 
 -   ***Comentarios*** no **MySQL**, diferente do **SQL** onde
     comentarios são ’/\*\*/‘, no MySQL é’\#‘. Ou’- -’ para comentario de
@@ -938,8 +965,8 @@ permite que as declarações a serem agrupadas em transações lógicas.
     ‘;’(delimitador), ele informa que o comando acabou e deve ser
     executado.
 
-# 11 Andamento dos Estudos
+# 12 Andamento dos Estudos
 
-## 11.1 Assunto em andamento:
+## 12.1 Assunto em andamento:
 
 Atualmente estou estudando Módulo 11.  
