@@ -677,3 +677,92 @@ E.ESTADO = 'SP';
 |         3 | ANA  | ANA@GMAIL.COM | 13215464 |
 |         3 | ANA  | ANA@GMAIL.COM | 98452154 |
 +-----------+------+---------------+----------+
+
+/*-------*/
+
+/*NOME, EMAIL, NUMERO E ESTADO*/
+
+SELECT
+C.NOME,
+C.EMAIL,
+T.NUMERO,
+E.ESTADO
+FROM CLIENTE C
+INNER JOIN ENDERECO E
+ON C.IDCLIENTE = E.ID_CLIENTE
+INNER JOIN TELEFONE T
+ON C.IDCLIENTE = T.ID_CLIENTE;
+
++---------+-------------------+----------+--------+
+| NOME    | EMAIL             | NUMERO   | ESTADO |
++---------+-------------------+----------+--------+
+| JORGE   | JORGE@GMAIL.COM   | 78945612 | ES     |
+| JORGE   | JORGE@GMAIL.COM   | 45642321 | ES     |
+| JOAO    | JOAO@GMAIL.COM    | 79521321 | RJ     |
+| CARLOS  | CARLOS@GMAIL.COM  | 98654621 | RJ     |
+| JOAO    | JOAO@GMAIL.COM    | 46546874 | RJ     |
+| ANA     | ANA@GMAIL.COM     | 13215464 | SP     |
+| ANA     | ANA@GMAIL.COM     | 98452154 | SP     |
+| JOAO    | JOAO@GMAIL.COM    | 86546511 | RJ     |
+| JORGE   | JORGE@GMAIL.COM   | 65465845 | ES     |
+| CARLOS  | CARLOS@GMAIL.COM  | 65412354 | RJ     |
+| JOICE   | JOICE@GMAIL.COM   | 44522578 | RJ     |
+| FLAVIO  | FLAVIO@IG.COM     | 68976565 | MG     |
+| FLAVIO  | FLAVIO@IG.COM     | 99656675 | MG     |
+| GIOVANA | NULL              | 33567765 | RJ     |
+| GIOVANA | NULL              | 88668786 | RJ     |
+| GIOVANA | NULL              | 55689654 | RJ     |
+| KARLA   | KARLA@GMAIL.COM   | 88687979 | RJ     |
+| DANIELE | DANIELE@GMAIL.COM | 88965676 | ES     |
+| EDUARDO | NULL              | 89966809 | PR     |
+| ANTONIO | ANTONIO@IG.COM    | 88679978 | SP     |
+| ANTONIO | ANTONIO@UOL.COM   | 99655768 | PR     |
+| ELAINE  | ELAINE@GLOBO.COM  | 89955665 | SP     |
+| CARMEM  | CARMEM@IG.COM     | 77455786 | RJ     |
+| CARMEM  | CARMEM@IG.COM     | 89766554 | RJ     |
+| ADRIANA | ADRIANA@GMAIL.COM | 77755785 | RJ     |
+| ADRIANA | ADRIANA@GMAIL.COM | 44522578 | RJ     |
++---------+-------------------+----------+--------+
+
+SELECT
+C.NOME,
+IFNULL(C.EMAIL,'NAO TEM EMAIL') AS EMAIL,
+T.NUMERO,
+E.ESTADO
+FROM CLIENTE C
+INNER JOIN ENDERECO E
+ON C.IDCLIENTE = E.ID_CLIENTE
+INNER JOIN TELEFONE T
+ON C.IDCLIENTE = T.ID_CLIENTE;
+
++---------+-------------------+----------+--------+
+| NOME    | EMAIL             | NUMERO   | ESTADO |
++---------+-------------------+----------+--------+
+| JOAO    | JOAO@GMAIL.COM    | 79521321 | RJ     |
+| JOAO    | JOAO@GMAIL.COM    | 46546874 | RJ     |
+| JOAO    | JOAO@GMAIL.COM    | 86546511 | RJ     |
+| CARLOS  | CARLOS@GMAIL.COM  | 98654621 | RJ     |
+| CARLOS  | CARLOS@GMAIL.COM  | 65412354 | RJ     |
+| ANA     | ANA@GMAIL.COM     | 13215464 | SP     |
+| ANA     | ANA@GMAIL.COM     | 98452154 | SP     |
+| JORGE   | JORGE@GMAIL.COM   | 78945612 | ES     |
+| JORGE   | JORGE@GMAIL.COM   | 45642321 | ES     |
+| JORGE   | JORGE@GMAIL.COM   | 65465845 | ES     |
+| FLAVIO  | FLAVIO@IG.COM     | 68976565 | MG     |
+| FLAVIO  | FLAVIO@IG.COM     | 99656675 | MG     |
+| GIOVANA | NAO TEM EMAIL     | 33567765 | RJ     |
+| GIOVANA | NAO TEM EMAIL     | 88668786 | RJ     |
+| GIOVANA | NAO TEM EMAIL     | 55689654 | RJ     |
+| KARLA   | KARLA@GMAIL.COM   | 88687979 | RJ     |
+| DANIELE | DANIELE@GMAIL.COM | 88965676 | ES     |
+| EDUARDO | NAO TEM EMAIL     | 89966809 | PR     |
+| ANTONIO | ANTONIO@IG.COM    | 88679978 | SP     |
+| ANTONIO | ANTONIO@UOL.COM   | 99655768 | PR     |
+| ELAINE  | ELAINE@GLOBO.COM  | 89955665 | SP     |
+| CARMEM  | CARMEM@IG.COM     | 77455786 | RJ     |
+| CARMEM  | CARMEM@IG.COM     | 89766554 | RJ     |
+| ADRIANA | ADRIANA@GMAIL.COM | 77755785 | RJ     |
+| ADRIANA | ADRIANA@GMAIL.COM | 44522578 | RJ     |
+| JOICE   | JOICE@GMAIL.COM   | 44522578 | RJ     |
++---------+-------------------+----------+--------+
+
