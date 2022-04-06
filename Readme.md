@@ -924,7 +924,37 @@ Função é um bloco de programação que executa algo.
         …  
         **IFNULL**(*coluna*,*valor-padrão*) **AS** *novo_nome_coluna*,  
         …  
--   **NOW**()  
+-   Funções de tempo  
+    -   **NOW**()  
+        -   Função que retorna data e hora do sistema do computador.  
+        -   Formato ‘AAAA-MM-DD HH:MM:SS’.  
+        -   É possivel fazer operações com a data usando operador
+            desejado, ‘**INTERVAL**’ e adicionando o que deseja
+            trabalhar (ex.: 1 DAY).  
+        -   A função **NOW**() Pode ser usada como argumento das outras
+            funções de tempo, para pegar o momento atual do sistema.  
+        -   Sintaxe:  
+            **SELECT** **NOW**() **AS** *alias*,  
+            **NOW**() + **INTERVAL** 1 **DAY** **AS** *alias*;  
+    -   **TIME**()  
+        Retorna apenas a parte em formato de tempo ‘HH:MM:SS’.  
+    -   **DATE**()  
+        Retorna apenas a parte em formato de data ‘AAAA-MM-DD’.  
+    -   **YEAR**()  
+        Retorna apenas a parte em formato de anos.  
+    -   **MONTH**()  
+        Retorna apenas a parte em formato de meses.  
+    -   **DAY**()  
+        Retorna apenas a parte em formato de dias.  
+    -   **HOUR**()  
+        Retorna apenas a parte em formato de horas.  
+    -   **MINUTE**()  
+        Retorna apenas a parte em formato de minutos.  
+    -   **SECOND**()  
+        Retorna apenas a parte em formato de segundos.  
+
+Obs.: **INTERVAL** é usado para operações em todas essas funções de
+tempo.  
 
 ## 10.2 VIEWS
 
