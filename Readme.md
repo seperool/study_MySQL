@@ -101,10 +101,17 @@ modelo conceitual.
         *nome_da_tabela_da_chave_primaria*(*nome_da_coluna_da_chave_primaria*)  
         );  
 
+    -   Criando VIEWS.  
+        **CREATE** **VIEW** *VW_nome_da_view* **AS**  
+        **SELECT**  
+        …  
+        **FROM** *nome_tabela*  
+        …;  
+
     -   Verificando os banco de dados no sistema.  
         **SHOW DATABASES**;  
 
-    -   Verificando as tabelas do banco de dados.  
+    -   Verificando as tabelas (e **VIEWS**) do banco de dados.  
         **SHOW TABLES**;  
 
     -   *Descrevendo* como é a estrutura de uma tabela, verificando
@@ -119,6 +126,9 @@ modelo conceitual.
 
     -   Deletando uma tabela.  
         **DROP** **TABLE** *nome_da_tabela*;  
+
+    -   Deletando uma **VIEW**.  
+        **DROP** **VIEW** *VW_nome_da_view*;  
 
 ## 3.2 Tipagem de campos
 
@@ -901,7 +911,7 @@ permite que as declarações a serem agrupadas em transações lógicas.
     -   Sintaxe:  
         **COMMIT**;  
 
-# 10 Módulo 11 - Funções e VIEWS
+# 10 Módulo 11 - Funções e **VIEWS**
 
 ## 10.1 Funções
 
@@ -956,7 +966,51 @@ Função é um bloco de programação que executa algo.
 Obs.: **INTERVAL** é usado para operações em todas essas funções de
 tempo.  
 
-## 10.2 VIEWS
+## 10.2 **VIEWS**
+
+### 10.2.1 **DDL** **VIEW**
+
+-   Quando salvamos uma consulta em um banco de dados, ela se chama
+    **VIEW**.  
+-   Uma **VIEW** se comporta de forma semelhante a uma tabela, para
+    todos os efeitos.  
+-   Perde um pouco de performance da consulta, porem ganha em
+    desenvolvimento da consulta.  
+-   Criando **VIEW**  
+    -   As VIEWS ficam salvas junto das tabelas, logo para consulta-las
+        é necessario usar o ‘**SHOW TABLES**;’.  
+    -   Por conta de onde fica armazenada as VIEWS se torna necessario
+        dar um nome diferente para criar um diferenciação, normalmente é
+        usado o prefixo ‘*VW\_*’, ex.: *VW_nome_da_view*.  
+    -   Sintaxe:  
+        **CREATE** **VIEW** *VW_nome_da_view* **AS**  
+        **SELECT**  
+        …  
+        **FROM** *nome_tabela*  
+        …;  
+-   Apagando uma **VIEW**  
+    -   Sintaxe:  
+        **DROP** **VIEW** *VW_nome_da_view*;  
+
+### 10.2.2 **DML** **VIEW**
+
+-   Consultando uma **VIEW** - **SELECT** e **WHERE**  
+    -   Como a **VIEW** funciona como uma tabela do banco de dados, é
+        possivel fazer consulta na **VIEW**, ao inves de consultar
+        alguma tabela do banco de dados.  
+    -   Funciona de maneira semelhante a consulta numa tabela.  
+    -   Sintaxe:  
+        **SELECT**  
+        …  
+        **FROM** *VW_nome_da_view*  
+        …  
+        **WHERE** *coluna* **=** *criterio*;  
+-   Não dá para fazer **INSERT** e **DELETE** em **VIEW** formada por
+    **JOIN**, que junta duas ou mais tabelas.  
+-   Porem **UPDATE** é possivel fazer.  
+-   **VIEWS** sem **JOIN**, não tem restrição quanto ao **INSERT** e
+    **DELETE**.  
+-   Alterar a **VIEW** altera as tabelas que ela aponta. CUIDADO!  
 
 # 11 Detalhes
 
