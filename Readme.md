@@ -1018,9 +1018,6 @@ tempo.
 
 # 11 Módulo 12 - Diagrama ER - brModelo e StarUML
 
-Obs.: Para melhor entendimento do capitulo, olhar arquivo em “.pdf”, por
-conta das imagens.  
-
 -   Existem dois tipo de notação para diagrama ER (Entidade
     Relacionamento):
     -   Peter Chen  
