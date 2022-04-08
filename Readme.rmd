@@ -4,20 +4,20 @@ subtitle: "Readme.rmd"
 author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
-  pdf_document:
-    number_sections: true
-    toc: TRUE
   md_document:
     number_sections: true
     variant: markdown_github
+  odt_document:
+    number_sections: true
   html_document:
     number_sections: true
     df_print: paged
   github_document: default
+  pdf_document:
+    number_sections: true
+    toc: TRUE
   word_document:
     toc: TRUE
-    number_sections: true
-  odt_document:
     number_sections: true
 ---
 
@@ -925,7 +925,7 @@ Obs.: Para melhor entendimento do capitulo, olhar arquivo em ".pdf", por conta d
 ## Peter Chen
 
 - Notação do Peter Chen\
-![notação de Peter Chen](/home/serigo/MySQL/Imagens/NOTACAO-PETER-CHEN-CADERNO-DE-PROVA.png)\
+![notação de Peter Chen](Imagens/NOTACAO-PETER-CHEN-CADERNO-DE-PROVA.png)\
   - Entidade = Tabela\
   - Relacionamento = Relacionamento entre tabelas\
   - Atributo = Coluna/Campo\
@@ -938,15 +938,15 @@ Obs.: Para melhor entendimento do capitulo, olhar arquivo em ".pdf", por conta d
 ## Cross Foot (pé de galinha)
 
 - Entidades\
-![Chaves Cross](/home/serigo/MySQL/Imagens/Keys.PNG)\
+![Chaves Cross](Imagens/Keys.PNG)\
   - PK = Primary Key (Chave Primaria)\
   - FK = Foreing Key (Chave Estrangeira)\
 
 - Atributos e Tipos\
-![Atributos Croos](/home/serigo/MySQL/Imagens/Physical-ERD-Symbols.png)\
+![Atributos Croos](Imagens/Physical-ERD-Symbols.png)\
 
 - Cardinalidade\
-![Cardinalidade Cross](/home/serigo/MySQL/Imagens/ERD-Notation.PNG){width=10cm}\
+![Cardinalidade Cross](Imagens/ERD-Notation.PNG){width=10cm}\
 Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entidades.\
 
 \newpage
