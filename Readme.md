@@ -447,11 +447,15 @@ Sem virgula entre eles.
     -   Também é possivel colocar em ordem, mais de uma coluna de uma
         vez.  
 
+        -   A tabela é ordenada de acordo com a precedencia em que as
+            colunas aparecem no **ORDER BY**.  
         -   Sintaxe:  
             **SELECT** *coluna1*, *coluna2*, … **FROM** *tabela*  
             **GROUP BY** *coluna1*  
             **ORDER BY** *coluna2* **ASC**, *coluna1* **DESC**; (ou
             **ORDER BY** *2* **ASC**, *1* **DESC**;)  
+
+    -   O comando **ORDER BY** também coloca em ordem **VIEWS**.  
 
 # 6 Módulo 7 - Mais comandos **UPDATE** e **DELETE**
 
@@ -1012,7 +1016,47 @@ tempo.
     **DELETE**.  
 -   Alterar a **VIEW** altera as tabelas que ela aponta. CUIDADO!  
 
-# 11 Detalhes
+# 11 brModelo e StarUML
+
+-   Existem dois tipo de notação para diagrama ER (Entidade
+    Relacionamento):
+    -   Peter Chen  
+        -   Esse mais utilizado em literatura sobre banco de dados.  
+        -   Software:  
+            **brModelo**  
+    -   Cross foot  
+        -   Vantagem do diagrama ser menos poluido.  
+        -   Esse mais utilizado por arquitetos de dados.  
+        -   Software:  
+            **StarUML**  
+
+## 11.1 Peter Chen
+
+-   Notação do Peter Chen  
+    ![notação de Peter
+    Chen](/home/serigo/MySQL/NOTACAO-PETER-CHEN-CADERNO-DE-PROVA.png)
+    -   Entidade = Tabela  
+    -   Relacionamento = Relacionamento entre tabelas  
+    -   Atributo = Coluna/Campo  
+    -   Cardinaliade (x,y):  
+        -   x = Obrigatoriedade (“0” não obrigatorio, “1” obrigatorio)  
+        -   y = Tipo de relacionamento (“N” para muitos, “1” para um)  
+
+## 11.2 Cross Foot (pé de galinha)
+
+-   Entidades  
+    ![Chaves Cross](/home/serigo/MySQL/Keys.PNG)
+
+    -   PK = Primary Key (Chave Primaria)  
+    -   FK = Foreing Key (Chave Estrangeira)  
+
+-   Atributos e Tipos  
+    ![Atributos Croos](/home/serigo/MySQL/Physical-ERD-Symbols.png)
+
+-   Cardinalidade  
+    <img src="/home/serigo/MySQL/ERD-Notation.PNG" style="width:10cm" alt="Cardinalidade Cross" />
+
+# 12 Detalhes
 
 -   ***Comentarios*** no **MySQL**, diferente do **SQL** onde
     comentarios são ’/\*\*/‘, no MySQL é’\#‘. Ou’- -’ para comentario de
@@ -1049,8 +1093,8 @@ tempo.
     ‘;’(delimitador), ele informa que o comando acabou e deve ser
     executado.
 
-# 12 Andamento dos Estudos
+# 13 Andamento dos Estudos
 
-## 12.1 Assunto em andamento:
+## 13.1 Assunto em andamento:
 
-Atualmente estou estudando Módulo 11.  
+Atualmente estou estudando Módulo 12.  

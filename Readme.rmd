@@ -4,21 +4,21 @@ subtitle: "Readme.rmd"
 author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
-  html_document:
-    number_sections: true
-    df_print: paged
-  odt_document:
-    number_sections: true
-  word_document:
-    toc: TRUE
-    number_sections: true
-  github_document: default
   md_document:
     number_sections: true
     variant: markdown_github
+  word_document:
+    toc: TRUE
+    number_sections: true
   pdf_document:
     number_sections: true
     toc: TRUE
+  github_document: default
+  odt_document:
+    number_sections: true
+  html_document:
+    number_sections: true
+    df_print: paged
 ---
 
 \newpage
@@ -422,10 +422,13 @@ TABLE_TRUE
   **ORDER BY** *coluna2*; (ou **ORDER BY** *2*;)\
   
   - Também é possivel colocar em ordem, mais de uma coluna de uma vez.\
+    - A tabela é ordenada de acordo com a precedencia em que as colunas aparecem no **ORDER BY**.\
     - Sintaxe:\
     **SELECT** *coluna1*, *coluna2*, ... **FROM** *tabela*\
     **GROUP BY** *coluna1*\
     **ORDER BY** *coluna2* **ASC**, *coluna1* **DESC**; (ou **ORDER BY** *2* **ASC**, *1* **DESC**;)\
+
+  - O comando **ORDER BY** também coloca em ordem **VIEWS**.\
   
 \newpage
 
@@ -902,6 +905,49 @@ Obs.: **INTERVAL** é usado para operações em todas essas funções de tempo.\
 
 \newpage
 
+# brModelo e StarUML
+
+- Existem dois tipo de notação para diagrama ER (Entidade Relacionamento):
+  - Peter Chen\
+    - Esse mais utilizado em literatura sobre banco de dados.\
+    - Software:\
+    **brModelo**\
+  - Cross foot\
+    - Vantagem do diagrama ser menos poluido.\
+    - Esse mais utilizado por arquitetos de dados.\
+    - Software:\
+    **StarUML**\
+
+\newpage
+
+## Peter Chen
+
+- Notação do Peter Chen\
+![notação de Peter Chen](/home/serigo/MySQL/NOTACAO-PETER-CHEN-CADERNO-DE-PROVA.png)
+  - Entidade = Tabela\
+  - Relacionamento = Relacionamento entre tabelas\
+  - Atributo = Coluna/Campo\
+  - Cardinaliade (x,y):\
+    - x = Obrigatoriedade ("0" não obrigatorio, "1" obrigatorio)\
+    - y = Tipo de relacionamento ("N" para muitos, "1" para um)\
+
+\newpage
+
+## Cross Foot (pé de galinha)
+
+- Entidades\
+![Chaves Cross](/home/serigo/MySQL/Keys.PNG)
+  - PK = Primary Key (Chave Primaria)\
+  - FK = Foreing Key (Chave Estrangeira)\
+
+- Atributos e Tipos\
+![Atributos Croos](/home/serigo/MySQL/Physical-ERD-Symbols.png)
+
+- Cardinalidade\
+![Cardinalidade Cross](/home/serigo/MySQL/ERD-Notation.PNG){width=10cm}
+
+\newpage
+
 # Detalhes
 
 - ***Comentarios*** no **MySQL**, diferente do **SQL** onde comentarios são '/**/', no MySQL é '#'. Ou '- -' para comentario de linha.\
@@ -925,4 +971,4 @@ mysql -u root -p\
 
 ## Assunto em andamento:
 
-Atualmente estou estudando Módulo 11.\
+Atualmente estou estudando Módulo 12.\
