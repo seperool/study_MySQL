@@ -1037,7 +1037,7 @@ conta das imagens.
 
 -   Notação do Peter Chen  
     ![notação de Peter
-    Chen](/home/serigo/MySQL/NOTACAO-PETER-CHEN-CADERNO-DE-PROVA.png)
+    Chen](/home/serigo/MySQL/Imagens/NOTACAO-PETER-CHEN-CADERNO-DE-PROVA.png)  
     -   Entidade = Tabela  
     -   Relacionamento = Relacionamento entre tabelas  
     -   Atributo = Coluna/Campo  
@@ -1048,16 +1048,19 @@ conta das imagens.
 ## 11.2 Cross Foot (pé de galinha)
 
 -   Entidades  
-    ![Chaves Cross](/home/serigo/MySQL/Keys.PNG)
+    ![Chaves Cross](/home/serigo/MySQL/Imagens/Keys.PNG)  
 
     -   PK = Primary Key (Chave Primaria)  
     -   FK = Foreing Key (Chave Estrangeira)  
 
 -   Atributos e Tipos  
-    ![Atributos Croos](/home/serigo/MySQL/Physical-ERD-Symbols.png)
+    ![Atributos
+    Croos](/home/serigo/MySQL/Imagens/Physical-ERD-Symbols.png)  
 
 -   Cardinalidade  
-    <img src="/home/serigo/MySQL/ERD-Notation.PNG" style="width:10cm" alt="Cardinalidade Cross" />
+    <img src="/home/serigo/MySQL/Imagens/ERD-Notation.PNG" style="width:10cm" alt="Cardinalidade Cross" />  
+    Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse
+    entre as entidades.  
 
 # 12 Detalhes
 
