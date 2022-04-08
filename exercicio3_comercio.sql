@@ -890,3 +890,127 @@ DELETE FROM VW_JOGADORES
 WHERE NOME = 'GUERRERO';
 
 INSERT INTO VW_JOGADORES VALUES('GUERRERO','RS');
+
+/*ORDER BY*/
+
+CREATE TABLE ALUNOS(
+NUMERO INT,
+NOME VARCHAR(30)
+);
+
+INSERT INTO ALUNOS VALUES(1,'JOAO');
+INSERT INTO ALUNOS VALUES(1,'MARIA');
+INSERT INTO ALUNOS VALUES(2,'ZOE');
+INSERT INTO ALUNOS VALUES(2,'ANDRE');
+INSERT INTO ALUNOS VALUES(3,'CLARA');
+INSERT INTO ALUNOS VALUES(1,'CLARA');
+INSERT INTO ALUNOS VALUES(4,'MAFRA');
+INSERT INTO ALUNOS VALUES(5,'JANAINA');
+INSERT INTO ALUNOS VALUES(1,'JANAINA');
+INSERT INTO ALUNOS VALUES(3,'MARCELO');
+INSERT INTO ALUNOS VALUES(4,'GIOVANI');
+INSERT INTO ALUNOS VALUES(5,'ANTONIO');
+INSERT INTO ALUNOS VALUES(6,'ANA');
+INSERT INTO ALUNOS VALUES(6,'VIVIANE');
+
+SELECT * FROM ALUNOS;
+
++--------+---------+
+| NUMERO | NOME    |
++--------+---------+
+|      1 | JOAO    |
+|      1 | MARIA   |
+|      2 | ZOE     |
+|      2 | ANDRE   |
+|      3 | CLARA   |
+|      1 | CLARA   |
+|      4 | MAFRA   |
+|      5 | JANAINA |
+|      1 | JANAINA |
+|      3 | MARCELO |
+|      4 | GIOVANI |
+|      5 | ANTONIO |
+|      6 | ANA     |
+|      6 | VIVIANE |
++--------+---------+
+
+/* ORDENANDO POR MAIS DE UMA COLUNA */
+
+SELECT * 
+FROM ALUNOS
+ORDER BY 1, 2;
+
+--OU
+
+SELECT * 
+FROM ALUNOS
+ORDER BY NUMERO, NOME;
+
++--------+---------+
+| NUMERO | NOME    |
++--------+---------+
+|      1 | CLARA   |
+|      1 | JANAINA |
+|      1 | JOAO    |
+|      1 | MARIA   |
+|      2 | ANDRE   |
+|      2 | ZOE     |
+|      3 | CLARA   |
+|      3 | MARCELO |
+|      4 | GIOVANI |
+|      4 | MAFRA   |
+|      5 | ANTONIO |
+|      5 | JANAINA |
+|      6 | ANA     |
+|      6 | VIVIANE |
++--------+---------+
+
+/* ORDENANDO COM JOINS */
+
+
+SELECT  
+C.NOME, 
+C.SEXO, 
+IFNULL(C.EMAIL,'CLIENTE SEM EMAIL') AS "E-MAIL", 
+T.TIPO, 
+T.NUMERO, 
+E.BAIRRO, 
+E.CIDADE, 
+E.ESTADO
+FROM CLIENTE C 
+INNER JOIN TELEFONE T 
+ON C.IDCLIENTE = T.ID_CLIENTE 
+INNER JOIN ENDERECO E 
+ON C.IDCLIENTE = E.ID_CLIENTE
+ORDER BY 1;
+
++---------+------+-------------------+------+----------+------------+----------------+--------+
+| NOME    | SEXO | E-MAIL            | TIPO | NUMERO   | BAIRRO     | CIDADE         | ESTADO |
++---------+------+-------------------+------+----------+------------+----------------+--------+
+| ADRIANA | F    | ADRIANA@GMAIL.COM | COM  | 44522578 | CENTRO     | RIO DE JANEIRO | RJ     |
+| ADRIANA | F    | ADRIANA@GMAIL.COM | RES  | 77755785 | CENTRO     | RIO DE JANEIRO | RJ     |
+| ANA     | F    | ANA@GMAIL.COM     | CEL  | 13215464 | JARDINS    | SAO PAULO      | SP     |
+| ANA     | F    | ANA@GMAIL.COM     | CEL  | 98452154 | JARDINS    | SAO PAULO      | SP     |
+| ANTONIO | M    | ANTONIO@UOL.COM   | CEL  | 99655768 | BOM RETIRO | CURITIBA       | PR     |
+| ANTONIO | M    | ANTONIO@IG.COM    | COM  | 88679978 | JARDINS    | SAO PAULO      | SP     |
+| CARLOS  | M    | CARLOS@GMAIL.COM  | COM  | 98654621 | ESTACIO    | RIO DE JANEIRO | RJ     |
+| CARLOS  | M    | CARLOS@GMAIL.COM  | CEL  | 65412354 | ESTACIO    | RIO DE JANEIRO | RJ     |
+| CARMEM  | F    | CARMEM@IG.COM     | RES  | 89766554 | CENTRO     | RIO DE JANEIRO | RJ     |
+| CARMEM  | F    | CARMEM@IG.COM     | RES  | 77455786 | CENTRO     | RIO DE JANEIRO | RJ     |
+| DANIELE | F    | DANIELE@GMAIL.COM | COM  | 88965676 | CENTRO     | VITORIA        | ES     |
+| EDUARDO | M    | CLIENTE SEM EMAIL | CEL  | 89966809 | CENTRO     | CURITIBA       | PR     |
+| ELAINE  | F    | ELAINE@GLOBO.COM  | RES  | 89955665 | LAPA       | SAO PAULO      | SP     |
+| FLAVIO  | M    | FLAVIO@IG.COM     | RES  | 68976565 | CASCADURA  | B. HORIZONTE   | MG     |
+| FLAVIO  | M    | FLAVIO@IG.COM     | CEL  | 99656675 | CASCADURA  | B. HORIZONTE   | MG     |
+| GIOVANA | F    | CLIENTE SEM EMAIL | CEL  | 33567765 | CENTRO     | RIO DE JANEIRO | RJ     |
+| GIOVANA | F    | CLIENTE SEM EMAIL | COM  | 55689654 | CENTRO     | RIO DE JANEIRO | RJ     |
+| GIOVANA | F    | CLIENTE SEM EMAIL | CEL  | 88668786 | CENTRO     | RIO DE JANEIRO | RJ     |
+| JOAO    | M    | JOAO@GMAIL.COM    | COM  | 86546511 | CENTRO     | RIO DE JANEIRO | RJ     |
+| JOAO    | M    | JOAO@GMAIL.COM    | RES  | 46546874 | CENTRO     | RIO DE JANEIRO | RJ     |
+| JOAO    | M    | JOAO@GMAIL.COM    | CEL  | 79521321 | CENTRO     | RIO DE JANEIRO | RJ     |
+| JOICE   | F    | JOICE@GMAIL.COM   | CEL  | 44522578 | CENTRO     | RIO DE JANEIRO | RJ     |
+| JOSE    | M    | JORGE@GMAIL.COM   | CEL  | 78945612 | CENTRO     | VITORIA        | ES     |
+| JOSE    | M    | JORGE@GMAIL.COM   | RES  | 65465845 | CENTRO     | VITORIA        | ES     |
+| JOSE    | M    | JORGE@GMAIL.COM   | RES  | 45642321 | CENTRO     | VITORIA        | ES     |
+| KARLA   | F    | KARLA@GMAIL.COM   | COM  | 88687979 | COPACABANA | RIO DE JANEIRO | RJ     |
++---------+------+-------------------+------+----------+------------+----------------+--------+
