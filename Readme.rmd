@@ -4,21 +4,21 @@ subtitle: "Readme.rmd"
 author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
-  md_document:
-    number_sections: true
-    variant: markdown_github
-  word_document:
-    toc: TRUE
-    number_sections: true
-  pdf_document:
-    number_sections: true
-    toc: TRUE
-  github_document: default
-  odt_document:
-    number_sections: true
   html_document:
     number_sections: true
     df_print: paged
+  word_document:
+    toc: TRUE
+    number_sections: true
+  odt_document:
+    number_sections: true
+  github_document: default
+  md_document:
+    number_sections: true
+    variant: markdown_github
+  pdf_document:
+    number_sections: true
+    toc: TRUE
 ---
 
 \newpage
@@ -905,7 +905,9 @@ Obs.: **INTERVAL** é usado para operações em todas essas funções de tempo.\
 
 \newpage
 
-# brModelo e StarUML
+# Módulo 12 - Diagrama ER - brModelo e StarUML
+
+Obs.: Para melhor entendimento do capitulo, olhar arquivo em ".pdf", por conta das imagens.\
 
 - Existem dois tipo de notação para diagrama ER (Entidade Relacionamento):
   - Peter Chen\
@@ -971,4 +973,4 @@ mysql -u root -p\
 
 ## Assunto em andamento:
 
-Atualmente estou estudando Módulo 12.\
+Atualmente estou estudando Módulo 13.\

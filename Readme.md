@@ -1016,7 +1016,10 @@ tempo.
     **DELETE**.  
 -   Alterar a **VIEW** altera as tabelas que ela aponta. CUIDADO!  
 
-# 11 brModelo e StarUML
+# 11 Módulo 12 - Diagrama ER - brModelo e StarUML
+
+Obs.: Para melhor entendimento do capitulo, olhar arquivo em “.pdf”, por
+conta das imagens.  
 
 -   Existem dois tipo de notação para diagrama ER (Entidade
     Relacionamento):
@@ -1097,4 +1100,4 @@ tempo.
 
 ## 13.1 Assunto em andamento:
 
-Atualmente estou estudando Módulo 12.  
+Atualmente estou estudando Módulo 13.  
