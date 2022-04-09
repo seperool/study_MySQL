@@ -7,17 +7,17 @@ output:
   html_document:
     number_sections: true
     df_print: paged
+  odt_document:
+    number_sections: true
   md_document:
     number_sections: true
     variant: markdown_github
+  github_document: default
   pdf_document:
     number_sections: true
     toc: TRUE
-  github_document: default
   word_document:
     toc: TRUE
-    number_sections: true
-  odt_document:
     number_sections: true
 ---
 
@@ -962,6 +962,52 @@ Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entid
   - É um comando de infraestrutura, logo não precisar de delimitador no final.\
   - Sintaxe:\
   **DELIMITER** *novo_caractere*\
+  
+\newpage
+
+## Bloco de programação
+
+### Bloco anônimo
+
+### Bloco nomeados
+- Criando função (**CREATE PROCEDURE**)\
+  - É necessario mudar o delimitador para não confundir o delimitador do final da função com das instruções.\
+  - Sintaxe:\
+  **DELIMITER** $\
+  **CREATE** **PROCEDURE** *nome_função*()\
+  **BEGIN**\
+  instruções;\
+  ...\
+  **END**\
+  $\
+  Obs.: As instuções internas da função estão com o delimitador padrão ";", enquanto que a **CREATE PROCEDURE** termina com o novo delimitador "$", para diferenciar o que é um e o que é o outro para o sistema.\
+
+- Chamando uma função (Chamando uma **PROCEDURE**)\
+  - Posso voltar com meu delimitador para o padrão ";".\
+  - Sintaxe:\
+  **DELIMITER** ;\
+  **CALL** *nome_função*();\
+
+- Criando uma função que recebe parametros.\
+  - Sintaxe:\
+  **DELIMITER** $\
+  **CREATE** **PROCEDURE** *nome_função*(*parametro1* *tipo*, *parametro2* *tipo*)\
+  **BEGIN**\
+  instruções com os parametros;\
+  ...\
+  **END**\
+  $\
+  
+- Chamando uma função com parametros (Chamando uma **PROCEDURE**)\
+  - Posso voltar com meu delimitador para o padrão ";".\
+  - Sintaxe:\
+  **DELIMITER** ;\
+  **CALL** *nome_função*(*parametro1*, ...);\
+  
+- Apagar uma função.\
+  - Sintaxe:\
+  **DROP** **PROCEDURE** *nome_função*;\
+  Obs.: Sem os "()" da função.\
 
 \newpage
 
