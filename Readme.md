@@ -118,8 +118,11 @@ modelo conceitual.
         quais são as colunas.  
         **DESC** *nome_da_tabela*;  
 
-    -   Verificar em qual **DATABASE** esta conectado no momento.  
-        **STATUS**;  
+    -   Verificar em qual **DATABASE** esta conectado no momento e
+        outros status do em uso.  
+        **STATUS**  
+        Não precisa de “;” (delimitador) pois não é um comando **SQL**,
+        é um comando de infraestrutura. 
 
     -   Deletando um banco de dados.  
         **DROP** **DATABASE** *nome_do_banco_de_dados*;  
@@ -1058,7 +1061,24 @@ tempo.
     Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse
     entre as entidades.  
 
-# 12 Detalhes
+# 12 Módulo 13 - **DELIMITER** e Programação
+
+## 12.1 Como mudar o delimitador
+
+-   O delimitador serve para indicar ao banco de dados o final de uma
+    instrução.  
+-   Por padrão o delimitador do **MySQL** é o “;” (ponto e virgula).  
+-   Dá para verificar o delimitador em uso atraves do comando
+    **STATUS**.  
+-   Porem é possivel mudar o delimitador para poder programar no
+    **MySQL**.  
+    -   O delimitador é apenas um caractere.  
+    -   É um comando de infraestrutura, logo não precisar de delimitador
+        no final.  
+    -   Sintaxe:  
+        **DELIMITER** *novo_caractere*  
+
+# 13 Detalhes
 
 -   ***Comentarios*** no **MySQL**, diferente do **SQL** onde
     comentarios são ’/\*\*/‘, no MySQL é’\#‘. Ou’- -’ para comentario de
@@ -1095,8 +1115,8 @@ tempo.
     ‘;’(delimitador), ele informa que o comando acabou e deve ser
     executado.
 
-# 13 Andamento dos Estudos
+# 14 Andamento dos Estudos
 
-## 13.1 Assunto em andamento:
+## 14.1 Assunto em andamento:
 
 Atualmente estou estudando Módulo 13.  
