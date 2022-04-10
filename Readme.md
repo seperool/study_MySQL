@@ -1061,7 +1061,7 @@ tempo.
     Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse
     entre as entidades.  
 
-# 12 Módulo 13 - **DELIMITER** e Programação
+# 12 Módulo 13 - **DELIMITER** e STORED PROCEDURES
 
 ## 12.1 Como mudar o delimitador
 
@@ -1078,13 +1078,25 @@ tempo.
     -   Sintaxe:  
         **DELIMITER** *novo_caractere*  
 
-## 12.2 Bloco de programação
+## 12.2 STORED PROCEDURES - Procedimentos Armazenados - Funções
 
 ### 12.2.1 Bloco anônimo
 
+-   Blocos anônimos não são armazenados.  
+-   São instruções simples que servem apenas para serem executadas uma
+    única vez, como uma consulta pontual e etc.  
+
 ### 12.2.2 Bloco nomeados
 
+-   Blocos nomeados são **STORED** **PROCEDURES**, procedimentos
+    armazenadas (funções programadas com instruções, armazenadas pelo
+    sistema).  
+
+-   São blocos de programação (instruções) que serão usados varias
+    vezes.  
+
 -   Criando função (**CREATE PROCEDURE**)  
+
     -   É necessario mudar o delimitador para não confundir o
         delimitador do final da função com das instruções.  
     -   Sintaxe:  
@@ -1094,21 +1106,29 @@ tempo.
         padrão “;”, enquanto que a **CREATE PROCEDURE** termina com o
         novo delimitador “$”, para diferenciar o que é um e o que é o
         outro para o sistema.  
+
 -   Chamando uma função (Chamando uma **PROCEDURE**)  
+
     -   Posso voltar com meu delimitador para o padrão “;”.  
     -   Sintaxe:  
         **DELIMITER** ;  
         **CALL** *nome_função*();  
+
 -   Criando uma função que recebe parametros.  
+
     -   Sintaxe:  
         **DELIMITER**
           \*  \* *C**R**E**A**T**E* \*  \*  \*  \* *P**R**O**C**E**D**U**R**E* \*  \*  \* *n**o**m**e*<sub>*f*</sub>*u**n**ç**ã**o* \* (\**p**a**r**a**m**e**t**r**o*1\*\**t**i**p**o*\*,\**p**a**r**a**m**e**t**r**o*2\*\**t**i**p**o*\*)  \*  \* *B**E**G**I**N* \* \* *i**n**s**t**r**u**ç**õ**e**s**c**o**m**o**s**p**a**r**a**m**e**t**r**o**s*; ...  \*  \* *E**N**D* \* \*   
+
 -   Chamando uma função com parametros (Chamando uma **PROCEDURE**)  
+
     -   Posso voltar com meu delimitador para o padrão “;”.  
     -   Sintaxe:  
         **DELIMITER** ;  
         **CALL** *nome_função*(*parametro1*, …);  
+
 -   Apagar uma função.  
+
     -   Sintaxe:  
         **DROP** **PROCEDURE** *nome_função*;  
         Obs.: Sem os “()” da função.  
