@@ -7,18 +7,18 @@ output:
   md_document:
     number_sections: true
     variant: markdown_github
-  pdf_document:
-    number_sections: true
-    toc: TRUE
   word_document:
     toc: TRUE
-    number_sections: true
-  github_document: default
-  odt_document:
     number_sections: true
   html_document:
     number_sections: true
     df_print: paged
+  github_document: default
+  pdf_document:
+    number_sections: true
+    toc: TRUE
+  odt_document:
+    number_sections: true
 ---
 
 \newpage
@@ -971,7 +971,7 @@ Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entid
 - Blocos anônimos não são armazenados.\
 - São instruções simples que servem apenas para serem executadas uma única vez, como uma consulta pontual e etc.\
 
-### Bloco nomeados
+### Blocos nomeados
 - Blocos nomeados são **STORED** **PROCEDURES**, procedimentos armazenadas (funções programadas com instruções, armazenadas pelo sistema).\
 
 - São blocos de programação (instruções) que serão usados varias vezes.\
@@ -979,13 +979,13 @@ Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entid
 - Criando função (**CREATE PROCEDURE**)\
   - É necessario mudar o delimitador para não confundir o delimitador do final da função com das instruções.\
   - Sintaxe:\
-  **DELIMITER** $\
-  **CREATE** **PROCEDURE** *nome_função*()\
-  **BEGIN**\
-  instruções;\
-  ...\
-  **END**\
-  $\
+  **DELIMITER** $ \
+  **CREATE** **PROCEDURE** *nome_função*() \
+  **BEGIN** \
+  instruções; \
+  ... \
+  **END** \
+  $ \
   Obs.: As instuções internas da função estão com o delimitador padrão ";", enquanto que a **CREATE PROCEDURE** termina com o novo delimitador "$", para diferenciar o que é um e o que é o outro para o sistema.\
 
 - Chamando uma função (Chamando uma **PROCEDURE**)\
@@ -995,14 +995,15 @@ Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entid
   **CALL** *nome_função*();\
 
 - Criando uma função que recebe parametros.\
+  - É necessario determinar qual o *tipo* de dado de cada *parametro* (ver Módulo 2).\
   - Sintaxe:\
-  **DELIMITER** $\
-  **CREATE** **PROCEDURE** *nome_função*(*parametro1* *tipo*, *parametro2* *tipo*)\
-  **BEGIN**\
-  instruções com os parametros;\
-  ...\
-  **END**\
-  $\
+  **DELIMITER** $ \
+  **CREATE** **PROCEDURE** *nome_função*(*parametro1* *tipo*, *parametro2* *tipo*) \
+  **BEGIN** \
+  instruções com os parametros; \
+  ... \
+  **END** \
+  $ \
   
 - Chamando uma função com parametros (Chamando uma **PROCEDURE**)\
   - Posso voltar com meu delimitador para o padrão ";".\
@@ -1014,6 +1015,16 @@ Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entid
   - Sintaxe:\
   **DROP** **PROCEDURE** *nome_função*;\
   Obs.: Sem os "()" da função.\
+
+### Problemas de usar **PROCEDURES**
+
+- Cada banco de dados (**MySQL**, **ORACLE**,... ) tem sua linguagem de programação, logo dificulta a migração de banco de dados.\
+- As regras de negócio ficam atreladas ao banco de dados, não é uma boa pratica.\
+
+### Pontos positivos de usar **PROCEDURES**
+
+- Desafoga a área de controle (**C#**, **JAVA**, **JS**, **Ruby**, **PHP**,...) do sistema a qual se esta trabalhando.\
+- Pode ser uma boa saida para melhorar o desempenho da área de controle (linguagens de programação), destribuir as regras de negócio entre controle e banco de dados.\
 
 \newpage
 

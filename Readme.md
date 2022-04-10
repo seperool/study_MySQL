@@ -1086,7 +1086,7 @@ tempo.
 -   São instruções simples que servem apenas para serem executadas uma
     única vez, como uma consulta pontual e etc.  
 
-### 12.2.2 Bloco nomeados
+### 12.2.2 Blocos nomeados
 
 -   Blocos nomeados são **STORED** **PROCEDURES**, procedimentos
     armazenadas (funções programadas com instruções, armazenadas pelo
@@ -1100,8 +1100,13 @@ tempo.
     -   É necessario mudar o delimitador para não confundir o
         delimitador do final da função com das instruções.  
     -   Sintaxe:  
-        **DELIMITER**
-          \*  \* *C**R**E**A**T**E* \*  \*  \*  \* *P**R**O**C**E**D**U**R**E* \*  \*  \* *n**o**m**e*<sub>*f*</sub>*u**n**ç**ã**o* \* ()  \*  \* *B**E**G**I**N* \* \* *i**n**s**t**r**u**ç**õ**e**s*; ...  \*  \* *E**N**D* \* \*   
+        **DELIMITER** $  
+        **CREATE** **PROCEDURE** *nome_função*()  
+        **BEGIN**  
+        instruções;  
+        …  
+        **END**  
+        $  
         Obs.: As instuções internas da função estão com o delimitador
         padrão “;”, enquanto que a **CREATE PROCEDURE** termina com o
         novo delimitador “$”, para diferenciar o que é um e o que é o
@@ -1116,9 +1121,17 @@ tempo.
 
 -   Criando uma função que recebe parametros.  
 
+    -   É necessario determinar qual o *tipo* de dado de cada
+        *parametro* (ver Módulo 2).  
     -   Sintaxe:  
-        **DELIMITER**
-          \*  \* *C**R**E**A**T**E* \*  \*  \*  \* *P**R**O**C**E**D**U**R**E* \*  \*  \* *n**o**m**e*<sub>*f*</sub>*u**n**ç**ã**o* \* (\**p**a**r**a**m**e**t**r**o*1\*\**t**i**p**o*\*,\**p**a**r**a**m**e**t**r**o*2\*\**t**i**p**o*\*)  \*  \* *B**E**G**I**N* \* \* *i**n**s**t**r**u**ç**õ**e**s**c**o**m**o**s**p**a**r**a**m**e**t**r**o**s*; ...  \*  \* *E**N**D* \* \*   
+        **DELIMITER** $  
+        **CREATE** **PROCEDURE** *nome_função*(*parametro1* *tipo*,
+        *parametro2* *tipo*)  
+        **BEGIN**  
+        instruções com os parametros;  
+        …  
+        **END**  
+        $  
 
 -   Chamando uma função com parametros (Chamando uma **PROCEDURE**)  
 
@@ -1132,6 +1145,21 @@ tempo.
     -   Sintaxe:  
         **DROP** **PROCEDURE** *nome_função*;  
         Obs.: Sem os “()” da função.  
+
+### 12.2.3 Problemas de usar **PROCEDURES**
+
+-   Cada banco de dados (**MySQL**, **ORACLE**,… ) tem sua linguagem de
+    programação, logo dificulta a migração de banco de dados.  
+-   As regras de negócio ficam atreladas ao banco de dados, não é uma
+    boa pratica.  
+
+### 12.2.4 Pontos positivos de usar **PROCEDURES**
+
+-   Desafoga a área de controle (**C#**, **JAVA**, **JS**, **Ruby**,
+    **PHP**,…) do sistema a qual se esta trabalhando.  
+-   Pode ser uma boa saida para melhorar o desempenho da área de
+    controle (linguagens de programação), destribuir as regras de
+    negócio entre controle e banco de dados.  
 
 # 13 Detalhes
 
