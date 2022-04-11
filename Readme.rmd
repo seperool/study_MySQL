@@ -7,17 +7,17 @@ output:
   md_document:
     number_sections: true
     variant: markdown_github
-  word_document:
-    toc: TRUE
-    number_sections: true
-  html_document:
-    number_sections: true
-    df_print: paged
-  github_document: default
   pdf_document:
     number_sections: true
     toc: TRUE
   odt_document:
+    number_sections: true
+  github_document: default
+  html_document:
+    number_sections: true
+    df_print: paged
+  word_document:
+    toc: TRUE
     number_sections: true
 ---
 
@@ -1026,6 +1026,33 @@ Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entid
 - Desafoga a área de controle (**C#**, **JAVA**, **JS**, **Ruby**, **PHP**,...) do sistema a qual se esta trabalhando.\
 - Pode ser uma boa saida para melhorar o desempenho da área de controle (linguagens de programação), destribuir as regras de negócio entre controle e banco de dados.\
 
+\newpage
+
+# Módulo 14 - Funções Básicas
+
+- **COUNT** (*)\
+  - Conta todos os registros.\
+    
+- **COUNT** (*coluna_x*)\
+  - Conta os registros da coluna x.\
+    
+- **AVG** (*coluna_x*)\
+  - Calcula a media dos valores da coluna x.\
+    
+- **MAX** (*coluna_x*)\
+  - Encontra o valor maximo da coluna x.\
+    
+- **MIN** (*coluna_x*)\
+  - Encontra o valor minimo da coluna x.\
+    
+- **SUM** (*coluna_x*)\
+  - Calcula a soma dos valores na coluna x.\
+ 
+- **TRUNCATE** (*numero*, *numero_casa_decimais*)\
+  - Trunca o numero para um numero com as casas decimais estabelecidos.\
+  - O numero pode ser uma função que calculou algo a partir de uma coluna (**AVG**, **SUM**, ...).\
+  - Não confundir com a função **TRUNCATE TABLE**.\
+ 
 \newpage
 
 # Detalhes

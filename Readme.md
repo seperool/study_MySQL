@@ -1161,7 +1161,28 @@ tempo.
     controle (linguagens de programação), destribuir as regras de
     negócio entre controle e banco de dados.  
 
-# 13 Detalhes
+# 13 Módulo 14 - Funções Básicas
+
+-   **COUNT** (\*)  
+    -   Conta todos os registros.  
+-   **COUNT** (*coluna_x*)  
+    -   Conta os registros da coluna x.  
+-   **AVG** (*coluna_x*)  
+    -   Calcula a media dos valores da coluna x.  
+-   **MAX** (*coluna_x*)  
+    -   Encontra o valor maximo da coluna x.  
+-   **MIN** (*coluna_x*)  
+    -   Encontra o valor minimo da coluna x.  
+-   **SUM** (*coluna_x*)  
+    -   Calcula a soma dos valores na coluna x.  
+-   **TRUNCATE** (*numero*, *numero_casa_decimais*)  
+    -   Trunca o numero para um numero com as casas decimais
+        estabelecidos.  
+    -   O numero pode ser uma função que calculou algo a partir de uma
+        coluna (**AVG**, **SUM**, …).  
+    -   Não confundir com a função **TRUNCATE TABLE**.  
+
+# 14 Detalhes
 
 -   ***Comentarios*** no **MySQL**, diferente do **SQL** onde
     comentarios são ’/\*\*/‘, no MySQL é’\#‘. Ou’- -’ para comentario de
@@ -1198,8 +1219,8 @@ tempo.
     ‘;’(delimitador), ele informa que o comando acabou e deve ser
     executado.
 
-# 14 Andamento dos Estudos
+# 15 Andamento dos Estudos
 
-## 14.1 Assunto em andamento:
+## 15.1 Assunto em andamento:
 
 Atualmente estou estudando Módulo 13.  
