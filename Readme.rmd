@@ -4,21 +4,21 @@ subtitle: "Readme.rmd"
 author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
-  md_document:
-    number_sections: true
-    variant: markdown_github
   pdf_document:
     number_sections: true
     toc: TRUE
-  odt_document:
+  md_document:
     number_sections: true
-  github_document: default
-  html_document:
-    number_sections: true
-    df_print: paged
+    variant: markdown_github
   word_document:
     toc: TRUE
     number_sections: true
+  github_document: default
+  odt_document:
+    number_sections: true
+  html_document:
+    number_sections: true
+    df_print: paged
 ---
 
 \newpage
@@ -1055,6 +1055,20 @@ Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entid
  
 \newpage
 
+# Módulo 15 - Subqueries (Subconsulta)
+
+- Uma consulta dentro do resultado de outra consulta.\
+- Pode ser usado como o filtro de uma nova consulta, quando usado dentro do **WHERE**.\
+  - O retorno de colunas da segunda consulta deve ser igual ao numero de colunas do filtro.\
+  - Sintaxe:\
+  **SELECT**\
+  *coluna1*\
+  ... \
+  **FROM** *tabela*\
+  **WHERE** *coluna1* = (**SELECT** *coluna* **FROM** *tabela* **WHERE** *coluna_x* = *criteiro*);\
+
+\newpage
+
 # Detalhes
 
 - ***Comentarios*** no **MySQL**, diferente do **SQL** onde comentarios são '/**/', no MySQL é '#'. Ou '- -' para comentario de linha.\
@@ -1078,4 +1092,4 @@ mysql -u root -p\
 
 ## Assunto em andamento:
 
-Atualmente estou estudando Módulo 13.\
+Atualmente estou estudando Módulo 15.\

@@ -1182,7 +1182,22 @@ tempo.
         coluna (**AVG**, **SUM**, …).  
     -   Não confundir com a função **TRUNCATE TABLE**.  
 
-# 14 Detalhes
+# 14 Módulo 15 - Subqueries (Subconsulta)
+
+-   Uma consulta dentro do resultado de outra consulta.  
+-   Pode ser usado como o filtro de uma nova consulta, quando usado
+    dentro do **WHERE**.  
+    -   O retorno de colunas da segunda consulta deve ser igual ao
+        numero de colunas do filtro.  
+    -   Sintaxe:  
+        **SELECT**  
+        *coluna1*  
+        …  
+        **FROM** *tabela*  
+        **WHERE** *coluna1* = (**SELECT** *coluna* **FROM** *tabela*
+        **WHERE** *coluna_x* = *criteiro*);  
+
+# 15 Detalhes
 
 -   ***Comentarios*** no **MySQL**, diferente do **SQL** onde
     comentarios são ’/\*\*/‘, no MySQL é’\#‘. Ou’- -’ para comentario de
@@ -1219,8 +1234,8 @@ tempo.
     ‘;’(delimitador), ele informa que o comando acabou e deve ser
     executado.
 
-# 15 Andamento dos Estudos
+# 16 Andamento dos Estudos
 
-## 15.1 Assunto em andamento:
+## 16.1 Assunto em andamento:
 
-Atualmente estou estudando Módulo 13.  
+Atualmente estou estudando Módulo 15.  
