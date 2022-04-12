@@ -148,3 +148,99 @@ FROM VENDEDORES;
 SELECT SEXO, SUM(MARCO) AS TOTAL_MARCO
 FROM VENDEDORES
 GROUP BY SEXO;
+
+/*-------------------*/
+
+/* A 31 - SUBQUERIES
+
+VENDEDOR QUE VENDEU MENOS EM MARCO
+E O SEU NOME */
+
+-- QUAL MENOR VENDA MARCO?
+SELECT 
+MIN(MARCO) AS MENOR_VEND_MARCO
+FROM VENDEDORES;
+
++------------------+
+| MENOR_VEND_MARCO |
++------------------+
+|          4467.90 |
++------------------+
+
+
+-- NOME DO VENDEDOR DA MENOR VENDA.
+SELECT
+NOME,
+MARCO
+FROM VENDEDORES
+WHERE MARCO = (SELECT 
+MIN(MARCO) AS MENOR_VEND_MARCO
+FROM VENDEDORES);
+
++-------+---------+
+| NOME  | MARCO   |
++-------+---------+
+| MARIA | 4467.90 |
++-------+---------+
+
+
+/*NOME E O VALOR QUE VENDEU MAIS EM MARCO*/
+
+-- QUAL MAIOR VENDA DE MARCO?
+SELECT 
+MAX(MARCO) AS MAIOR_VEND_MARCO
+FROM VENDEDORES;
+
++------------------+
+| MAIOR_VEND_MARCO |
++------------------+
+|        578665.88 |
++------------------+
+
+-- NOME DO VENDEDOR QUE MAIS VENDEU EM MARCO
+
+SELECT
+NOME,
+MARCO
+FROM VENDEDORES
+WHERE MARCO = (SELECT 
+MAX(MARCO) AS MENOR_VEND_MARCO
+FROM VENDEDORES);
+
++----------+-----------+
+| NOME     | MARCO     |
++----------+-----------+
+| ANDERSON | 578665.88 |
++----------+-----------+
+
+
+/*QUEM VENDEU MAIS QUE O VALOR MEDIO DE FEV*/
+
+-- VALOR MEDIO DE FEVEREIRO
+
+SELECT
+AVG(FEVEREIRO) AS VALOR_MED_FEV
+FROM VENDEDORES;
+
++---------------+
+| VALOR_MED_FEV |
++---------------+
+|  99392.744873 |
++---------------+
+
+
+-- QUAIS VENDERAM MAIS QUE O VALOR MEDIO DE FEV
+
+SELECT
+NOME,
+FEVEREIRO
+FROM VENDEDORES
+WHERE FEVEREIRO > (SELECT
+AVG(FEVEREIRO) AS VALOR_MED_FEV
+FROM VENDEDORES);
+
++-------+-----------+
+| NOME  | FEVEREIRO |
++-------+-----------+
+| CLARA | 446886.88 |
++-------+-----------+
