@@ -1182,7 +1182,9 @@ tempo.
         coluna (**AVG**, **SUM**, …).  
     -   Não confundir com a função **TRUNCATE TABLE**.  
 
-# 14 Módulo 15 - Subqueries (Subconsulta)
+# 14 Módulo 15 - Subqueries (Subconsulta) e Trabalhando com linhas
+
+## 14.1 Subqueries (Subconsulta)
 
 -   Uma consulta dentro do resultado de outra consulta.  
 -   Pode ser usado como o filtro de uma nova consulta, quando usado
@@ -1196,6 +1198,18 @@ tempo.
         **FROM** *tabela*  
         **WHERE** *coluna1* = (**SELECT** *coluna* **FROM** *tabela*
         **WHERE** *coluna_x* = *criteiro*);  
+
+## 14.2 Trabalhando com linhas
+
+-   Não tem funções especificas para trabalhar com linhas/registros.  
+-   Porem atraves da projeção (**SELECT**) é possivel manipular novas
+    colunas.  
+-   Sintaxe:  
+    **SELECT**  
+    *coluna_1*,  
+    …,  
+    **TRUNCATE**(*coluna_1*+*coluna_2*+…/10, 2) **AS** “Media”  
+    **FROM** *tabela*;  
 
 # 15 Detalhes
 
