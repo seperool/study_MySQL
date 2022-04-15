@@ -4,21 +4,21 @@ subtitle: "Readme.rmd"
 author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
-  md_document:
-    number_sections: true
-    variant: markdown_github
   pdf_document:
     number_sections: true
     toc: TRUE
   odt_document:
     number_sections: true
-  github_document: default
-  html_document:
-    number_sections: true
-    df_print: paged
   word_document:
     toc: TRUE
     number_sections: true
+  github_document: default
+  md_document:
+    number_sections: true
+    variant: markdown_github
+  html_document:
+    number_sections: true
+    df_print: paged
 ---
 
 \newpage
@@ -696,6 +696,7 @@ Remove um banco de dados, tabela, índice ou visão existente.\
 - **ALTER**\
   - Modifica um objeto existente do banco de dados.\
   - É possível incluir, eliminar e alterar colunas.\
+  - Para alterar uma tabela existente, é necessario que os registros existentes já sejam compativeis com a alteração.\
     - **CHANGE**\
       - Altera o nome e o tipo da coluna/campo.\
       - Para alterar apenas o tipo, é necessario repetir o nome da coluna/campo.\
@@ -708,8 +709,24 @@ Remove um banco de dados, tabela, índice ou visão existente.\
       - Sintaxe:\
       **ALTER TABLE** *nome_tabela*\
       **MODIFY** *nome_coluna* *modificação_tipo*;\
+      
+    - **ADD**\
+      - Adiciona chaves (primaria ou estrangeira) a uma coluna.\
+      - Não é possivel adicionar "*auto_increment*".\
+      - Sintaxe:\
+      **ALTER** **TABLE** *tabela*\
+      **ADD** **PRIMARY KEY**(*coluna*);\
+      ou\
+      **ALTER** **TABLE** *tabela*\
+      **ADD** **FOREING KEY**(*coluna_da_tabela*)\
+      **REFERENCES** (*coluna_chave_primaria_de_outra_tabela*);\
+      
+      - O comando **ADD** funciona como abreviaçãodo do comando **ADD COLUMN**.\
+      - Sintaxe:\
+      **ALTER** **TABLE** *tabela*\
+      **ADD** *nova_coluna* *tipo*;\
     
-    - **ADD C0LUMN**\
+    - **ADD COLUMN**\
       - Adicionando uma nova coluna.\
       - Sintaxe:\
       **ALTER TABLE** [nome_database.]*nome_tabela*\
@@ -729,6 +746,12 @@ Remove um banco de dados, tabela, índice ou visão existente.\
       - Sintaxe:\
       **ALTER TABLE** [nome_database.]*nome_tabela*\
       **DROP COLUMN** *nome_coluna*;\
+      
+    - **RENAME**\
+      - Renomeia o nome de uma tabela.\
+      - Sintaxe:\
+      **ALTER** **TABLE** *tabela*\
+      **RENAME** *novo_nome_tabela*;\
 
 - **TRUNCATE**\
   - Esvazia imediatamente todo o conteúdo de uma tabela ou objeto que contenha dados.\
@@ -1079,6 +1102,77 @@ Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entid
 ..., \
 **TRUNCATE**(*coluna_1*+*coluna_2*+.../10, 2) **AS** "Media"\
 **FROM** *tabela*;\
+
+\newpage
+
+# Módulo 16 - Modificação de tabelas
+
+- **ALTER**\
+  - Modifica um objeto existente do banco de dados.\
+  - É possível incluir, eliminar e alterar colunas.\
+  - Para alterar uma tabela existente, é necessario que os registros existentes já sejam compativeis com a alteração.\
+    - **CHANGE**\
+      - Altera o nome e o tipo da coluna/campo.\
+      - Para alterar apenas o tipo, é necessario repetir o nome da coluna/campo.\
+      - Sintaxe:\
+      **ALTER TABLE** *nome_tabela*\
+      **CHANGE** *nome_coluna* *(novo)nome_coluna* *modificação_tipo*;\
+    
+    - **MODIFY**\
+      - Altera o tipo e regras de uma coluna/campo.\
+      - Sintaxe:\
+      **ALTER TABLE** *nome_tabela*\
+      **MODIFY** *nome_coluna* *modificação_tipo*;\
+    
+    - **ADD**\
+      - Adiciona chaves (primaria ou estrangeira) a uma coluna.\
+      - Não é possivel adicionar "*auto_increment*".\
+      - Sintaxe:\
+      **ALTER** **TABLE** *tabela*\
+      **ADD** **PRIMARY KEY**(*coluna*);\
+      ou\
+      **ALTER** **TABLE** *tabela*\
+      **ADD** **FOREING KEY**(*coluna_da_tabela*)\
+      **REFERENCES** (*coluna_chave_primaria_de_outra_tabela*);\
+      
+      - O comando **ADD** funciona como abreviaçãodo do comando **ADD COLUMN**.\
+      - Sintaxe:\
+      **ALTER** **TABLE** *tabela*\
+      **ADD** *nova_coluna* *tipo*;\
+    
+    - **ADD COLUMN**\
+      - Adicionando uma nova coluna.\
+      - Sintaxe:\
+      **ALTER TABLE** [nome_database.]*nome_tabela*\
+      **ADD COLUMN** *nome_coluna* *tipo*;\
+      - Para alterar a posição de entrada da coluna na tabela, usar **FIRST** (para aparecer na primeira posição da tabela) ou **AFTER** (depois de tal coluna).\
+      - Sintaxe:\
+      **ALTER TABLE** [nome_database.]*nome_tabela*\
+      **ADD COLUMN** *nome_coluna* *tipo*\
+      **FIRST**;\
+      ou\
+      **ALTER TABLE** [nome_database.]*nome_tabela*\
+      **ADD COLUMN** *nome_coluna* *tipo*\
+      **AFTER** *coluna_de_referencia*;\
+      
+    - **DROP COLUMN**\
+      - Deleta uma determinada coluna de uma tabela.\
+      - Sintaxe:\
+      **ALTER TABLE** [nome_database.]*nome_tabela*\
+      **DROP COLUMN** *nome_coluna*;\
+      
+    - **RENAME**\
+      - Renomeia o nome de uma tabela.\
+      - Sintaxe:\
+      **ALTER** **TABLE** *tabela*\
+      **RENAME** *novo_nome_tabela*;\
+
+- **RENAME**\
+  - Mudar nome da tabela e/ou database.\
+  - Sintaxe:\
+  **RENAME TABLE** *nome_database*.*nome_tabela* **TO** *nome_database*.*novo_nome_tabela*;\
+  ou\
+  **RENAME TABLE** *nome_database*.*nome_tabela* **TO** *novo_nome_database*.*nome_tabela*;\
 
 \newpage
 

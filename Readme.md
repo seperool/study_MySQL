@@ -760,6 +760,8 @@ dos objetos armazenados no banco de dados.
 
     -   Modifica um objeto existente do banco de dados.  
     -   É possível incluir, eliminar e alterar colunas.  
+    -   Para alterar uma tabela existente, é necessario que os registros
+        existentes já sejam compativeis com a alteração.  
         -   **CHANGE**  
             -   Altera o nome e o tipo da coluna/campo.  
             -   Para alterar apenas o tipo, é necessario repetir o nome
@@ -773,7 +775,28 @@ dos objetos armazenados no banco de dados.
             -   Sintaxe:  
                 **ALTER TABLE** *nome_tabela*  
                 **MODIFY** *nome_coluna* *modificação_tipo*;  
-        -   **ADD C0LUMN**  
+        -   **ADD**  
+            -   Adiciona chaves (primaria ou estrangeira) a uma
+                coluna.  
+
+            -   Não é possivel adicionar “*auto_increment*”.  
+
+            -   Sintaxe:  
+                **ALTER** **TABLE** *tabela*  
+                **ADD** **PRIMARY KEY**(*coluna*);  
+                ou  
+                **ALTER** **TABLE** *tabela*  
+                **ADD** **FOREING KEY**(*coluna_da_tabela*)  
+                **REFERENCES**
+                (*coluna_chave_primaria_de_outra_tabela*);  
+
+            -   O comando **ADD** funciona como abreviaçãodo do comando
+                **ADD COLUMN**.  
+
+            -   Sintaxe:  
+                **ALTER** **TABLE** *tabela*  
+                **ADD** *nova_coluna* *tipo*;  
+        -   **ADD COLUMN**  
             -   Adicionando uma nova coluna.  
             -   Sintaxe:  
                 **ALTER TABLE** \[nome_database.\]*nome_tabela*  
@@ -794,6 +817,11 @@ dos objetos armazenados no banco de dados.
             -   Sintaxe:  
                 **ALTER TABLE** \[nome_database.\]*nome_tabela*  
                 **DROP COLUMN** *nome_coluna*;  
+        -   **RENAME**  
+            -   Renomeia o nome de uma tabela.  
+            -   Sintaxe:  
+                **ALTER** **TABLE** *tabela*  
+                **RENAME** *novo_nome_tabela*;  
 
 -   **TRUNCATE**  
 
@@ -1211,7 +1239,83 @@ tempo.
     **TRUNCATE**(*coluna_1*+*coluna_2*+…/10, 2) **AS** “Media”  
     **FROM** *tabela*;  
 
-# 15 Detalhes
+# 15 Módulo 16 - Modificação de tabelas
+
+-   **ALTER**  
+    -   Modifica um objeto existente do banco de dados.  
+    -   É possível incluir, eliminar e alterar colunas.  
+    -   Para alterar uma tabela existente, é necessario que os registros
+        existentes já sejam compativeis com a alteração.  
+        -   **CHANGE**  
+            -   Altera o nome e o tipo da coluna/campo.  
+            -   Para alterar apenas o tipo, é necessario repetir o nome
+                da coluna/campo.  
+            -   Sintaxe:  
+                **ALTER TABLE** *nome_tabela*  
+                **CHANGE** *nome_coluna* *(novo)nome_coluna*
+                *modificação_tipo*;  
+        -   **MODIFY**  
+            -   Altera o tipo e regras de uma coluna/campo.  
+            -   Sintaxe:  
+                **ALTER TABLE** *nome_tabela*  
+                **MODIFY** *nome_coluna* *modificação_tipo*;  
+        -   **ADD**  
+            -   Adiciona chaves (primaria ou estrangeira) a uma
+                coluna.  
+
+            -   Não é possivel adicionar “*auto_increment*”.  
+
+            -   Sintaxe:  
+                **ALTER** **TABLE** *tabela*  
+                **ADD** **PRIMARY KEY**(*coluna*);  
+                ou  
+                **ALTER** **TABLE** *tabela*  
+                **ADD** **FOREING KEY**(*coluna_da_tabela*)  
+                **REFERENCES**
+                (*coluna_chave_primaria_de_outra_tabela*);  
+
+            -   O comando **ADD** funciona como abreviaçãodo do comando
+                **ADD COLUMN**.  
+
+            -   Sintaxe:  
+                **ALTER** **TABLE** *tabela*  
+                **ADD** *nova_coluna* *tipo*;  
+        -   **ADD COLUMN**  
+            -   Adicionando uma nova coluna.  
+            -   Sintaxe:  
+                **ALTER TABLE** \[nome_database.\]*nome_tabela*  
+                **ADD COLUMN** *nome_coluna* *tipo*;  
+            -   Para alterar a posição de entrada da coluna na tabela,
+                usar **FIRST** (para aparecer na primeira posição da
+                tabela) ou **AFTER** (depois de tal coluna).  
+            -   Sintaxe:  
+                **ALTER TABLE** \[nome_database.\]*nome_tabela*  
+                **ADD COLUMN** *nome_coluna* *tipo*  
+                **FIRST**;  
+                ou  
+                **ALTER TABLE** \[nome_database.\]*nome_tabela*  
+                **ADD COLUMN** *nome_coluna* *tipo*  
+                **AFTER** *coluna_de_referencia*;  
+        -   **DROP COLUMN**  
+            -   Deleta uma determinada coluna de uma tabela.  
+            -   Sintaxe:  
+                **ALTER TABLE** \[nome_database.\]*nome_tabela*  
+                **DROP COLUMN** *nome_coluna*;  
+        -   **RENAME**  
+            -   Renomeia o nome de uma tabela.  
+            -   Sintaxe:  
+                **ALTER** **TABLE** *tabela*  
+                **RENAME** *novo_nome_tabela*;  
+-   **RENAME**  
+    -   Mudar nome da tabela e/ou database.  
+    -   Sintaxe:  
+        **RENAME TABLE** *nome_database*.*nome_tabela* **TO**
+        *nome_database*.*novo_nome_tabela*;  
+        ou  
+        **RENAME TABLE** *nome_database*.*nome_tabela* **TO**
+        *novo_nome_database*.*nome_tabela*;  
+
+# 16 Detalhes
 
 -   ***Comentarios*** no **MySQL**, diferente do **SQL** onde
     comentarios são ’/\*\*/‘, no MySQL é’\#‘. Ou’- -’ para comentario de
@@ -1248,8 +1352,8 @@ tempo.
     ‘;’(delimitador), ele informa que o comando acabou e deve ser
     executado.
 
-# 16 Andamento dos Estudos
+# 17 Andamento dos Estudos
 
-## 16.1 Assunto em andamento:
+## 17.1 Assunto em andamento:
 
 Atualmente estou estudando Módulo 16.  
