@@ -114,6 +114,10 @@ modelo conceitual.
     -   Verificando as tabelas (e **VIEWS**) do banco de dados.  
         **SHOW TABLES**;  
 
+    -   Visualização detalhada de tabelas, mais detalhado que
+        **DESC**.  
+        **SHOW** **CREATE** **TABLE** *nome_da_tabela*;  
+
     -   *Descrevendo* como é a estrutura de uma tabela, verificando
         quais são as colunas.  
         **DESC** *nome_da_tabela*;  
@@ -1241,6 +1245,8 @@ tempo.
 
 # 15 Módulo 16 - Modificação de tabelas
 
+## 15.1 Modificação de tabelas - **ALTER**
+
 -   **ALTER**  
     -   Modifica um objeto existente do banco de dados.  
     -   É possível incluir, eliminar e alterar colunas.  
@@ -1314,6 +1320,23 @@ tempo.
         ou  
         **RENAME TABLE** *nome_database*.*nome_tabela* **TO**
         *novo_nome_database*.*nome_tabela*;  
+
+## 15.2 Constraints - regras e boas praticas
+
+-   Para poder visualizar de maneira mais organizada atraves do
+    dicionario, é interessante adicionar as chaves fora da criação de
+    tabelas.  
+
+-   Ao adicionar a chave dentro da criação de tabelas o sistema dá um
+    nome automatico para a chave no sistema. O que não é desejado e pode
+    ficar confuso.  
+
+-   Ao adicionar a chave fora da criação de tabelas o usuario determina
+    o nome daquela chave que ficara gravada no sistema.  
+
+-   Os nomes das chaves podem ser consultados no dicionario do sistema e
+    no:  
+    **SHOW CREATE TABLE** *nome_da_tabela*;  
 
 # 16 Detalhes
 

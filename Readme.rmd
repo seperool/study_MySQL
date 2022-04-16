@@ -4,18 +4,18 @@ subtitle: "Readme.rmd"
 author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
-  pdf_document:
-    number_sections: true
-    toc: TRUE
-  odt_document:
-    number_sections: true
-  word_document:
-    toc: TRUE
-    number_sections: true
-  github_document: default
   md_document:
     number_sections: true
     variant: markdown_github
+  word_document:
+    toc: TRUE
+    number_sections: true
+  pdf_document:
+    number_sections: true
+    toc: TRUE
+  github_document: default
+  odt_document:
+    number_sections: true
   html_document:
     number_sections: true
     df_print: paged
@@ -116,6 +116,9 @@ Obs.: alguns softwares (ex.: brModelo) chamam a modelagem lógica de modelo conc
       
       - Verificando as tabelas (e **VIEWS**) do banco de dados.\
       **SHOW TABLES**;\
+      
+      - Visualização detalhada de tabelas, mais detalhado que **DESC**.\
+      **SHOW** **CREATE** **TABLE** *nome_da_tabela*;\
       
       - *Descrevendo* como é a estrutura de uma tabela, verificando quais são as colunas.\
       **DESC** *nome_da_tabela*;\
@@ -1107,6 +1110,8 @@ Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entid
 
 # Módulo 16 - Modificação de tabelas
 
+## Modificação de tabelas - **ALTER**
+
 - **ALTER**\
   - Modifica um objeto existente do banco de dados.\
   - É possível incluir, eliminar e alterar colunas.\
@@ -1173,6 +1178,19 @@ Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entid
   **RENAME TABLE** *nome_database*.*nome_tabela* **TO** *nome_database*.*novo_nome_tabela*;\
   ou\
   **RENAME TABLE** *nome_database*.*nome_tabela* **TO** *novo_nome_database*.*nome_tabela*;\
+
+\newpage
+
+## Constraints - regras e boas praticas
+
+- Para poder visualizar de maneira mais organizada atraves do dicionario, é interessante adicionar as chaves fora da criação de tabelas.\
+
+- Ao adicionar a chave dentro da criação de tabelas o sistema dá um nome automatico para a chave no sistema. O que não é desejado e pode ficar confuso.\
+
+- Ao adicionar a chave fora da criação de tabelas o usuario determina o nome daquela chave que ficara gravada no sistema.\
+
+- Os nomes das chaves podem ser consultados no dicionario do sistema e no: \
+**SHOW CREATE TABLE** *nome_da_tabela*;\
 
 \newpage
 
