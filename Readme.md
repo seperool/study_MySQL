@@ -1312,6 +1312,27 @@ tempo.
             -   Sintaxe:  
                 **ALTER** **TABLE** *tabela*  
                 **RENAME** *novo_nome_tabela*;  
+        -   **CONSTRAINTS**  
+            -   Cria regras, muito usado para adicionar chaves (PK e FK)
+                a tabela.  
+            -   Sintaxe:  
+                **ALTER** **TABLE** *nome_tabela*  
+                **ADD** **CONSTRAINTS** *nome_da_regra*  
+                **PRIMARY** **KEY**(*coluna_chave_primaria*);  
+                ou  
+                **ALTER** **TABLE** *nome_tabela*  
+                **ADD** **CONSTRAINTS** *nome_da_regra*  
+                **FOREIGN** **KEY**(*coluna_chave_estrangeira*) 
+                **REFERENCES**
+                *tabela_chave_primaria*(*coluna_chave_primaria*);  
+        -   **DROP CONSTRAINTS**  
+            -   Apaga regras.  
+            -   Sintaxe:  
+                **ALTER** **TABLE** *nome_tabela*  
+                **DROP** **FOREIGN** **KEY** *nome_da_regra*;  
+                ou  
+                **ALTER** **TABLE** *nome_tabela*  
+                **DROP** **PRIMARY** **KEY** *nome_da_regra*;  
 -   **RENAME**  
     -   Mudar nome da tabela e/ou database.  
     -   Sintaxe:  
@@ -1372,8 +1393,10 @@ tempo.
     -   *mysql*  
     -   *performance_schema*  
 
--   Para averiguar as tabelas basta usar **DESC** (descrição da tabela)
-    e **SELECT** (verificar os dados contidos na tabela).
+-   Para averiguar as tabelas dentro da **DATABASE** *dicionario de
+    dados* basta usar **DESC** (descrição da tabela) e **SELECT**
+    (verificar os dados/registros contidos na tabela, basta fazer uma
+    consulta normal na tabela do dicionario de dados).  
 
 # 16 Detalhes
 
