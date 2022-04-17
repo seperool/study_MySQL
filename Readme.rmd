@@ -4,21 +4,21 @@ subtitle: "Readme.rmd"
 author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
-  md_document:
-    number_sections: true
-    variant: markdown_github
-  word_document:
-    toc: TRUE
-    number_sections: true
   pdf_document:
     number_sections: true
     toc: TRUE
-  github_document: default
-  odt_document:
-    number_sections: true
   html_document:
     number_sections: true
     df_print: paged
+  md_document:
+    number_sections: true
+    variant: markdown_github
+  github_document: default
+  word_document:
+    toc: TRUE
+    number_sections: true
+  odt_document:
+    number_sections: true
 ---
 
 \newpage
@@ -1183,17 +1183,46 @@ Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entid
 
 ## Constraints - regras e boas praticas
 
-- Para poder visualizar de maneira mais organizada atraves do dicionario, é interessante adicionar as chaves fora da criação de tabelas.\
+- Para poder visualizar de maneira mais organizada atraves do *dicionario de dados*, é interessante adicionar as chaves fora da criação de tabelas.\
 
 - Ao adicionar a chave dentro da criação de tabelas o sistema dá um nome automatico para a chave no sistema. O que não é desejado e pode ficar confuso.\
 
 - Ao adicionar a chave fora da criação de tabelas o usuario determina o nome daquela chave que ficara gravada no sistema.\
 
-- Os nomes das chaves podem ser consultados no dicionario do sistema e no: \
+- Os nomes das chaves podem ser consultados no *dicionario de dados* do sistema e no: \
 **SHOW CREATE TABLE** *nome_da_tabela*;\
+
+- Boas praticas:\
+  - Criar primeiro as tabelas, **CREATE TABLE**.\
+  - Depois criar as chaves primarias e estrangeiras.\
+  - Nome da regra, serve para nomear esta regra no dicionario de dados.\
+  - Uma boa pratica é nomear a regra em *chave primaria*(PK) como **PK**_(*tabela_da_PK*), sem os paranteses.\
+  - Uma boa pratica é nomear  a regra em *chave estrangeira*(FK) como **FK**_(*tabela_da_PK*)_(*tabela_da_FK*), sem os paranteses.\
+  - Sintaxe:\
+  **ALTER** **TABLE** *nome_tabela*\
+  **ADD** **CONSTRAINTS** *nome_da_regra*\
+  **PRIMARY** **KEY**(*coluna_chave_primaria*);\
+  ou\
+  **ALTER** **TABLE** *nome_tabela*\
+  **ADD** **CONSTRAINTS** *nome_da_regra*\
+  **FOREIGN** **KEY**(*coluna_chave_estrangeira*)\ 
+  **REFERENCES** *tabela_chave_primaria*(*coluna_chave_primaria*);\
 
 \newpage
 
+## Dicionario de dados do sistema
+
+- O dicionario de dados é o **metadado**, os dados sobre os dados (como nome das tabelas, data de criação, responsavel pela criação,...).\
+
+- O dicionario de dados é constituido no **MySQL** pelas **DATABASES** (**SHOW DATABASES**):\
+  - *information_schema*\
+    - **CONSTRAINTS** (TABLES_CONSTRAINTS)\
+  - *mysql*\
+  - *performance_schema*\
+
+- Para averiguar as tabelas basta usar **DESC** (descrição da tabela) e **SELECT** (verificar os dados contidos na tabela).
+
+\newpage
 # Detalhes
 
 - ***Comentarios*** no **MySQL**, diferente do **SQL** onde comentarios são '/**/', no MySQL é '#'. Ou '- -' para comentario de linha.\

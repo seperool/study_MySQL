@@ -1324,8 +1324,8 @@ tempo.
 ## 15.2 Constraints - regras e boas praticas
 
 -   Para poder visualizar de maneira mais organizada atraves do
-    dicionario, é interessante adicionar as chaves fora da criação de
-    tabelas.  
+    *dicionario de dados*, é interessante adicionar as chaves fora da
+    criação de tabelas.  
 
 -   Ao adicionar a chave dentro da criação de tabelas o sistema dá um
     nome automatico para a chave no sistema. O que não é desejado e pode
@@ -1334,9 +1334,46 @@ tempo.
 -   Ao adicionar a chave fora da criação de tabelas o usuario determina
     o nome daquela chave que ficara gravada no sistema.  
 
--   Os nomes das chaves podem ser consultados no dicionario do sistema e
-    no:  
+-   Os nomes das chaves podem ser consultados no *dicionario de dados*
+    do sistema e no:  
     **SHOW CREATE TABLE** *nome_da_tabela*;  
+
+-   Boas praticas:  
+
+    -   Criar primeiro as tabelas, **CREATE TABLE**.  
+    -   Depois criar as chaves primarias e estrangeiras.  
+    -   Nome da regra, serve para nomear esta regra no dicionario de
+        dados.  
+    -   Uma boa pratica é nomear a regra em *chave primaria*(PK) como
+        **PK**\_(*tabela_da_PK*), sem os paranteses.  
+    -   Uma boa pratica é nomear a regra em *chave estrangeira*(FK) como
+        **FK**\_(*tabela_da_PK*)\_(*tabela_da_FK*), sem os paranteses.  
+    -   Sintaxe:  
+        **ALTER** **TABLE** *nome_tabela*  
+        **ADD** **CONSTRAINTS** *nome_da_regra*  
+        **PRIMARY** **KEY**(*coluna_chave_primaria*);  
+        ou  
+        **ALTER** **TABLE** *nome_tabela*  
+        **ADD** **CONSTRAINTS** *nome_da_regra*  
+        **FOREIGN** **KEY**(*coluna_chave_estrangeira*)  **REFERENCES**
+        *tabela_chave_primaria*(*coluna_chave_primaria*);  
+
+## 15.3 Dicionario de dados do sistema
+
+-   O dicionario de dados é o **metadado**, os dados sobre os dados
+    (como nome das tabelas, data de criação, responsavel pela
+    criação,…).  
+
+-   O dicionario de dados é constituido no **MySQL** pelas **DATABASES**
+    (**SHOW DATABASES**):  
+
+    -   *information_schema*  
+        -   **CONSTRAINTS** (TABLES_CONSTRAINTS)  
+    -   *mysql*  
+    -   *performance_schema*  
+
+-   Para averiguar as tabelas basta usar **DESC** (descrição da tabela)
+    e **SELECT** (verificar os dados contidos na tabela).
 
 # 16 Detalhes
 
