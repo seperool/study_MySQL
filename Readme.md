@@ -202,7 +202,7 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
     -   A coluna/campo se auto preenche com um valor inteiro não
         repetido, a cada registro.  
 
-### 3.3.2 Regras
+### 3.3.2 Regras chave estrangeira
 
 -   **FOREIGN KEY**  
     -   *Chave Estrangeira* é a *Chave Primaria* de uma tabela, que vai
@@ -213,7 +213,14 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
             -   Se for 1 x 1, leva **UNIQUE**.  
         -   1 x n (um pra muitos) a *Chave Estrangeira* fica na tabela
             n.  
-        -   n x n (muitos pra muitos)…  
+        -   n x n (muitos pra muitos), necessidade da criação de uma
+            tabela associativa.  
+            -   Uma tabela associativa representa uma entidade que não
+                existe por si só e sua existência está condicionada à
+                existência de duas ou mais entidades com relacionamento
+                do tipo N:N. Além disso, o identificador negocial da
+                tabela é formado exclusivamente pelas colunas que são
+                geradas pela FK dessas tabelas relacionadas.  
     -   Sintaxe:  
         **FOREIGN KEY**(*nome_da_coluna_da_chave_estrangeira*)  
 -   **REFERENCES**  
