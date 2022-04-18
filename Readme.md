@@ -1439,4 +1439,4 @@ tempo.
 
 ## 17.1 Assunto em andamento:
 
-Atualmente estou estudando Módulo 16.  
+Atualmente estou estudando Módulo 18.  

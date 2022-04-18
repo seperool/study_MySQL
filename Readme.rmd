@@ -7,18 +7,18 @@ output:
   pdf_document:
     number_sections: true
     toc: TRUE
-  odt_document:
-    number_sections: true
   word_document:
     toc: TRUE
     number_sections: true
-  github_document: default
   html_document:
     number_sections: true
     df_print: paged
+  github_document: default
   md_document:
     number_sections: true
     variant: markdown_github
+  odt_document:
+    number_sections: true
 ---
 
 \newpage
@@ -1267,4 +1267,4 @@ mysql -u root -p\
 
 ## Assunto em andamento:
 
-Atualmente estou estudando Módulo 16.\
+Atualmente estou estudando Módulo 18.\
