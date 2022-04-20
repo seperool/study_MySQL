@@ -4,21 +4,21 @@ subtitle: "Readme.rmd"
 author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
-  md_document:
-    number_sections: true
-    variant: markdown_github
   pdf_document:
     number_sections: true
     toc: TRUE
-  html_document:
-    number_sections: true
-    df_print: paged
-  github_document: default
   odt_document:
     number_sections: true
   word_document:
     toc: TRUE
     number_sections: true
+  github_document: default
+  html_document:
+    number_sections: true
+    df_print: paged
+  md_document:
+    number_sections: true
+    variant: markdown_github
 ---
 
 \newpage
@@ -205,8 +205,9 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.\
     - 1 x 1 (um pra um) a *Chave Estrangeira* fica na tabela mais fraca.\
       - Se for 1 x 1, leva **UNIQUE**.\
     - 1 x n (um pra muitos) a *Chave Estrangeira* fica na tabela n.\
-    - n x n (muitos pra muitos), necessidade da criação de uma tabela associativa.\
-      - Uma tabela associativa representa uma entidade que não existe por si só e sua existência está condicionada à existência de duas ou mais entidades com relacionamento do tipo N:N. Além disso, o identificador negocial da tabela é formado exclusivamente pelas colunas que são geradas pela FK dessas tabelas relacionadas.\
+    - n x n (muitos pra muitos), necessidade da criação de uma tabela associativa (ver **capitulo 16 - Módulo 18 - Entidades Associativas e Chaves**).\
+      - Uma tabela associativa representa uma entidade que não existe por si só e sua existência está condicionada à existência de duas ou mais entidades com relacionamento do tipo N:N.\
+      - Além disso, o identificador negocial da tabela é formado exclusivamente pelas colunas que são geradas pela FK dessas tabelas relacionadas.\
       
   - Sintaxe:\
   **FOREIGN KEY**(*nome_da_coluna_da_chave_estrangeira*)\
@@ -1248,6 +1249,35 @@ Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entid
 - Para averiguar as tabelas dentro da **DATABASE** *dicionario de dados* basta usar **DESC** (descrição da tabela) e **SELECT** (verificar os dados/registros contidos na tabela, basta fazer uma consulta normal na tabela do dicionario de dados).\
 
 \newpage
+
+# Módulo 18 - Entidade Associativa e Chaves
+
+## Entidades Associativas
+
+- Entidades associativas aparecem quando temos uma relação entre entidades do tipo N:N (muitos para muitos).\
+- Na entidade associativa, o relacionamento N:N (muitos para muitos) foi dividido em dois relacionamentos do tipo 1:N (um para muitos), sendo a entidade associativa servindo de intermediario entre as entidades.\
+![Entidade Associativa](Imagens/db2_novo_tipos_entidade_associativa.jpg)\
+- Esta entidade é composta pelas chaves das duas entidades principais.\
+- Se fosse necessário, nesta entidade (associativa) também poderíamos adicionar informações complementares como quantidade, e outros campos.\
+
+\newpage
+
+## Sobre Chaves
+
+- *Chave Primaria* (**PK**)\
+  - No caso da entidade associativa, podemos definir que os campos principais da tabela funcionam como uma *chaves primarias* (**PK**).\
+  - São definidas assim porque é comum que o resultado da combinação dos campos não possam se repetir, formando assim uma identidade unica, criada a partir da combinação de campos.\
+  - Sintaxe:\
+  **ALTER** **TABLE** *tabela_associativa*\
+  **ADD** **CONSTRAINTS** *PK_tabela_associativa*\
+  **PRIMARY** **KEY** (*campo1*,*campo2*,...);\
+  
+- *Chave Estrangeira* (**FK**)\
+  - Alem de *chaves primarias* (**PK**), os campos princiapais da entidade associativa, também referenciam a chaves primarias das entidades/tabelas que ela quer juntar, logo também são *chaves estrangeiras* (**FK**).\
+  - Não tem problema, e nem é incomum, uma *chave primaria* (**PK**) ser também um *chave estrangeira* (**FK**) nesses casos.\
+
+\newpage
+
 # Detalhes
 
 - ***Comentarios*** no **MySQL**, diferente do **SQL** onde comentarios são '/**/', no MySQL é '#'. Ou '- -' para comentario de linha.\

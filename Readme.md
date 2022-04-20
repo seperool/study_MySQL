@@ -214,13 +214,15 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
         -   1 x n (um pra muitos) a *Chave Estrangeira* fica na tabela
             n.  
         -   n x n (muitos pra muitos), necessidade da criação de uma
-            tabela associativa.  
+            tabela associativa (ver **capitulo 16 - Módulo 18 -
+            Entidades Associativas e Chaves**).  
             -   Uma tabela associativa representa uma entidade que não
                 existe por si só e sua existência está condicionada à
                 existência de duas ou mais entidades com relacionamento
-                do tipo N:N. Além disso, o identificador negocial da
-                tabela é formado exclusivamente pelas colunas que são
-                geradas pela FK dessas tabelas relacionadas.  
+                do tipo N:N.  
+            -   Além disso, o identificador negocial da tabela é formado
+                exclusivamente pelas colunas que são geradas pela FK
+                dessas tabelas relacionadas.  
     -   Sintaxe:  
         **FOREIGN KEY**(*nome_da_coluna_da_chave_estrangeira*)  
 -   **REFERENCES**  
@@ -1405,7 +1407,46 @@ tempo.
     (verificar os dados/registros contidos na tabela, basta fazer uma
     consulta normal na tabela do dicionario de dados).  
 
-# 16 Detalhes
+# 16 Módulo 18 - Entidade Associativa e Chaves
+
+## 16.1 Entidades Associativas
+
+-   Entidades associativas aparecem quando temos uma relação entre
+    entidades do tipo N:N (muitos para muitos).  
+-   Na entidade associativa, o relacionamento N:N (muitos para muitos)
+    foi dividido em dois relacionamentos do tipo 1:N (um para muitos),
+    sendo a entidade associativa servindo de intermediario entre as
+    entidades.  
+    ![Entidade
+    Associativa](Imagens/db2_novo_tipos_entidade_associativa.jpg)  
+-   Esta entidade é composta pelas chaves das duas entidades
+    principais.  
+-   Se fosse necessário, nesta entidade (associativa) também poderíamos
+    adicionar informações complementares como quantidade, e outros
+    campos.  
+
+## 16.2 Sobre Chaves
+
+-   *Chave Primaria* (**PK**)  
+    -   No caso da entidade associativa, podemos definir que os campos
+        principais da tabela funcionam como uma *chaves primarias*
+        (**PK**).  
+    -   São definidas assim porque é comum que o resultado da combinação
+        dos campos não possam se repetir, formando assim uma identidade
+        unica, criada a partir da combinação de campos.  
+    -   Sintaxe:  
+        **ALTER** **TABLE** *tabela_associativa*  
+        **ADD** **CONSTRAINTS** *PK_tabela_associativa*  
+        **PRIMARY** **KEY** (*campo1*,*campo2*,…);  
+-   *Chave Estrangeira* (**FK**)  
+    -   Alem de *chaves primarias* (**PK**), os campos princiapais da
+        entidade associativa, também referenciam a chaves primarias das
+        entidades/tabelas que ela quer juntar, logo também são *chaves
+        estrangeiras* (**FK**).  
+    -   Não tem problema, e nem é incomum, uma *chave primaria* (**PK**)
+        ser também um *chave estrangeira* (**FK**) nesses casos.  
+
+# 17 Detalhes
 
 -   ***Comentarios*** no **MySQL**, diferente do **SQL** onde
     comentarios são ’/\*\*/‘, no MySQL é’\#‘. Ou’- -’ para comentario de
@@ -1442,8 +1483,8 @@ tempo.
     ‘;’(delimitador), ele informa que o comando acabou e deve ser
     executado.
 
-# 17 Andamento dos Estudos
+# 18 Andamento dos Estudos
 
-## 17.1 Assunto em andamento:
+## 18.1 Assunto em andamento:
 
 Atualmente estou estudando Módulo 18.  
