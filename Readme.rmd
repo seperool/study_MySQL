@@ -4,21 +4,21 @@ subtitle: "Readme.rmd"
 author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
+  odt_document:
+    number_sections: true
   pdf_document:
     number_sections: true
     toc: TRUE
-  odt_document:
-    number_sections: true
-  word_document:
-    toc: TRUE
-    number_sections: true
-  github_document: default
   html_document:
     number_sections: true
     df_print: paged
+  github_document: default
   md_document:
     number_sections: true
     variant: markdown_github
+  word_document:
+    toc: TRUE
+    number_sections: true
 ---
 
 \newpage
@@ -1255,7 +1255,7 @@ Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entid
 ## Entidades Associativas
 
 - Entidades associativas aparecem quando temos uma relação entre entidades do tipo N:N (muitos para muitos).\
-- Na entidade associativa, o relacionamento N:N (muitos para muitos) foi dividido em dois relacionamentos do tipo 1:N (um para muitos), sendo a entidade associativa servindo de intermediario entre as entidades.\
+- Na entidade associativa, o relacionamento N:N (muitos para muitos) foi dividido em dois relacionamentos do tipo 1:N (um para muitos), sendo que a entidade associativa passa a servir de intermediario entre as entidades.\
 ![Entidade Associativa](Imagens/db2_novo_tipos_entidade_associativa.jpg)\
 - Esta entidade é composta pelas chaves das duas entidades principais.\
 - Se fosse necessário, nesta entidade (associativa) também poderíamos adicionar informações complementares como quantidade, e outros campos.\

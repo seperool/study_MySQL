@@ -1415,8 +1415,8 @@ tempo.
     entidades do tipo N:N (muitos para muitos).  
 -   Na entidade associativa, o relacionamento N:N (muitos para muitos)
     foi dividido em dois relacionamentos do tipo 1:N (um para muitos),
-    sendo a entidade associativa servindo de intermediario entre as
-    entidades.  
+    sendo que a entidade associativa passa a servir de intermediario
+    entre as entidades.  
     ![Entidade
     Associativa](Imagens/db2_novo_tipos_entidade_associativa.jpg)  
 -   Esta entidade é composta pelas chaves das duas entidades
