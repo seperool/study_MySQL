@@ -114,3 +114,266 @@ SHOW CREATE TABLE MARCA;
 SHOW CREATE TABLE CARRO_TINTA;
 
 /*INSERT 10 REGISTROS*/
+
+-- CLIENTES
+INSERT INTO CLIENTE (IDCLIENTE, NOME, SEXO)
+VALUES
+(NULL,"JOÃO",'M'),
+(NULL,"CELIA",'F'),
+(NULL,"CECILIA",'F'),
+(NULL,"MARCELO",'M'),
+(NULL,"LUAN",'M'),
+(NULL,"MATILDA",'F'),
+(NULL,"RODRIGO",'M'),
+(NULL,"JONAS",'M'),
+(NULL,"SUIENE",'F'),
+(NULL,"BRUNO",'M');
+
+--MARCA
+INSERT INTO MARCA (IDMARCA,MARCA)
+VALUES
+(NULL,"CHEVROLET"),
+(NULL,"FIAT"),
+(NULL,"AUDI"),
+(NULL,"BMW"),
+(NULL,"FORD"),
+(NULL,"JEEP"),
+(NULL,"MASERATI"),
+(NULL,"JAGUAR"),
+(NULL,"HONDA"),
+(NULL,"HYUNDAL");
+
+-- CARRO
+INSERT INTO CARRO (IDCARRO, CHASSE, MODELO, ID_CLIENTE, ID_MARCA)
+VALUES
+(NULL,"DSDSADASD12548982","1997",1,10),
+(NULL,"XCZASREFF89561321","1981",9,8),
+(NULL,"KJFHAKLFH66154874","1999",10,6),
+(NULL,"KJKFHDKNC98562314","2000",2,4),
+(NULL,"WIRUWORUO74521565","2010",8,2),
+(NULL,"SSVCVSFER32148985","1998",7,1),
+(NULL,"UIUYITUKJ55465461","2022",6,3),
+(NULL,"VBMNVCAGD02131544","1992",4,5),
+(NULL,"MBMCBBCCB85214789","1988",5,7),
+(NULL,"TRQWUHJDA66132154","2020",3,9);
+
+-- TELEFONE
+INSERT INTO TELEFONE
+VALUES
+(NULL,'CEL',"",1),
+(NULL,'COM',"",3),
+(NULL,'CEL',"",3),
+(NULL,'COM',"",5),
+(NULL,'CEL',"",1),
+(NULL,'CEL',"",7),
+(NULL,'COM',"",2),
+(NULL,'RES',"",9),
+(NULL,'CEL',"",8),
+(NULL,'RES',"",3),
+(NULL,'COM',"",4),
+(NULL,'RES',"",6),
+(NULL,'CEL',"",10);
+
+-- TINTA
+INSERT INTO TINTA VALUES
+(NULL,"AZUL"),
+(NULL,"VERDE"),
+(NULL,"PRETO"),
+(NULL,"BRANCO"),
+(NULL,"AMARELO"),
+(NULL,"VERMELHO"),
+(NULL,"CINZA");
+
+-- CARRO TINTA
+INSERT INTO CARRO_TINTA VALUES
+(1,3),
+(1,4),
+(2,4),
+(3,4),
+(4,3),
+(5,2),
+(6,1),
+(6,3),
+(7,7),
+(8,6),
+(9,5),
+(10,4);
+
+/*UPDATE*/
+
+UPDATE TELEFONE SET TELEFONE = "21987421548"
+WHERE IDTELEFONE = 1;
+
+UPDATE TELEFONE SET TELEFONE = "22964613215"
+WHERE IDTELEFONE = 2;
+
+UPDATE TELEFONE SET TELEFONE = "21954654812"
+WHERE IDTELEFONE = 3;
+
+UPDATE TELEFONE SET TELEFONE = "23965213246"
+WHERE IDTELEFONE = 4;
+
+UPDATE TELEFONE SET TELEFONE = "21956548751"
+WHERE IDTELEFONE = 5;
+
+UPDATE TELEFONE SET TELEFONE = "21982132111"
+WHERE IDTELEFONE = 6;
+
+UPDATE TELEFONE SET TELEFONE = "22965444557"
+WHERE IDTELEFONE = 7;
+
+UPDATE TELEFONE SET TELEFONE = "21921311244"
+WHERE IDTELEFONE = 8;
+
+UPDATE TELEFONE SET TELEFONE = "24988787744"
+WHERE IDTELEFONE = 9;
+
+UPDATE TELEFONE SET TELEFONE = "21932121255"
+WHERE IDTELEFONE = 10;
+
+UPDATE TELEFONE SET TELEFONE = "28911321327"
+WHERE IDTELEFONE = 11;
+
+UPDATE TELEFONE SET TELEFONE = "21981321259"
+WHERE IDTELEFONE = 12;
+
+UPDATE TELEFONE SET TELEFONE = "22988877441"
+WHERE IDTELEFONE = 13;
+
+/*TABELAS PREENCHIDAS*/
+
+-- CLIENTE
+SELECT * FROM CLIENTE;
+
++-----------+---------+------+
+| IDCLIENTE | NOME    | SEXO |
++-----------+---------+------+
+|         1 | JOÃO    | M    |
+|         2 | CELIA   | F    |
+|         3 | CECILIA | F    |
+|         4 | MARCELO | M    |
+|         5 | LUAN    | M    |
+|         6 | MATILDA | F    |
+|         7 | RODRIGO | M    |
+|         8 | JONAS   | M    |
+|         9 | SUIENE  | F    |
+|        10 | BRUNO   | M    |
++-----------+---------+------+
+
+-- MARCA
+SELECT * FROM MARCA;
+
++---------+-----------+
+| IDMARCA | MARCA     |
++---------+-----------+
+|       3 | AUDI      |
+|       4 | BMW       |
+|       1 | CHEVROLET |
+|       2 | FIAT      |
+|       5 | FORD      |
+|       9 | HONDA     |
+|      10 | HYUNDAL   |
+|       8 | JAGUAR    |
+|       6 | JEEP      |
+|       7 | MASERATI  |
++---------+-----------+
+
+-- CARRO
+SELECT
+CA.IDCARRO,
+C.NOME AS CLIENTE,
+CA.CHASSE,
+CA.MODELO,
+M.MARCA
+FROM CARRO CA
+INNER JOIN CLIENTE C
+ON C.IDCLIENTE = CA.ID_CLIENTE
+INNER JOIN MARCA M
+ON M.IDMARCA = CA.ID_MARCA
+ORDER BY 1;
+
++---------+---------+-------------------+--------+-----------+
+| IDCARRO | CLIENTE | CHASSE            | MODELO | MARCA     |
++---------+---------+-------------------+--------+-----------+
+|       1 | JOÃO    | DSDSADASD12548982 | 1997   | HYUNDAL   |
+|       2 | SUIENE  | XCZASREFF89561321 | 1981   | JAGUAR    |
+|       3 | BRUNO   | KJFHAKLFH66154874 | 1999   | JEEP      |
+|       4 | CELIA   | KJKFHDKNC98562314 | 2000   | BMW       |
+|       5 | JONAS   | WIRUWORUO74521565 | 2010   | FIAT      |
+|       6 | RODRIGO | SSVCVSFER32148985 | 1998   | CHEVROLET |
+|       7 | MATILDA | UIUYITUKJ55465461 | 2022   | AUDI      |
+|       8 | MARCELO | VBMNVCAGD02131544 | 1992   | FORD      |
+|       9 | LUAN    | MBMCBBCCB85214789 | 1988   | MASERATI  |
+|      10 | CECILIA | TRQWUHJDA66132154 | 2020   | HONDA     |
++---------+---------+-------------------+--------+-----------+
+
+
+-- TELEFONE
+SELECT
+C.NOME AS CLIENTE,
+T.TIPO,
+T.TELEFONE
+FROM TELEFONE T
+INNER JOIN CLIENTE C
+ON T.ID_CLIENTE = C.IDCLIENTE;
+
++---------+------+-------------+
+| CLIENTE | TIPO | TELEFONE    |
++---------+------+-------------+
+| JOÃO    | CEL  | 21987421548 |
+| JOÃO    | CEL  | 21956548751 |
+| CELIA   | COM  | 22965444557 |
+| CECILIA | COM  | 22964613215 |
+| CECILIA | CEL  | 21954654812 |
+| CECILIA | RES  | 21932121255 |
+| MARCELO | COM  | 28911321327 |
+| LUAN    | COM  | 23965213246 |
+| MATILDA | RES  | 21981321259 |
+| RODRIGO | CEL  | 21982132111 |
+| JONAS   | CEL  | 24988787744 |
+| SUIENE  | RES  | 21921311244 |
+| BRUNO   | CEL  | 22988877441 |
++---------+------+-------------+
+
+-- TINTA
+SELECT * FROM TINTA;
+
++-------+----------+
+| IDCOR | COR      |
++-------+----------+
+|     1 | AZUL     |
+|     2 | VERDE    |
+|     3 | PRETO    |
+|     4 | BRANCO   |
+|     5 | AMARELO  |
+|     6 | VERMELHO |
+|     7 | CINZA    |
++-------+----------+
+
+-- CARRO TINTA
+SELECT
+C.IDCARRO,
+T.COR
+FROM CARRO_TINTA CT
+INNER JOIN CARRO C
+ON C.IDCARRO = CT.IDCARRO
+INNER JOIN TINTA T
+ON CT.IDCOR = T.IDCOR
+ORDER BY 1,2;
+
++---------+----------+
+| IDCARRO | COR      |
++---------+----------+
+|       1 | BRANCO   |
+|       1 | PRETO    |
+|       2 | BRANCO   |
+|       3 | BRANCO   |
+|       4 | PRETO    |
+|       5 | VERDE    |
+|       6 | AZUL     |
+|       6 | PRETO    |
+|       7 | CINZA    |
+|       8 | VERMELHO |
+|       9 | AMARELO  |
+|      10 | BRANCO   |
++---------+----------+
