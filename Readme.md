@@ -1446,7 +1446,36 @@ tempo.
     -   Não tem problema, e nem é incomum, uma *chave primaria* (**PK**)
         ser também um *chave estrangeira* (**FK**) nesses casos.  
 
-# 17 Detalhes
+# 17 Módulo 19 - TRIGGERS (Gatilhos)
+
+-   A **TRIGGER** é um gatilho de programação, que dispara toda vez que
+    algo predeterminado acontecer.  
+
+-   Exemplos de gatilhos disparadores de uma **TRIGGER** são:  
+
+    -   **INSERT**  
+    -   **UPDATE**  
+    -   **DELETE**  
+
+-   Apos os gatilhos (**TRIGGERS**) disparados, são executados blocos de
+    programação.  
+
+-   Sintaxe:  
+    **DELIMITER** $  
+    **CREATE** **TRIGGER** *nome_da_trigger*  
+    **BEFORE**/**AFTER** **INSERT**/**DELETE**/**UPDATE** **ON**
+    *tabela*  
+    **FOR EACH ROW** (para cada linha)  
+    **BEGIN**  
+    (bloco de programação, qualquer comando SQL)  
+    **END**  
+    **DELIMITER** ;  
+
+-   Ao inserir um comando SQL no bloco de programação para ser
+    executada, é preciso terminar cada instrução com o delimitador “;”,
+    logo é preciso mudar o delimitador para programar o TRIGGER.  
+
+# 18 Detalhes
 
 -   ***Comentarios*** no **MySQL**, diferente do **SQL** onde
     comentarios são ’/\*\*/‘, no MySQL é’\#‘. Ou’- -’ para comentario de
@@ -1465,7 +1494,6 @@ tempo.
         Tem como função o planejamento central, a documentação e o
         gerenciamento dos dados a partir da perspectiva de seus
         significados e valores para a organização como um todo.  
-
     -   Administrador de banco de dados (DBA):  
         O DBA (database administrator), sigla em inglês para
         Administrador de Banco de Dados, é um profissional da área de
@@ -1482,9 +1510,16 @@ tempo.
 -   Ao final dos comandos do **SQL** e do **MySQL**, usar o
     ‘;’(delimitador), ele informa que o comando acabou e deve ser
     executado.
+-   O **MySQL** é “*case sensitive*” no **LINUX**, mas no **WINDOWS**
+    não é, ou seja, sensibilidade a letras maiusculas e minusculas.
+    Depende do sistema operacional. **MySQL** acompanha o sistema
+    operacional.  
+    -   no **LINUX** faz destinção de letras maiusculas e minusculas.  
+    -   no **WINDOWS** não faz destinção de letras maiusculas e
+        minusculas.  
 
-# 18 Andamento dos Estudos
+# 19 Andamento dos Estudos
 
-## 18.1 Assunto em andamento:
+## 19.1 Assunto em andamento:
 
 Atualmente estou estudando Módulo 18.  

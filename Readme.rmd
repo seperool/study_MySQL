@@ -4,21 +4,21 @@ subtitle: "Readme.rmd"
 author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
-  odt_document:
-    number_sections: true
-  pdf_document:
-    number_sections: true
-    toc: TRUE
-  html_document:
-    number_sections: true
-    df_print: paged
-  github_document: default
   md_document:
     number_sections: true
     variant: markdown_github
+  pdf_document:
+    number_sections: true
+    toc: TRUE
   word_document:
     toc: TRUE
     number_sections: true
+  github_document: default
+  odt_document:
+    number_sections: true
+  html_document:
+    number_sections: true
+    df_print: paged
 ---
 
 \newpage
@@ -1278,6 +1278,32 @@ Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entid
 
 \newpage
 
+# Módulo 19 - TRIGGERS (Gatilhos)
+
+- A **TRIGGER** é um gatilho de programação, que dispara toda vez que algo predeterminado acontecer.\
+
+- Exemplos de gatilhos disparadores de uma **TRIGGER** são:\
+  - **INSERT**\
+  - **UPDATE**\
+  - **DELETE**\
+
+- Apos os gatilhos (**TRIGGERS**) disparados, são executados blocos de programação.\
+
+- Sintaxe:\
+**DELIMITER** $\
+**CREATE** **TRIGGER** *nome_da_trigger*\
+**BEFORE**/**AFTER** **INSERT**/**DELETE**/**UPDATE** **ON** *tabela*\
+**FOR EACH ROW** (para cada linha)\
+**BEGIN**\
+(bloco de programação, qualquer comando SQL)\
+**END**\
+**DELIMITER** ;\
+
+- Ao inserir um comando SQL no bloco de programação para ser executada, é preciso terminar cada instrução com o delimitador ";", logo é preciso mudar o delimitador para programar o TRIGGER.\
+
+
+\newpage
+
 # Detalhes
 
 - ***Comentarios*** no **MySQL**, diferente do **SQL** onde comentarios são '/**/', no MySQL é '#'. Ou '- -' para comentario de linha.\
@@ -1286,7 +1312,6 @@ Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entid
   O Administrador de Dados (AD) tem o objetivo de gerenciar o Modelo de Dados Corporativo, contribuindo para assegurar a qualidade das informações, a integração dos sistemas, a retenção e a disseminação do conhecimento dos negócios.\
   Cabe a ele, guiado por certos princípios e através de atividades de planejamento, organização e controle dos dados corporativos, gerenciar os dados como recursos de uso comum da organização, promovendo-lhes os valores de autenticidade, autoridade, precisão, acessibilidade, seguridade e inteligibilidade.\
   Tem como função o planejamento central, a documentação e o gerenciamento dos dados a partir da perspectiva de seus significados e valores para a organização como um todo.\
-  
   - Administrador de banco de dados (DBA):\
   O DBA (database administrator), sigla em inglês para Administrador de Banco de Dados, é um profissional da área de tecnologia responsável pela criação, instalação, monitoramento, reparos e análise de estruturas de um banco de dados.\
   O banco de dados fica sob análise periódica do DBA, que trabalha para que não haja sobrecargas do sistema e que as informações inseridas tenham destino correto nos servidores. Outras funções também importantes são analisar o espaço em disco, buscar melhorias para os sistemas e realizar backups.\
@@ -1294,7 +1319,10 @@ Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entid
 mysql -u root -p\
   - Depois colocar a senha.\
 - Ao final dos comandos do **SQL** e do **MySQL**, usar o ';'(delimitador), ele informa que o comando acabou e deve ser executado.
-
+- O **MySQL** é "*case sensitive*" no **LINUX**, mas no **WINDOWS** não é, ou seja, sensibilidade a letras maiusculas e minusculas. Depende do sistema operacional. **MySQL** acompanha o sistema operacional.\
+  - no **LINUX** faz destinção de letras maiusculas e minusculas.\
+  - no **WINDOWS** não faz destinção de letras maiusculas e minusculas.\
+  
 \newpage
 
 # Andamento dos Estudos
