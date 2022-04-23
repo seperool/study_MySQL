@@ -377,3 +377,45 @@ ORDER BY 1,2;
 |       9 | AMARELO  |
 |      10 | BRANCO   |
 +---------+----------+
+
+/*VIEW*/
+
+CREATE VIEW VW_CARROS AS
+SELECT
+C.IDCARRO,
+CL.NOME,
+CL.SEXO,
+C.CHASSE,
+C.MODELO,
+M.MARCA,
+T.COR
+FROM CARRO C
+INNER JOIN CLIENTE CL
+ON CL.IDCLIENTE = C.ID_CLIENTE
+INNER JOIN MARCA M
+ON M.IDMARCA = C.ID_MARCA
+INNER JOIN CARRO_TINTA CT
+ON CT.IDCARRO = C.IDCARRO
+INNER JOIN TINTA T
+ON T.IDCOR = CT.IDCOR;
+
+-- CONSULTA
+SELECT * FROM VW_CARROS
+ORDER BY 1;
+
++---------+---------+------+-------------------+--------+-----------+----------+
+| IDCARRO | NOME    | SEXO | CHASSE            | MODELO | MARCA     | COR      |
++---------+---------+------+-------------------+--------+-----------+----------+
+|       1 | JOÃO    | M    | DSDSADASD12548982 | 1997   | HYUNDAL   | BRANCO   |
+|       1 | JOÃO    | M    | DSDSADASD12548982 | 1997   | HYUNDAL   | PRETO    |
+|       2 | SUIENE  | F    | XCZASREFF89561321 | 1981   | JAGUAR    | BRANCO   |
+|       3 | BRUNO   | M    | KJFHAKLFH66154874 | 1999   | JEEP      | BRANCO   |
+|       4 | CELIA   | F    | KJKFHDKNC98562314 | 2000   | BMW       | PRETO    |
+|       5 | JONAS   | M    | WIRUWORUO74521565 | 2010   | FIAT      | VERDE    |
+|       6 | RODRIGO | M    | SSVCVSFER32148985 | 1998   | CHEVROLET | PRETO    |
+|       6 | RODRIGO | M    | SSVCVSFER32148985 | 1998   | CHEVROLET | AZUL     |
+|       7 | MATILDA | F    | UIUYITUKJ55465461 | 2022   | AUDI      | CINZA    |
+|       8 | MARCELO | M    | VBMNVCAGD02131544 | 1992   | FORD      | VERMELHO |
+|       9 | LUAN    | M    | MBMCBBCCB85214789 | 1988   | MASERATI  | AMARELO  |
+|      10 | CECILIA | F    | TRQWUHJDA66132154 | 2020   | HONDA     | BRANCO   |
++---------+---------+------+-------------------+--------+-----------+----------+
