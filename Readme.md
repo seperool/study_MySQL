@@ -1399,6 +1399,7 @@ tempo.
 
     -   *information_schema*  
         -   **CONSTRAINTS** (TABLES_CONSTRAINTS)  
+        -   **TRIGGERS** (TRIGGERS)  
     -   *mysql*  
     -   *performance_schema*  
 
@@ -1522,4 +1523,4 @@ tempo.
 
 ## 19.1 Assunto em andamento:
 
-Atualmente estou estudando Módulo 18.  
+Atualmente estou estudando Módulo 19.  
