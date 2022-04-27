@@ -1447,7 +1447,9 @@ tempo.
     -   Não tem problema, e nem é incomum, uma *chave primaria* (**PK**)
         ser também um *chave estrangeira* (**FK**) nesses casos.  
 
-# 17 Módulo 19 - TRIGGERS (Gatilhos)
+# 17 Módulo 19 - **TRIGGERS** (Gatilhos)
+
+## 17.1 **TRIGGERS**
 
 -   A **TRIGGER** é um gatilho de programação, que dispara toda vez que
     algo predeterminado acontecer.  
@@ -1475,6 +1477,40 @@ tempo.
 -   Ao inserir um comando SQL no bloco de programação para ser
     executada, é preciso terminar cada instrução com o delimitador “;”,
     logo é preciso mudar o delimitador para programar o TRIGGER.  
+
+## 17.2 Conceito de **NEW** e **OLD**
+
+-   Definição:  
+
+    -   **OLD.***coluna*  
+        Pega o valor antigo da coluna indicada.  
+
+    -   **NEW.***coluna*  
+        Pega o novo valor da coluna indicada.  
+
+-   Usado dentro da instrução de comando **SQL**, no bloco de
+    programação, na criação do **TRIGGER**.  
+
+-   Sintaxe:  
+    **DELIMITER** $  
+    **CREATE** **TRIGGER** *nome_da_trigger*  
+    **BEFORE**/**AFTER** **INSERT**/**DELETE**/**UPDATE** **ON**
+    *tabela_observada_pelo_trigger*  
+    **FOR EACH ROW** (para cada linha)  
+    **BEGIN**  
+    **INSERT** **INTO** *tabela_de_ação_do_trigger*  
+    **VALUES**  
+    (NULL, **OLD.**coluna1, **OLD.**coluna2, **OLD.**coluna3);  
+    **END**  
+    **DELIMITER** ;  
+
+## 17.3 Observações **TRIGGER**
+
+-   A “*tabela_observada_pelo_trigger*” é a tabela que vai dar gatilho
+    ao TRIGGER.  
+
+-   A “*tabela_de_ação_do_trigger*” é a tabela que vai sofrer alguma
+    ação especificada pelo SQL, do bloco de programação.  
 
 # 18 Detalhes
 
