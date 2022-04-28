@@ -4,21 +4,21 @@ subtitle: "Readme.rmd"
 author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
-  md_document:
-    number_sections: true
-    variant: markdown_github
   pdf_document:
     number_sections: true
     toc: TRUE
-  html_document:
+  md_document:
     number_sections: true
-    df_print: paged
-  github_document: default
+    variant: markdown_github
   odt_document:
     number_sections: true
+  github_document: default
   word_document:
     toc: TRUE
     number_sections: true
+  html_document:
+    number_sections: true
+    df_print: paged
 ---
 
 \newpage
@@ -1325,7 +1325,7 @@ Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entid
 **BEGIN**\
 **INSERT** **INTO** *tabela_de_ação_do_trigger* \
 **VALUES**\
-(NULL, **OLD.**coluna1, **OLD.**coluna2, **OLD.**coluna3);\
+(NULL, **OLD**.coluna1, **OLD**.coluna2, **OLD**.coluna3);\
 **END**\
 **DELIMITER** ;\
 

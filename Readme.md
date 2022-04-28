@@ -1500,7 +1500,7 @@ tempo.
     **BEGIN**  
     **INSERT** **INTO** *tabela_de_ação_do_trigger*  
     **VALUES**  
-    (NULL, **OLD.**coluna1, **OLD.**coluna2, **OLD.**coluna3);  
+    (NULL, **OLD**.coluna1, **OLD**.coluna2, **OLD**.coluna3);  
     **END**  
     **DELIMITER** ;  
 
