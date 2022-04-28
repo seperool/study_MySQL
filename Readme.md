@@ -1482,10 +1482,10 @@ tempo.
 
 -   Definição:  
 
-    -   **OLD.***coluna*  
+    -   **OLD**.*coluna*  
         Pega o valor antigo da coluna indicada.  
 
-    -   **NEW.***coluna*  
+    -   **NEW**.*coluna*  
         Pega o novo valor da coluna indicada.  
 
 -   Usado dentro da instrução de comando **SQL**, no bloco de

@@ -7,18 +7,18 @@ output:
   md_document:
     number_sections: true
     variant: markdown_github
-  odt_document:
-    number_sections: true
-  word_document:
-    toc: TRUE
-    number_sections: true
-  github_document: default
   pdf_document:
     number_sections: true
     toc: TRUE
   html_document:
     number_sections: true
     df_print: paged
+  github_document: default
+  odt_document:
+    number_sections: true
+  word_document:
+    toc: TRUE
+    number_sections: true
 ---
 
 \newpage
@@ -1309,10 +1309,10 @@ Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entid
 ## Conceito de **NEW** e **OLD**
 
 - Definição:\
-  - **OLD.***coluna*\
+  - **OLD**.*coluna*\
   Pega o valor antigo da coluna indicada.\
 
-  - **NEW.***coluna*\
+  - **NEW**.*coluna*\
   Pega o novo valor da coluna indicada.\
 
 - Usado dentro da instrução de comando **SQL**, no bloco de programação, na criação do **TRIGGER**.\
