@@ -4,21 +4,21 @@ subtitle: "Readme.rmd"
 author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
-  pdf_document:
-    number_sections: true
-    toc: TRUE
-  md_document:
-    number_sections: true
-    variant: markdown_github
-  odt_document:
-    number_sections: true
-  github_document: default
-  word_document:
-    toc: TRUE
-    number_sections: true
   html_document:
     number_sections: true
     df_print: paged
+  word_document:
+    toc: TRUE
+    number_sections: true
+  md_document:
+    number_sections: true
+    variant: markdown_github
+  github_document: default
+  pdf_document:
+    number_sections: true
+    toc: TRUE
+  odt_document:
+    number_sections: true
 ---
 
 \newpage
@@ -1334,6 +1334,21 @@ Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entid
 - A "*tabela_observada_pelo_trigger*" é a tabela que vai dar gatilho ao TRIGGER.\
 
 - A "*tabela_de_ação_do_trigger*" é a tabela que vai sofrer alguma ação especificada pelo SQL, do bloco de programação.\
+
+
+## Comunicação entre bancos de dado
+
+- É possivel acessar dados de um **DATABASE** (*banco de dados*) estando conectado a outro **DATABASE**, sem a necessidade de fazer a mudança de **DATABASE** (**USE**).\
+
+- Ações que é possivel tomar:\
+  - **INSERT** (*inserir registros*)\
+  - **SELECT** (*consulta*)\
+  - **DELETE** (*deletar registros*)\
+  - **UPDATE** (*atualizar registros*)\
+  - **CREATE TABLE** (*criação de tabelas*)\
+  - **CREATE TRIGGER** (*criação de gatilhos*)\
+
+- Para fazer tal ação ao inves de colocar o nome da tabela, usar o "nome do banco de dados" + ponto (".") + "nome da tabela". Ex.: "*nome_database.nome_tabela*"\
 
 \newpage
 

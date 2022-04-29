@@ -1512,6 +1512,25 @@ tempo.
 -   A “*tabela_de_ação_do_trigger*” é a tabela que vai sofrer alguma
     ação especificada pelo SQL, do bloco de programação.  
 
+## 17.4 Comunicação entre bancos de dado
+
+-   É possivel acessar dados de um **DATABASE** (*banco de dados*)
+    estando conectado a outro **DATABASE**, sem a necessidade de fazer a
+    mudança de **DATABASE** (**USE**).  
+
+-   Ações que é possivel tomar:  
+
+    -   **INSERT** (*inserir registros*)  
+    -   **SELECT** (*consulta*)  
+    -   **DELETE** (*deletar registros*)  
+    -   **UPDATE** (*atualizar registros*)  
+    -   **CREATE TABLE** (*criação de tabelas*)  
+    -   **CREATE TRIGGER** (*criação de gatilhos*)  
+
+-   Para fazer tal ação ao inves de colocar o nome da tabela, usar o
+    “nome do banco de dados” + ponto (“.”) + “nome da tabela”. Ex.:
+    “*nome_database.nome_tabela*”  
+
 # 18 Detalhes
 
 -   ***Comentarios*** no **MySQL**, diferente do **SQL** onde
