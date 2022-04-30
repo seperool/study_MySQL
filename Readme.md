@@ -137,6 +137,9 @@ modelo conceitual.
     -   Deletando uma **VIEW**.  
         **DROP** **VIEW** *VW_nome_da_view*;  
 
+    -   Deletando um **TRIGGER**.  
+        **DROP** **TRIGGER** *nome_do_trigger*;  
+
 ## 3.2 Tipagem de campos
 
 A tipagem correta diminui o tempo de resposta, otimiza os processos.  
@@ -1476,9 +1479,28 @@ tempo.
 
 -   Ao inserir um comando SQL no bloco de programação para ser
     executada, é preciso terminar cada instrução com o delimitador “;”,
-    logo é preciso mudar o delimitador para programar o TRIGGER.  
+    logo é preciso mudar o delimitador para programar o **TRIGGER**.  
 
-## 17.2 Conceito de **NEW** e **OLD**
+-   Problema do **BEFORE**/**INSERT**:  
+
+    -   Quando o usado o **BEFORE** (antes) em conjunto com o
+        **INSERT**, o **TRIGGER** pega o dado antes de ir para a tabela,
+        logo o campo/coluna com **AUTO_INCREMENT**, não gerou o numero
+        ainda na tabela, então o **TRIGGER** pega o valor 0, nesse tipo
+        de campo.  
+
+    -   Para pegar o valor com **AUTO_INCREMENTE** no **INSERT**, pelo
+        **TRIGGER**, basta usar o **AFTER** (depois) para pegar o novo
+        valor. Pois os dados só são pegos pelo **TRIGGER** depois de os
+        dados do **INSERT** terem entrado na tabela, e o novo valor no
+        campo com **AUTO_INCREMENT** ter sido gerado.  
+
+## 17.2 Deletando o **TRIGGER**
+
+-   Deletando um **TRIGGER**:  
+    **DROP** **TRIGGER** *nome_do_trigger*;  
+
+## 17.3 Conceito de **NEW** e **OLD**
 
 -   Definição:  
 
@@ -1504,7 +1526,7 @@ tempo.
     **END**  
     **DELIMITER** ;  
 
-## 17.3 Observações **TRIGGER**
+## 17.4 Observações **TRIGGER**
 
 -   A “*tabela_observada_pelo_trigger*” é a tabela que vai dar gatilho
     ao TRIGGER.  
@@ -1512,7 +1534,7 @@ tempo.
 -   A “*tabela_de_ação_do_trigger*” é a tabela que vai sofrer alguma
     ação especificada pelo SQL, do bloco de programação.  
 
-## 17.4 Comunicação entre bancos de dado
+## 17.5 Comunicação entre bancos de dado
 
 -   É possivel acessar dados de um **DATABASE** (*banco de dados*)
     estando conectado a outro **DATABASE**, sem a necessidade de fazer a
