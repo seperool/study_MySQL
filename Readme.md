@@ -1553,6 +1553,9 @@ tempo.
     “nome do banco de dados” + ponto (“.”) + “nome da tabela”. Ex.:
     “*nome_database.nome_tabela*”  
 
+-   Exemplo sintaxe:  
+    **INSERT** **INTO** *nome_database*.*tabela* **VALUES** (…)  
+
 # 18 Detalhes
 
 -   ***Comentarios*** no **MySQL**, diferente do **SQL** onde

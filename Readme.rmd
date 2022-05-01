@@ -7,18 +7,18 @@ output:
   md_document:
     number_sections: true
     variant: markdown_github
-  pdf_document:
-    number_sections: true
-    toc: TRUE
-  odt_document:
-    number_sections: true
-  github_document: default
   html_document:
     number_sections: true
     df_print: paged
   word_document:
     toc: TRUE
     number_sections: true
+  github_document: default
+  odt_document:
+    number_sections: true
+  pdf_document:
+    number_sections: true
+    toc: TRUE
 ---
 
 \newpage
@@ -1361,6 +1361,9 @@ Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entid
   - **CREATE TRIGGER** (*criação de gatilhos*)\
 
 - Para fazer tal ação ao inves de colocar o nome da tabela, usar o "nome do banco de dados" + ponto (".") + "nome da tabela". Ex.: "*nome_database.nome_tabela*"\
+
+- Exemplo sintaxe:\
+**INSERT** **INTO** *nome_database*.*tabela* **VALUES** (...)\
 
 \newpage
 
