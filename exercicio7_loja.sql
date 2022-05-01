@@ -195,3 +195,96 @@ SELECT * FROM BACKUP.BKP_PRODUTO;
 |     7 |         5 | LIVRO C#         | 100.00 |
 +-------+-----------+------------------+--------+
 -- AGORA O TRIGGER PEGOU O IDPRODUTO POR CONTA DO AFTER
+
+/*ALTERANDO BKP_PRODUTO PARA GUARDAR O TIPO DE EVENTO*/
+
+ALTER TABLE BACKUP.BKP_PRODUTO
+ADD COLUMN EVENTO CHAR(3);
+
+-- VERIFICANDO
+SELECT * FROM BACKUP.BKP_PRODUTO;
+
+-- APAGANDO TRIGGERS
+DROP TRIGGER BACKUP_PRODUTO;
+DROP TRIGGER BACKUP_PRODUTO_DEL;
+
+-- REESCREVENDO TRIGGERS
+DELIMITER $
+
+CREATE TRIGGER BACKUP_PRODUTO
+AFTER INSERT ON PRODUTO
+FOR EACH ROW
+BEGIN
+INSERT INTO BACKUP.BKP_PRODUTO VALUES 
+(NULL, NEW.IDPRODUTO, NEW.NOME, NEW.VALOR, "INS");
+END
+$
+
+DELIMITER ;
+
+DELIMITER $
+
+CREATE TRIGGER BACKUP_PRODUTO_DEL
+AFTER DELETE ON PRODUTO
+FOR EACH ROW
+BEGIN
+INSERT INTO BACKUP.BKP_PRODUTO VALUES 
+(NULL, OLD.IDPRODUTO, OLD.NOME, OLD.VALOR, "DEL");
+END
+$
+
+DELIMITER ;
+
+-- TESTANDO NOVO TRIGGER
+DELETE FROM PRODUTO
+WHERE IDPRODUTO = 4;
+
+-- VERIFICANDO
+SELECT * FROM PRODUTO;
+
++-----------+-----------------+--------+
+| IDPRODUTO | NOME            | VALOR  |
++-----------+-----------------+--------+
+|         1 | LIVRO MODELAGEM |  50.00 |
+|         3 | LIVRO ORACLE    |  70.00 |
+|         5 | LIVRO C#        | 100.00 |
++-----------+-----------------+--------+
+
+SELECT * FROM BACKUP.BKP_PRODUTO;
+
++-------+-----------+------------------+--------+--------+
+| IDBKP | IDPRODUTO | NOME             | VALOR  | EVENTO |
++-------+-----------+------------------+--------+--------+
+|     1 |      1000 | TESTE            |   0.00 | NULL   |
+|     2 |         0 | LIVRO MODELAGEM  |  50.00 | NULL   |
+|     3 |         0 | LIVRO BI         |  80.00 | NULL   |
+|     4 |         0 | LIVRO ORACLE     |  70.00 | NULL   |
+|     5 |         0 | LIVRO SQL SERVER | 100.00 | NULL   |
+|     6 |         2 | LIVRO BI         |  80.00 | NULL   |
+|     7 |         5 | LIVRO C#         | 100.00 | NULL   |
+|     8 |         4 | LIVRO SQL SERVER | 100.00 | DEL    |
++-------+-----------+------------------+--------+--------+
+
+/*FAZENDO UPDATE NOS REGISTROS ANTERIORES*/
+
+UPDATE BACKUP.BKP_PRODUTO SET EVENTO = "INS"
+WHERE IDBKP IN (2,3,4,5,7);
+
+UPDATE BACKUP.BKP_PRODUTO SET EVENTO = "DEL"
+WHERE IDBKP = 6;
+
+-- VERIFICANDO
+SELECT * FROM BACKUP.BKP_PRODUTO;
+
++-------+-----------+------------------+--------+--------+
+| IDBKP | IDPRODUTO | NOME             | VALOR  | EVENTO |
++-------+-----------+------------------+--------+--------+
+|     1 |      1000 | TESTE            |   0.00 | NULL   |
+|     2 |         0 | LIVRO MODELAGEM  |  50.00 | INS    |
+|     3 |         0 | LIVRO BI         |  80.00 | INS    |
+|     4 |         0 | LIVRO ORACLE     |  70.00 | INS    |
+|     5 |         0 | LIVRO SQL SERVER | 100.00 | INS    |
+|     6 |         2 | LIVRO BI         |  80.00 | DEL    |
+|     7 |         5 | LIVRO C#         | 100.00 | INS    |
+|     8 |         4 | LIVRO SQL SERVER | 100.00 | DEL    |
++-------+-----------+------------------+--------+--------+
