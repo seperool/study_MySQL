@@ -123,7 +123,7 @@ modelo conceitual.
         **DESC** *nome_da_tabela*;  
 
     -   Verificar em qual **DATABASE** esta conectado no momento e
-        outros status do em uso.  
+        outros *status* em uso.  
         **STATUS**  
         Não precisa de “;” (delimitador) pois não é um comando **SQL**,
         é um comando de infraestrutura. 
@@ -179,6 +179,17 @@ A tipagem correta diminui o tempo de resposta, otimiza os processos.
         ao inves de “,” para separar as casas decimais.  
     -   Para numeros com casas decimais.  
         **FLOAT**(*total*, *virgula*)  
+
+1.  tipo data e hora  
+
+-   **DATE**  
+    -   Para datas, no fomato “aaaa-mm-dd”.  
+-   **TIME**  
+    -   Para tempo(horas), no fomato “hh:mm:ss”.  
+-   **DATETIME**  
+    -   Para data e tempo(horas), no fomato “aaaa-mm-dd hh:mm:ss”.  
+-   **YEAR**\[(2\|4)\]  
+    -   Ano nos formatos de 2 ou 4 dígitos.  
 
 1.  Para fotos e documentos  
 
@@ -1017,6 +1028,13 @@ Função é um bloco de programação que executa algo.
 Obs.: **INTERVAL** é usado para operações em todas essas funções de
 tempo.  
 
+-   Função para descobrir usuario  
+
+    -   **CURRENT_USER**()  
+        Retorna o nome de usuário e o nome do host da conta MySQL que é
+        usada pelo servidor para autenticar o cliente atual. Em resumo o
+        cliente atual.  
+
 ## 10.2 **VIEWS**
 
 ### 10.2.1 **DDL** **VIEW**
@@ -1534,7 +1552,37 @@ tempo.
 -   A “*tabela_de_ação_do_trigger*” é a tabela que vai sofrer alguma
     ação especificada pelo SQL, do bloco de programação.  
 
-## 17.5 Comunicação entre bancos de dado
+## 17.5 Uso de **TRIGGER** para BACKUP
+
+-   Uma das utilidades mais apreciadas do uso de **TRIGGERS** é para
+    fazer backup de ações.
+
+-   É uma boa pratica cria um banco de dados (**DATABASE**) só para
+    backup de tabelas.  
+
+    -   Lembrar que para comunicar um **TRIGGER** entre bancos de dados
+        (**DATABASE**) é preciso mudar a forma de escrever o nome da
+        tabela (ver detalhes proxima seção).  
+    -   Lembrar de alterar o nome “*tabela_observada_pelo_trigger*” ou
+        “*tabela_de_ação_do_trigger*” para a forma de comunicação entre
+        banco de dados (*nome_database*.*nome_tabela*) (ver detalhes
+        proxima seção).  
+
+-   Salvar um *backup do registro* que sofreu a ação (dados do
+    registro).  
+
+-   Salvar o *tipo do evento*, ação executada, nos registros: se foi uma
+    inclusão (**INSERT**), modificação (**UPDATE**) ou apagamento
+    (**DELETE**).  
+
+-   No caso de uma modificação (**UPDATE**), salvar o *valor original*
+    (**OLD**.*coluna*) e o *valor alterado* (**NEW**.*coluna*).  
+
+-   Dados também muito apreciados de serem salvos no backup, dos
+    registros, é sobre *quem fez a ação* (**CURRENT_USER**) e o *momento
+    em que a ação foi executada* (**NOW**).  
+
+## 17.6 Comunicação entre bancos de dado
 
 -   É possivel acessar dados de um **DATABASE** (*banco de dados*)
     estando conectado a outro **DATABASE**, sem a necessidade de fazer a
@@ -1603,4 +1651,4 @@ tempo.
 
 ## 19.1 Assunto em andamento:
 
-Atualmente estou estudando Módulo 19.  
+Atualmente estou estudando Módulo 20.  
