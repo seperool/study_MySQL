@@ -288,3 +288,54 @@ SELECT * FROM BACKUP.BKP_PRODUTO;
 |     7 |         5 | LIVRO C#         | 100.00 | INS    |
 |     8 |         4 | LIVRO SQL SERVER | 100.00 | DEL    |
 +-------+-----------+------------------+--------+--------+
+
+/*TRIGGER BACKUP - UPDATE COM DATA E USUARIO, VALOR ANTIGO E NOVO*/
+
+USE BACKUP;
+
+CREATE TABLE BKP_PRODUTO_UPDATE(
+IDBKP_UP INT PRIMARY KEY AUTO_INCREMENT,
+IDPRODUTO INT,
+NOME VARCHAR (30),
+VALOR_ANTIGO FLOAT(10,2),
+VALOR_NOVO FLOAT(10,2),
+DATA DATETIME,
+USUARIO VARCHAR(30),
+TIPO CHAR(1)
+);
+
+USE LOJA;
+
+DELIMITER $
+
+CREATE TRIGGER BACKUP_PRODUTO_UP
+AFTER UPDATE ON PRODUTO
+FOR EACH ROW
+BEGIN
+INSERT INTO BACKUP.BKP_PRODUTO_UPDATE VALUES
+(NULL, NEW.IDPRODUTO,NEW.NOME,OLD.VALOR,NEW.VALOR,NOW(),CURRENT_USER(),"U");
+END
+$
+
+DELIMITER ;
+
+UPDATE PRODUTO SET VALOR = 110
+WHERE IDPRODUTO = 5;
+
+SELECT * FROM PRODUTO;
+
++-----------+-----------------+--------+
+| IDPRODUTO | NOME            | VALOR  |
++-----------+-----------------+--------+
+|         1 | LIVRO MODELAGEM |  50.00 |
+|         3 | LIVRO ORACLE    |  70.00 |
+|         5 | LIVRO C#        | 110.00 |
++-----------+-----------------+--------+
+
+SELECT * FROM BACKUP.BKP_PRODUTO_UPDATE;
+
++----------+-----------+----------+--------------+------------+---------------------+----------------+------+
+| IDBKP_UP | IDPRODUTO | NOME     | VALOR_ANTIGO | VALOR_NOVO | DATA                | USUARIO        | TIPO |
++----------+-----------+----------+--------------+------------+---------------------+----------------+------+
+|        1 |         5 | LIVRO C# |       100.00 |     110.00 | 2022-05-02 00:37:00 | root@localhost | U    |
++----------+-----------+----------+--------------+------------+---------------------+----------------+------+
