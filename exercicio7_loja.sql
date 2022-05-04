@@ -339,3 +339,97 @@ SELECT * FROM BACKUP.BKP_PRODUTO_UPDATE;
 +----------+-----------+----------+--------------+------------+---------------------+----------------+------+
 |        1 |         5 | LIVRO C# |       100.00 |     110.00 | 2022-05-02 00:37:00 | root@localhost | U    |
 +----------+-----------+----------+--------------+------------+---------------------+----------------+------+
+
+/*DELETANDO TRIGGERS 
+E REESCREVENDO PARA SE ADEQUAR
+BKP_PRODUTO_UPDATE*/
+
+-- ALTERANDO NOME
+ALTER TABLE BACKUP.BKP_PRODUTO_UPDATE
+RENAME BACKUP.BKP_PRODUTO_LOJA;
+
+-- DELETANDO TRIGGERS
+DROP TRIGGER BACKUP_PRODUTO_UP;
+DROP TRIGGER BACKUP_PRODUTO_DEL;
+DROP TRIGGER BACKUP_PRODUTO;
+
+-- REESCREVENDO TRIGGERS
+
+DELIMITER $
+
+CREATE TRIGGER BACKUP_PRODUTO_UP
+AFTER UPDATE ON PRODUTO
+FOR EACH ROW
+BEGIN
+INSERT INTO BACKUP.BKP_PRODUTO_LOJA VALUES
+(NULL, NEW.IDPRODUTO,NEW.NOME,OLD.VALOR,NEW.VALOR,NOW(),CURRENT_USER(),"U");
+END
+$
+
+DELIMITER ;
+
+DELIMITER $
+
+CREATE TRIGGER BACKUP_PRODUTO_DEL
+AFTER DELETE ON PRODUTO
+FOR EACH ROW
+BEGIN
+INSERT INTO BACKUP.BKP_PRODUTO_LOJA VALUES 
+(NULL, OLD.IDPRODUTO,OLD.NOME,OLD.VALOR,NULL,NOW(),CURRENT_USER(),"D");
+END
+$
+
+DELIMITER ;
+
+DELIMITER $
+
+CREATE TRIGGER BACKUP_PRODUTO_INS
+AFTER INSERT ON PRODUTO
+FOR EACH ROW
+BEGIN
+INSERT INTO BACKUP.BKP_PRODUTO_LOJA VALUES 
+(NULL, NEW.IDPRODUTO,NEW.NOME,NULL,NEW.VALOR,NOW(),CURRENT_USER(),"I");
+END
+$
+
+DELIMITER ;
+
+-- INSERINDO REGISTROS
+INSERT INTO PRODUTO VALUES
+(NULL, "LIVRO R",100.00),
+(NULL,"LIVRO SQL", 80.00),
+(NULL, "LIVRO LINUX",150.00);
+
+--ALTERANDO REGISTRO
+UPDATE PRODUTO SET VALOR = 160.00
+WHERE IDPRODUTO = 8; 
+
+-- DELETANDO REGISTRO
+DELETE FROM PRODUTO
+WHERE IDPRODUTO = 7;
+
+-- VERIFICANDO TRIGGERS
+SELECT * FROM PRODUTO;
+
++-----------+-----------------+--------+
+| IDPRODUTO | NOME            | VALOR  |
++-----------+-----------------+--------+
+|         1 | LIVRO MODELAGEM |  50.00 |
+|         3 | LIVRO ORACLE    |  70.00 |
+|         5 | LIVRO C#        | 110.00 |
+|         6 | LIVRO R         | 100.00 |
+|         8 | LIVRO LINUX     | 160.00 |
++-----------+-----------------+--------+
+
+SELECT * FROM BACKUP.BKP_PRODUTO_LOJA;
+
++----------+-----------+-------------+--------------+------------+---------------------+----------------+------+
+| IDBKP_UP | IDPRODUTO | NOME        | VALOR_ANTIGO | VALOR_NOVO | DATA                | USUARIO        | TIPO |
++----------+-----------+-------------+--------------+------------+---------------------+----------------+------+
+|        1 |         5 | LIVRO C#    |       100.00 |     110.00 | 2022-05-02 00:37:00 | root@localhost | U    |
+|        2 |         6 | LIVRO R     |         NULL |     100.00 | 2022-05-03 00:44:22 | root@localhost | I    |
+|        3 |         7 | LIVRO SQL   |         NULL |      80.00 | 2022-05-03 00:44:22 | root@localhost | I    |
+|        4 |         8 | LIVRO LINUX |         NULL |     150.00 | 2022-05-03 00:44:22 | root@localhost | I    |
+|        5 |         8 | LIVRO LINUX |       150.00 |     160.00 | 2022-05-03 00:44:42 | root@localhost | U    |
+|        6 |         7 | LIVRO SQL   |        80.00 |       NULL | 2022-05-03 00:44:53 | root@localhost | D    |
++----------+-----------+-------------+--------------+------------+---------------------+----------------+------+
