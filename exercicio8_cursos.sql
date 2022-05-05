@@ -47,3 +47,22 @@ FROM CURSOS;
 
 /*RETORNAR O NOME DO PRÉ-REQUISITO DO CURSO AO INVES DO NUMERO*/
 
+SELECT
+C.IDCURSO,
+C.NOME,
+C.HORAS,
+C.VALOR,
+IFNULL(P.NOME, "SEM PRE_REQ") AS REQUISITO
+FROM CURSOS C
+LEFT JOIN CURSOS P
+ON P.IDCURSO = C.ID_PREREQ;
+
++---------+-------------------------+-------+--------+-------------------------+
+| IDCURSO | NOME                    | HORAS | VALOR  | REQUISITO               |
++---------+-------------------------+-------+--------+-------------------------+
+|       1 | BD RELACIONAL           |    20 | 400.00 | SEM PRE_REQ             |
+|       2 | BUSINESS INTELLIGENCE   |    40 | 800.00 | BD RELACIONAL           |
+|       3 | RELATORIOS AVANÇADOS    |    20 | 600.00 | BUSINESS INTELLIGENCE   |
+|       4 | LOGICA DE PROGRAMAÇÃO   |    20 | 400.00 | SEM PRE_REQ             |
+|       5 | RUBY                    |    30 | 500.00 | LOGICA DE PROGRAMAÇÃO   |
++---------+-------------------------+-------+--------+-------------------------+
