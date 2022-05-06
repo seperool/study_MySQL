@@ -1655,6 +1655,67 @@ tempo.
 
 # 18 Módulo 20 - Autorelacionamento
 
+## 18.1 Autorelacionamento
+
+-   Este tipo de relacionamento ocorre toda a vez que temos uma
+    ocorrencia de uma entidade que está associada a um ou mais
+    ocorrencias da mesma entidade. Ou seja, temos uma entidade onde suas
+    ocorrencias possuem relacionamentos entre si.  
+    -   Exemplo: vamos considerar uma entidade EMPREGADO sendo que no
+        modelo conceitual devemos representar o conceito de que um
+        empregado possui um gerente.  
+
+![](Imagens/autorelacionamento.jpg)
+
+-   Entidade em que os atributos se relacionam.  
+
+-   Cardinalidade do auto-relacionamento indica opcionalidade, se é
+    obrigatorio ou não.  
+
+## 18.2 Como construir autorelacionamento
+
+-   Basta criar uma *chave estrangeira* (**FK**) que aponte para a
+    propria tabela.  
+
+-   Sintaxe:  
+    **CREATE** **TABLE** *tabela* (  
+    *colunaPK* **INT** **PRIMARY** **KEY** **AUTO_INCREMENT**,  
+    *coluna2* **REGRA**,  
+    *coluna3* **REGRA**,  
+    *colunaFK* **REGRA**  
+    );  
+      
+    **ALTER** **TABLE** *tabela*  
+    **ADD** **CONSTRAINT** *FK_colunaFK*  
+    **FOREIGN** **KEY** (*colunaFK*)  
+    **REFERENCES** *tabela* (*colunaPK*);  
+
+## 18.3 Retornar valor relacionado no autorelacionamento
+
+-   Atraves do **INNER** **JOIN** ou **LEFT JOIN** é possivel retornar
+    outro valor relacionado no autorelacionamento.  
+
+    -   Ao inves de retornar um ID da *coluna chave primaria* na *coluna
+        da chave estrangeira*, é possivel retorna algum outro campo
+        relacionado a *chave primaria* pelo valor da *coluna da chave
+        estrangeira*.  
+    -   Basta utilizar o **INNER** **JOIN** ou **LEFT** **JOIN**,
+        utilizando *ponteiramento*.  
+
+-   Sintaxe:  
+    **SELECT**  
+    **C**.*colunaPK*,  
+    **C**.*coluna2*,  
+    **C**.*coluna3*,  
+    **C**.*coluna4*,  
+    *IFNULL*(**P**.*coluna2*, “SEM REFERENCIA”) **AS** REQUISITO  
+    **FROM** *tabela* **C**  
+    **LEFT** **JOIN** *tabela* **P**  
+    **ON** **P**.*colunaPK* **=** **C**.*colunaFK*;  
+
+-   O ponteiramento (**C** e **P**) serve para separar o que é a
+    *tabela* e *referencia a tabela*.  
+
 # 19 Detalhes
 
 -   ***Comentarios*** no **MySQL**, diferente do **SQL** onde
@@ -1702,4 +1763,4 @@ tempo.
 
 ## 20.1 Assunto em andamento:
 
-Atualmente estou estudando Módulo 20.  
+Atualmente estou estudando Módulo 21.  

@@ -4,21 +4,21 @@ subtitle: "Readme.rmd"
 author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
-  md_document:
-    number_sections: true
-    variant: markdown_github
-  odt_document:
-    number_sections: true
   pdf_document:
     number_sections: true
     toc: TRUE
-  github_document: default
-  word_document:
-    toc: TRUE
-    number_sections: true
   html_document:
     number_sections: true
     df_print: paged
+  odt_document:
+    number_sections: true
+  github_document: default
+  md_document:
+    number_sections: true
+    variant: markdown_github
+  word_document:
+    toc: TRUE
+    number_sections: true
 ---
 
 \newpage
@@ -1450,7 +1450,54 @@ Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entid
 
 # Módulo 20 - Autorelacionamento
 
+## Autorelacionamento
 
+- Este tipo de relacionamento ocorre toda a vez que temos uma ocorrencia de uma entidade que está associada a um ou mais ocorrencias da mesma entidade. Ou seja, temos uma entidade onde suas ocorrencias possuem relacionamentos entre si.\
+  - Exemplo: vamos considerar uma entidade EMPREGADO sendo que no modelo conceitual devemos representar o conceito de que um empregado possui um gerente.\
+  
+![](Imagens/autorelacionamento.jpg)
+
+- Entidade em que os atributos se relacionam.\
+
+- Cardinalidade do auto-relacionamento indica opcionalidade, se é obrigatorio ou não.\
+
+## Como construir autorelacionamento
+
+- Basta criar uma *chave estrangeira* (**FK**) que aponte para a propria tabela.\
+
+- Sintaxe:\
+**CREATE** **TABLE** *tabela* (\
+*colunaPK* **INT** **PRIMARY** **KEY** **AUTO_INCREMENT**,\
+*coluna2* **REGRA**,\
+*coluna3* **REGRA**,\
+*colunaFK* **REGRA**\
+);\
+\
+**ALTER** **TABLE** *tabela*\
+**ADD** **CONSTRAINT** *FK_colunaFK*\
+**FOREIGN** **KEY** (*colunaFK*)\
+**REFERENCES** *tabela* (*colunaPK*);\
+
+\newpage
+
+## Retornar valor relacionado no autorelacionamento
+
+- Atraves do **INNER** **JOIN** ou **LEFT JOIN** é possivel retornar outro valor relacionado no autorelacionamento.\
+  - Ao inves de retornar um ID da *coluna chave primaria* na *coluna da chave estrangeira*, é possivel retorna algum outro campo relacionado a *chave primaria* pelo valor da *coluna da chave estrangeira*.\
+  - Basta utilizar o **INNER** **JOIN** ou **LEFT** **JOIN**, utilizando *ponteiramento*.\
+
+- Sintaxe:\
+**SELECT**\
+**C**.*colunaPK*,\
+**C**.*coluna2*,\
+**C**.*coluna3*,\
+**C**.*coluna4*,\
+*IFNULL*(**P**.*coluna2*, "SEM REFERENCIA") **AS** REQUISITO\
+**FROM** *tabela* **C**\
+**LEFT** **JOIN** *tabela* **P**\
+**ON** **P**.*colunaPK* **=** **C**.*colunaFK*;\
+
+- O ponteiramento (**C** e **P**) serve para separar o que é a *tabela* e *referencia a tabela*.\
 
 \newpage
 
@@ -1479,4 +1526,4 @@ mysql -u root -p\
 
 ## Assunto em andamento:
 
-Atualmente estou estudando Módulo 20.\
+Atualmente estou estudando Módulo 21.\
