@@ -1716,7 +1716,48 @@ tempo.
 -   O ponteiramento (**C** e **P**) serve para separar o que é a
     *tabela* e *referencia a tabela*.  
 
-# 19 Detalhes
+# 19 Módulo 21 - Cursores
+
+## 19.1 Teoria
+
+-   Cursor é um recurso bastante interessante em bancos de dados pois
+    permite que seus códigos SQL façam uma varredura de uma tabela ou
+    consulta linha-por-linha, realizando mais de uma operação se for o
+    caso.  
+
+-   É usado dentro de uma **PROCEDURE** (funções programadas com
+    instruções, armazenadas pelo sistema) para realizar operações que
+    seriam muito grandes e complicadas para um simples **SELECT**.  
+
+-   A vantagem de usar um cursor é quando, além da exibição dos dados,
+    queremos realizar algumas operações sobre os registros. Se o volume
+    de operações for grande, fica muito mais fácil, limpo e prático
+    escrever o código utilizando cursor, do que uma consulta SQL.  
+
+-   Cursores são vetores, conjunto de dados. Normalmente são usados para
+    guardar em cada elemento do vetor uma linha de registro (vetores
+    dentro de vetores, matriz).  
+    ![](Imagens/cursor.jpg)
+
+-   Cursores vão para a memoria RAM, o que leva o desempenho do servidor
+    para baixo, mas possibilita a manipulação dos dados.  
+
+-   Em resumo, o uso de **PROCEDURES** com **CURSORES** possibilita a
+    manipulação dos registros de uma tabela, gerando assim novos campos,
+    com os novos dados sendo o produto dessa manipulação. “Basicamente
+    programação aplicada ao banco de dados”.  
+
+## 19.2 Principais palavras chaves
+
+-   Declaração de variaveis em estruturas de programação:  
+    **DECLARE** *nome_da_variavel* *tipo* \[**DEFAULT** *valor*\];  
+    -   **DECLARE** é declaração de variavel.  
+    -   *tipo* é o tipo da variavel (**INT**, **FLOAT**, **VARCHAR**,
+        **CHAR**).  
+    -   **ENUM** não é tipo, logo não pode ser declarado.  
+    -   **DEFAULT** é um valor predefinido, é opicional.  
+
+# 20 Detalhes
 
 -   ***Comentarios*** no **MySQL**, diferente do **SQL** onde
     comentarios são ’/\*\*/‘, no MySQL é’\#‘. Ou’- -’ para comentario de
@@ -1759,8 +1800,8 @@ tempo.
     -   no **WINDOWS** não faz destinção de letras maiusculas e
         minusculas.  
 
-# 20 Andamento dos Estudos
+# 21 Andamento dos Estudos
 
-## 20.1 Assunto em andamento:
+## 21.1 Assunto em andamento:
 
 Atualmente estou estudando Módulo 21.  
