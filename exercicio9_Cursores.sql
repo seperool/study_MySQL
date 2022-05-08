@@ -1,0 +1,58 @@
+/*CURSORES - 
+VETORES E MATRIZ 
+PARA TRABALHAR COM MANIPULAÇÃO DE REGISTROS*/
+
+CREATE DATABASE CURSORES;
+
+USE CURSORES;
+
+CREATE TABLE VENDEDORES (
+IDVENDEDOR INT PRIMARY KEY AUTO_INCREMENT,
+NOME VARCHAR(50),
+JAN INT,
+FEV INT,
+MAR INT
+);
+
+INSERT INTO VENDEDORES 
+VALUES
+(NULL,"MAFRA",12548,78542,21547),
+(NULL,"CLARA",48784,54654,95621),
+(NULL,"JOAO",42658,56314,74125),
+(NULL,"LILIAN",36521,41256,32651),
+(NULL,"ANTONIO",45612,32165,65214),
+(NULL,"GLORIA",78423,96521,75412);
+
+-- CONFERINDO
+SELECT * FROM VENDEDORES;
+
++------------+---------+-------+-------+-------+
+| IDVENDEDOR | NOME    | JAN   | FEV   | MAR   |
++------------+---------+-------+-------+-------+
+|          1 | MAFRA   | 12548 | 78542 | 21547 |
+|          2 | CLARA   | 48784 | 54654 | 95621 |
+|          3 | JOAO    | 42658 | 56314 | 74125 |
+|          4 | LILIAN  | 36521 | 41256 | 32651 |
+|          5 | ANTONIO | 45612 | 32165 | 65214 |
+|          6 | GLORIA  | 78423 | 96521 | 75412 |
++------------+---------+-------+-------+-------+
+
+-- PROJEÇÃO (NOME, SOMA, MEDIA)
+SELECT 
+NOME, 
+(JAN+FEV+MAR) AS TOTAL,
+(JAN+FEV+MAR)/3 AS MEDIA
+FROM VENDEDORES;
+
++---------+--------+------------+
+| NOME    | TOTAL  | MEDIA      |
++---------+--------+------------+
+| MAFRA   | 112637 | 37545.6667 |
+| CLARA   | 199059 | 66353.0000 |
+| JOAO    | 173097 | 57699.0000 |
+| LILIAN  | 110428 | 36809.3333 |
+| ANTONIO | 142991 | 47663.6667 |
+| GLORIA  | 250356 | 83452.0000 |
++---------+--------+------------+
+
+/*ALTERNATIVA USANDO CURSOR*/
