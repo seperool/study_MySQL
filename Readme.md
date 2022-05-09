@@ -1749,13 +1749,74 @@ tempo.
 
 ## 19.2 Principais palavras chaves
 
--   Declaração de variaveis em estruturas de programação:  
-    **DECLARE** *nome_da_variavel* *tipo* \[**DEFAULT** *valor*\];  
+### 19.2.1 **DECLARE** - declaração de variaveis
+
+-   Declaração de variavel em estruturas de programação.  
+    -   Sintaxe:  
+        **DECLARE** *nome_da_variavel* *tipo* \[**DEFAULT** *valor*\];  
+-   Declarar varias variaveis de uma vez.  
+    -   Sintaxe:  
+        **DECLARE** *variavel_1*, *variavel_2*, … *tipo* \[**DEFAULT**
+        *valor*\];  
+-   Observações:  
     -   **DECLARE** é declaração de variavel.  
     -   *tipo* é o tipo da variavel (**INT**, **FLOAT**, **VARCHAR**,
         **CHAR**).  
     -   **ENUM** não é tipo, logo não pode ser declarado.  
     -   **DEFAULT** é um valor predefinido, é opicional.  
+
+### 19.2.2 **DECLARE** - declaração de variavel do tipo **CURSOR**
+
+-   Declara uma variavel de tipo **CURSOR**.  
+-   Armazena dentro do **CURSOR** uma consulta (**SELECT**).  
+-   Sintaxe:  
+    **DECLARE** *nome_da_variavel_CURSOR* **CURSOR** **FOR** (  
+    **SELECT**  
+    *coluna1*,  
+    *coluna2*,  
+    … **FROM** *tabela*  
+    );  
+-   Observação:  
+    -   Não leva “;” ao final da consulta, porem leva no fechamento do
+        “();”.  
+    -   As colunas/campos ficam armazenada no **CURSOR**, na ordem em
+        que são listadas na consulta.  
+    -   Não confundir, cada linda de registro (com “n” colunas/campos) é
+        **UM** elemento do vetor **CURSOR**.  
+
+### 19.2.3 **OPEN** e **CLOSE** - manipulação de varaveis
+
+-   **OPEN**  
+    -   Leva a variavel do tipo **CURSOR** para a memoria RAM para poder
+        ser manipulada.  
+    -   Sintaxe:  
+        **OPEN** *nome_da_variavel_CURSOR*;  
+-   **CLOSE**  
+    -   Fecha a variavel do tipo **CURSOR**, remove da memoria RAM.  
+    -   Sintaxe:  
+        **CLOSE** *nome_da_variavel_CURSOR*;  
+
+### 19.2.4 **DECLARE** **CONTINUE** **HANDLER** - declarando variavel de manipulação continua
+
+-   Declaração de um robô que observa os elementos do vetor **CURSOR**
+    no loop (**REPEAT**).  
+-   Quando os elementos do vetor acabam, modifica uma variavel que serve
+    como criterio de parada para o loop.  
+-   Declarado antes do loop.  
+-   Sintaxe:  
+    **DECLARE** *FIM* **INT** **DEFAULT** 0;  
+    **DECLARE** **CONTINUE** **HANDLER** **FOR** **NOT** **FOUND**
+    **SET** *FIM* = 1;  
+-   Observações:  
+    -   “Formula de bolo”, sempre assim.  
+    -   Variavel *FIM* pois finaliza o loop, nome dado a uma varaivel
+        qualquer.  
+
+### 19.2.5 **REPEAT** - Loop
+
+### 19.2.6 **FETCH** - chama o proximo elemento do **CURSOR** no Loop
+
+### 19.2.7 **IF**
 
 # 20 Detalhes
 
