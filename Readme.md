@@ -1789,10 +1789,12 @@ tempo.
 -   **OPEN**  
     -   Leva a variavel do tipo **CURSOR** para a memoria RAM para poder
         ser manipulada.  
+    -   Usado antes do **REPEAT**.  
     -   Sintaxe:  
         **OPEN** *nome_da_variavel_CURSOR*;  
 -   **CLOSE**  
     -   Fecha a variavel do tipo **CURSOR**, remove da memoria RAM.  
+    -   Comumente usado depois do **REPEAT**.  
     -   Sintaxe:  
         **CLOSE** *nome_da_variavel_CURSOR*;  
 
@@ -1808,15 +1810,152 @@ tempo.
     **DECLARE** **CONTINUE** **HANDLER** **FOR** **NOT** **FOUND**
     **SET** *FIM* = 1;  
 -   Observações:  
-    -   “Formula de bolo”, sempre assim.  
+    -   “Formula de bolo”, sempre se repete escrito desta forma.  
+    -   Depois que pecorre todos os elementos, passa o valor “**NOT
+        FOUND**” (não encontrado) e modifica a variavel *FIM* para valor
+        1.  
     -   Variavel *FIM* pois finaliza o loop, nome dado a uma varaivel
         qualquer.  
 
-### 19.2.5 **REPEAT** - Loop
+### 19.2.5 **IF**
 
-### 19.2.6 **FETCH** - chama o proximo elemento do **CURSOR** no Loop
+-   **IF**  
+    -   Tomador de decisão simples.  
+    -   Sintaxe:  
+        **IF** *condição* **THEN**  
+        \[*bloco de programação SQL*\];  
+        **END** **IF**;  
+-   **IF** e **ELSE**  
+    -   Caso o tomador de decisão **IF** falhe, o **ELSE** deve ser
+        executado.  
+    -   Sintaxe:  
+        **IF** *condição* **THEN**  
+        \[*bloco de programação SQL*\];  
+        **ELSE**  
+        \[*bloco de programação SQL*\];  
+        **END** **IF**;  
+-   **IF**, **ELSEIF** e **ELSE**  
+    -   Varios casos de decisões (**ELSEIF**) alem do **IF**, caso o
+        **IF** falhe.  
+    -   Caso todos falhem (**IF** e **ELSEIF**), o **ELSE** deve ser
+        executado.  
+    -   Sintaxe:  
+        **IF** *condição1* **THEN**  
+        \[*bloco de programação SQL*\];  
+        **ELSEIF** *condição2* **THEN**  
+        \[*bloco de programação SQL*\];  
+        **ELSE**  
+        \[*bloco de programação SQL*\];  
+        **END** **IF**;  
 
-### 19.2.7 **IF**
+### 19.2.6 **REPEAT** - Loop
+
+-   Faz um loop que se repete ate determina expressão seja verdadeira.  
+-   O uso de **REPEAT** é otimo para fazer operações (manipulação de
+    dados), linha por linha de um determinada tabela de um banco de
+    dados, gerando novos dados derivados.  
+-   Sintaxe:  
+    **REPEAT**  
+    \[*bloco de programação em SQL*\];  
+    **UNTIL** *expressão*  
+    **END** **REPEAT**;  
+-   Observações:  
+    -   O bloco de programação em SQL, pode conter o **FETCH** para
+        percorrer um **CURSOR**.  
+    -   Para finalizar um **REPEAT**, podemos programar (declarar) um
+        **CONTINUE HANDLER** antes do loop, e substituir a *expressão*
+        por “*FIM* = 1”, para sair do loop depois que o **CURSOR**
+        (vetor) for todo percorrido, com ajuda do **FETCH**.  
+    -   É comum usar os comandos SQL (**INSERT**, **UPDATE** e
+        **DELETE**) dentro do bloco de programação.  
+    -   Em especial o **INSERT** é util para gravar os dados, novos e/ou
+        modificados, num banco de dados.  
+    -   Outro comando que se mostra util é o uso de **IF**.  
+
+### 19.2.7 **FETCH** - chama o proximo elemento do **CURSOR** no Loop
+
+-   Funciona dentro do loop.  
+
+-   Chama o proximo elemento do **CURSOR**, começando do elemento 1.  
+
+-   Vai percorrendo o **CURSOR** a cada loop, 1 elemento do **CURSOR**
+    por loop.  
+
+-   Sintaxe:  
+    **FETCH** *nome_da_variavel_CURSOR* **INTO** *variavel1*,
+    *variavel2*, …;  
+
+-   Observações:
+
+    -   As variaveis devem estar previamente declaradas.  
+    -   O **FETCH** adiciona o valor dos campos do elemento do
+        **CURSOR** em cada variavel, na ordem em que os campos foram
+        chamados na declaração do **CURSOR**.  
+    -   Apartir do **FETCH**, pode-se trabalhar com as variaveis pois
+        elas vão estar com o valor de cada campo, de cada linha de
+        registro a cada looping.  
+
+## 19.3 Juntando tudo - **CURSOR**
+
+-   **CURSOR**, assim como vetores, são usados para guardar registros
+    para percorrer um terminado tabela de banco de dados.  
+-   Lembrando que **CURSOR** é normalmente usado dentro de
+    **PROCEDURE**.  
+-   Por conta disso, lembrando de mudar o **DELIMITER** antes e depois
+    do **PROCEDURE**.  
+-   Para chamar o **PROCEDURE**, utilizar o **CALL**.  
+-   Juntando tudo que foi estudado para **CURSOR**:  
+    -   **DECLARE**  
+    -   **DECLARE** **CURSOR**  
+    -   **OPEN** e **CLOSE**  
+    -   **CONTINUE** **HANDLER**  
+    -   **REPEAT**  
+    -   **FETCH**  
+
+-   Sintaxe:  
+    **DELIMITER** \#  
+    **CREATE** **PROCEDURE** *nome_do_procedure*()  
+    **BEGIN**  
+    **DECLARE** *FIM* **INT** **DEFAULT** 0;  
+    **DECLARE** *variavel1*, *variavel2*, …, *variaveln* **INT**;  
+    **DECLARE** *variavel_nome* **VARCHAR(50)**;  
+    **DECLARE** *variavel_nome_do_cursor* **CURSOR** **FOR** (  
+    **SELECT**  
+    *coluna1*,  
+    *coluna2*,  
+    *coluna3*,  
+    *coluna4*,  
+    *coluna5*  
+    **FROM** *tabela*  
+    );  
+    **DECLARE** **CONTINUE** **HANDLER** **FOR** **NOT** **FOUND**
+    **SET** *FIM* = 1;  
+    **OPEN** *variavel_nome_do_cursor*;  
+    **REPEAT**  
+    **FETCH** *variavel_nome_do_cursor* **INTO** *variavel1*,
+    *variavel_nome*, *variavel2*, *variavel3*, *varivael4*;  
+    **IF** **NOT** *FIM* **THEN**  
+    \[*exemplo de bloco de programação SQL*\]  
+    **SET** *variavel5* = *variavel1* + *variavel2* + *variavel3*;  
+    **SET** *variavel6* = *variavel5* / 3;  
+    **INSERT** **INTO** *tabela_nova* **VALUES**  
+    (**NULL**, *variavel1*, *variavel_nome*, *variavel2*, *variavel3*,
+    *varivael4*, *variavel5*, *variavel6*);  
+    **END** **IF**;  
+    **UNTIL** *FIM* **END** **REPEAT**;  
+    **CLOSE** *variavel_nome_do_cursor*;  
+    **END**  
+    \#  
+    **DELIMITER** ;  
+    **CALL** *nome_do_procedure*();  
+
+-   Observações:  
+
+    -   **SET** é para atribuir valores.  
+    -   Em declaração de **CURSOR**, o “;” só vai no fechando paranteses
+        “();”.  
+    -   Antes de fazer a **PROCEDURE**, é necessario preparar uma nova
+        tabela no banco de dados para receber os novos valores.  
 
 # 20 Detalhes
 
@@ -1865,4 +2004,4 @@ tempo.
 
 ## 21.1 Assunto em andamento:
 
-Atualmente estou estudando Módulo 21.  
+Atualmente estou estudando Módulo 22.  
