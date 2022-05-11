@@ -608,7 +608,63 @@ cima.
 
 ## 7.2 Segunda forma normal
 
+“Uma relação está na **2º forma normal** se, e somente se, estiver na
+**1º forma normal** e cada atributo não-chave for dependente da chave
+primária inteira, isto é, cada atributo não-chave não poderá ser
+dependente de apenas parte da chave.”  
+
+-   No caso de tabelas com chave primária composta, se um atributo
+    depende apenas de uma parte da chave primária, então esse atributo
+    deve ser colocado em outra tabela.  
+
+-   Uma relação está na **2º forma normal** quando duas condições são
+    satisfeitas:  
+
+    -   A relação estiver na **1º forma normal**.  
+    -   Todos os atributos primos dependerem funcionalmente de toda a
+        **chave primária**.  
+
+-   Conclusões:  
+
+    -   Maior independência de dados.  
+    -   Redundâncias e anomalias: dependências funcionais indiretas.  
+
 ## 7.3 Terceira forma normal
+
+“Uma relação R está na **3º forma normal** se ela estiver na **2º forma
+normal** e cada atributo não-chave de R não possuir **dependência
+transitiva**, para cada chave candidata de R. Todos os atributos dessa
+tabela devem ser independentes uns dos outros, ao mesmo tempo que devem
+ser dependentes exclusivamente da **chave primária** da tabela.”  
+
+-   Exemplo ilustrativo:  
+    “Uma tabela não está na **Terceira Forma Normal** porque a coluna
+    *Total* é dependente, ou é resultado, da multiplicação das colunas
+    *Preço* e *Quantidade*, ou seja, a coluna *total* tem **dependência
+    transitiva** de colunas que não fazem parte da **chave primária**,
+    ou mesmo candidata da tabela. Para que essa tabela passe à
+    **Terceira forma normal** o campo *Total* deverá ser eliminado, a
+    fim de que nenhuma coluna tenha dependência de qualquer outra que
+    não seja exclusivamente chave”.  
+
+-   Passagem para a **3º forma normal**:  
+
+    -   Para estar na **3º forma normal** precisa estar na **2º forma
+        normal**.  
+    -   Geração de novas tabelas com DF (Dependências Funcionais)
+        diretas.  
+    -   Análise de dependências funcionais entre atributos não-chave.  
+    -   Verificar a dependência exclusiva da **chave primária**.  
+    -   Entidades na **3º forma normal** também não podem conter
+        atributos que sejam resultados de algum cálculo de outro
+        atributo.  
+
+-   Conclusões:  
+
+    -   Maior independência de dados.  
+    -   **3º forma normal** gera representações lógicas finais na
+        maioria das vezes.  
+    -   Redundâncias e anomalias: dependências funcionais.  
 
 # 8 Módulo 9 - PROJEÇÃO, SELEÇÃO E JUNÇÃO
 
@@ -2004,4 +2060,4 @@ tempo.
 
 ## 21.1 Assunto em andamento:
 
-Atualmente estou estudando Módulo 22.  
+Atualmente estou estudando Módulo 23.  
