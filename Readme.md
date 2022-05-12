@@ -2013,7 +2013,50 @@ tempo.
     -   Antes de fazer a **PROCEDURE**, é necessario preparar uma nova
         tabela no banco de dados para receber os novos valores.  
 
-# 20 Detalhes
+# 20 Módulo 23 - Introdução a Business Intelligence
+
+## 20.1 Banco de dados relacional
+
+-   Foco:  
+    -   Rotinas do dia-dia do negócio.  
+-   Principais rotinas:  
+    -   **INSERT**  
+        Inserir dados.  
+    -   **UPDATE**  
+        Modificar dados.  
+    -   **DELETE**  
+        Excluir dados.  
+-   Modelagem:  
+    -   1º forma normal  
+    -   2º forma normal  
+    -   3º forma normal  
+-   Por que modelar?  
+    -   Evitar redundancia de dados.  
+    -   Separar dados por diversas tabelas.  
+    -   Por consequencia, evitar que o HD cresça.  
+-   Consequencias:  
+    -   Pouca eficiência nas consultas.  
+    -   Devido a diversas junções de tabelas (**JOIN**) que aumenta o
+        desempenho da maquina para as consultas.  
+
+## 20.2 Business Intelligence
+
+-   Foco:  
+    -   Em consultas (**SELECT**).  
+-   Modelagem:  
+    -   Desnormalizar os dados, para aumentar a eficiencia das
+        consultas.  
+-   Por que desnormalizar?  
+    -   Aumentar a eficiencia das consultas, sem se preocupar (muito)
+        com o espaço ocupado por esses dados.  
+    -   Gerar consultas rapidas aos dados, para apoioar os diversos
+        *stakeholders* nas tomadas de decisões do negócio.  
+-   Consequencias:  
+    -   Gera redundancia de dados, aumenta o espaço de armazenamento.  
+    -   Dimimui o desempenho das maquinas para as consultas, tornando o
+        processo de consulta mais eficiente.  
+
+# 21 Detalhes
 
 -   ***Comentarios*** no **MySQL**, diferente do **SQL** onde
     comentarios são ’/\*\*/‘, no MySQL é’\#‘. Ou’- -’ para comentario de
@@ -2056,8 +2099,8 @@ tempo.
     -   no **WINDOWS** não faz destinção de letras maiusculas e
         minusculas.  
 
-# 21 Andamento dos Estudos
+# 22 Andamento dos Estudos
 
-## 21.1 Assunto em andamento:
+## 22.1 Assunto em andamento:
 
-Atualmente estou estudando Módulo 23.  
+Curso concluido.  

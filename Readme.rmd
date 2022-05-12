@@ -4,21 +4,21 @@ subtitle: "Readme.rmd"
 author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
+  pdf_document:
+    number_sections: true
+    toc: TRUE
   md_document:
     number_sections: true
     variant: markdown_github
+  odt_document:
+    number_sections: true
+  github_document: default
   word_document:
     toc: TRUE
     number_sections: true
   html_document:
     number_sections: true
     df_print: paged
-  github_document: default
-  odt_document:
-    number_sections: true
-  pdf_document:
-    number_sections: true
-    toc: TRUE
 ---
 
 \newpage
@@ -1734,6 +1734,44 @@ Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse entre as entid
   
 \newpage
 
+# Módulo 23 - Introdução a Business Intelligence
+
+## Banco de dados relacional
+- Foco:\
+  - Rotinas do dia-dia do negócio.\
+- Principais rotinas:\
+  - **INSERT**\
+  Inserir dados.\
+  - **UPDATE**\
+  Modificar dados.\
+  - **DELETE**\
+  Excluir dados.\
+- Modelagem:\
+  - 1º forma normal\
+  - 2º forma normal\
+  - 3º forma normal\
+- Por que modelar?\
+  - Evitar redundancia de dados.\
+  - Separar dados por diversas tabelas.\
+  - Por consequencia, evitar que o HD cresça.\
+- Consequencias:\
+  - Pouca eficiência nas consultas.\
+  - Devido a diversas junções de tabelas (**JOIN**) que aumenta o desempenho da maquina para as consultas.\
+
+## Business Intelligence
+- Foco:\
+  - Em consultas (**SELECT**).\
+- Modelagem:\
+  - Desnormalizar os dados, para aumentar a eficiencia das consultas.\
+- Por que desnormalizar?\
+  - Aumentar a eficiencia das consultas, sem se preocupar (muito) com o espaço ocupado por esses dados.\
+  - Gerar consultas rapidas aos dados, para  apoioar os diversos *stakeholders* nas tomadas de decisões do negócio.\
+- Consequencias:\
+  - Gera redundancia de dados, aumenta o espaço de armazenamento.\
+  - Dimimui o desempenho das maquinas para as consultas, tornando o processo de consulta mais eficiente.\
+
+\newpage
+
 # Detalhes
 
 - ***Comentarios*** no **MySQL**, diferente do **SQL** onde comentarios são '/**/', no MySQL é '#'. Ou '- -' para comentario de linha.\
@@ -1759,4 +1797,4 @@ mysql -u root -p\
 
 ## Assunto em andamento:
 
-Atualmente estou estudando Módulo 23.\
+Curso concluido.\
