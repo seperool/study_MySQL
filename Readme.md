@@ -70,11 +70,11 @@ modelo conceitual.
                 Não é obrigatorio, pode entrar com varios dados.  
         -   Como ler os relacionamentos entre entidades:  
             Exemplos:  
-            -   (1,1) -> (0,n)  
+            -   (1,1) -\> (0,n)  
                 Ignorar a primeira coordenanda de obrigatoriedade dos
                 dois relacionamentos, e fica 1 para n, logo “um para
                 muitos”.  
-            -   (0,n) -> (0,1)  
+            -   (0,n) -\> (0,1)  
                 Ignorar a primeira coordenanda de obrigatoriedade dos
                 dois relacionamentos, e fica n para 1, logo “muitos para
                 um”.  
@@ -740,44 +740,6 @@ Principais passos de uma consulta.
         **ON** *chave_primaria_tab1* **=** *chave_estrangeira_tab2*  
         **WHERE** *criterio* **=** *valor*;(SELEÇÃO)  
 
--   Consulta com mais de duas colunas.  
-
-    -   Indicar de onde vem cada coluna atraves de
-        “*nome_da_tabela*.*nome_da_coluna*”.  
-    -   Sintaxe comentada:  
-        **SELECT**  
-        *tabela1*.*coluna1_tab1*,  
-        *tabela1*.*coluna2_tab1*,  
-        *tabela2*.*coluna1_tab2*,  
-        *tabela3*.*coluna1_tab3* (PROJEÇÃO)  
-        **FROM** *tabela1* (ORIGEM)  
-        **INNER** **JOIN** *tabela2* (JUNÇÃO)  
-        **ON** *tabela1*.*chave_primaria_tab1* **=**
-        *tabela2*.*chave_estrangeira_tab2*  
-        **INNER** **JOIN** *tabela3* (JUNÇÃO)  
-        **ON** *tabela1*.*chave_primaria_tab1* **=**
-        *tabela3*.*chave_estrangeira_tab3*  
-        **WHERE** *criterio* **=** *valor*;(SELEÇÃO)  
-        Obs.: o que esta entre parênteses é comentario.  
-
--   Ponteiramento (alias para tabelas)  
-
-    -   Melhora a performance da consulta.  
-    -   Sintaxe comentada:  
-        **SELECT**  
-        *A*.*coluna1_tab1*,  
-        *A*.*coluna2_tab1*,  
-        *B*.*coluna1_tab2*,  
-        *C*.*coluna1_tab3*  
-        **FROM** *tabela1* *A* (PONTEIRAMENTO DA TABELA 1)  
-        **INNER** **JOIN** *tabela2* *B* (PONTEIRAMENTO DA TABELA 2)  
-        **ON** *A*.*chave_primaria_tab1* **=**
-        *B*.*chave_estrangeira_tab2*  
-        **INNER** **JOIN** *tabela3* *C* (PONTEIRAMENTO DA TABELA 3)  
-        **ON** *A*.*chave_primaria_tab1* **=**
-        *C*.*chave_estrangeira_tab3*  
-        **WHERE** *criterio* **=** *valor*;  
-
 #### 8.3.2.2 **LEFT**
 
 -   Mostra ate os registros sem par (nulos) - **LEFT**.  
@@ -790,7 +752,12 @@ Principais passos de uma consulta.
         **LEFT** **JOIN** *tabela2* (JUNÇÃO)  
         **ON** *chave_primaria_tab1* **=** *chave_estrangeira_tab2*  
         **WHERE** *criterio* **=** *valor*;(SELEÇÃO)  
--   Consulta com mais de duas colunas.  
+
+#### 8.3.2.3 Cláusulas ambíguas e Ponteiramento
+
+-   Consulta com mais de duas tabelas.  
+    -   Pode apresentar colunas/campos com o mesmo nome, de tabelas
+        diferentes. Caso comum das *chaves estrangeiras* (**FK**).  
     -   Indicar de onde vem cada coluna atraves de
         “*nome_da_tabela*.*nome_da_coluna*”.  
     -   Sintaxe comentada:  
@@ -803,7 +770,7 @@ Principais passos de uma consulta.
         **LEFT** **JOIN** *tabela2* (JUNÇÃO)  
         **ON** *tabela1*.*chave_primaria_tab1* **=**
         *tabela2*.*chave_estrangeira_tab2*  
-        **LEFT** **JOIN** *tabela3* (JUNÇÃO)  
+        **INNER** **JOIN** *tabela3* (JUNÇÃO)  
         **ON** *tabela1*.*chave_primaria_tab1* **=**
         *tabela3*.*chave_estrangeira_tab3*  
         **WHERE** *criterio* **=** *valor*;(SELEÇÃO)  
@@ -820,7 +787,7 @@ Principais passos de uma consulta.
         **LEFT** **JOIN** *tabela2* *B* (PONTEIRAMENTO DA TABELA 2)  
         **ON** *A*.*chave_primaria_tab1* **=**
         *B*.*chave_estrangeira_tab2*  
-        **LEFT** **JOIN** *tabela3* *C* (PONTEIRAMENTO DA TABELA 3)  
+        **INNER** **JOIN** *tabela3* *C* (PONTEIRAMENTO DA TABELA 3)  
         **ON** *A*.*chave_primaria_tab1* **=**
         *C*.*chave_estrangeira_tab3*  
         **WHERE** *criterio* **=** *valor*;  
@@ -1224,7 +1191,8 @@ tempo.
     ![Atributos Croos](Imagens/Physical-ERD-Symbols.png)  
 
 -   Cardinalidade  
-    <img src="Imagens/ERD-Notation.PNG" style="width:10cm" alt="Cardinalidade Cross" />  
+    <img src="Imagens/ERD-Notation.PNG" style="width:10cm"
+    alt="Cardinalidade Cross" />  
     Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse
     entre as entidades.  
 
