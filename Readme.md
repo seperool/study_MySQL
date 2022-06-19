@@ -792,7 +792,7 @@ Principais passos de uma consulta.
         *C*.*chave_estrangeira_tab3*  
         **WHERE** *criterio* **=** *valor*;  
 
-# 9 Categoria de comandos
+# 9 CategoriaS de comandos
 
 ## 9.1 **DML** - *Data Manipulation Language* (Linguagem de Manipulação de Dados)
 
