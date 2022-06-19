@@ -4,21 +4,21 @@ subtitle: "Readme.rmd"
 author: "Sergio Pedro R Oliveira"
 date: "`r Sys.Date()`"
 output:
-  md_document:
-    number_sections: true
-    variant: markdown_github
-  word_document:
-    toc: TRUE
-    number_sections: true
-  html_document:
-    number_sections: true
-    df_print: paged
-  github_document: default
-  odt_document:
-    number_sections: true
   pdf_document:
     number_sections: true
     toc: TRUE
+  html_document:
+    number_sections: true
+    df_print: paged
+  word_document:
+    toc: TRUE
+    number_sections: true
+  github_document: default
+  odt_document:
+    number_sections: true
+  md_document:
+    number_sections: true
+    variant: markdown_github
 ---
 
 \newpage
@@ -706,7 +706,7 @@ Obs.: o que esta entre parênteses é comentario.\
 
 \newpage
 
-# CategoriaS de comandos
+# Categorias de comandos
 
 ## **DML** - *Data Manipulation Language* (Linguagem de Manipulação de Dados)
 É um conjunto de instruções usada nas consultas e modificações dos dados armazenados nas tabelas do banco de dados.\

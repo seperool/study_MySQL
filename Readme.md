@@ -70,11 +70,11 @@ modelo conceitual.
                 Não é obrigatorio, pode entrar com varios dados.  
         -   Como ler os relacionamentos entre entidades:  
             Exemplos:  
-            -   (1,1) -\> (0,n)  
+            -   (1,1) -> (0,n)  
                 Ignorar a primeira coordenanda de obrigatoriedade dos
                 dois relacionamentos, e fica 1 para n, logo “um para
                 muitos”.  
-            -   (0,n) -\> (0,1)  
+            -   (0,n) -> (0,1)  
                 Ignorar a primeira coordenanda de obrigatoriedade dos
                 dois relacionamentos, e fica n para 1, logo “muitos para
                 um”.  
@@ -792,7 +792,7 @@ Principais passos de uma consulta.
         *C*.*chave_estrangeira_tab3*  
         **WHERE** *criterio* **=** *valor*;  
 
-# 9 CategoriaS de comandos
+# 9 Categorias de comandos
 
 ## 9.1 **DML** - *Data Manipulation Language* (Linguagem de Manipulação de Dados)
 
@@ -1191,8 +1191,7 @@ tempo.
     ![Atributos Croos](Imagens/Physical-ERD-Symbols.png)  
 
 -   Cardinalidade  
-    <img src="Imagens/ERD-Notation.PNG" style="width:10cm"
-    alt="Cardinalidade Cross" />  
+    <img src="Imagens/ERD-Notation.PNG" style="width:10cm" alt="Cardinalidade Cross" />  
     Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse
     entre as entidades.  
 
