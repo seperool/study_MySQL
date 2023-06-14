@@ -70,11 +70,11 @@ modelo conceitual.
                 Não é obrigatorio, pode entrar com varios dados.  
         -   Como ler os relacionamentos entre entidades:  
             Exemplos:  
-            -   (1,1) -> (0,n)  
+            -   (1,1) -\> (0,n)  
                 Ignorar a primeira coordenanda de obrigatoriedade dos
                 dois relacionamentos, e fica 1 para n, logo “um para
                 muitos”.  
-            -   (0,n) -> (0,1)  
+            -   (0,n) -\> (0,1)  
                 Ignorar a primeira coordenanda de obrigatoriedade dos
                 dois relacionamentos, e fica n para 1, logo “muitos para
                 um”.  
@@ -277,10 +277,10 @@ Sem virgula entre eles.
             na tabela.  
         -   Sintaxe:  
             **INSERT INTO** *nome_da_tabela*  
-            **VALUES** (*valor_na_coluna_1\_registro1*,
-            *valor_na_coluna_2\_registro1*,…),  
-            (*valor_na_coluna_1\_registro2*,
-            *valor_na_coluna_2\_registro2*,…),  
+            **VALUES** (*valor_na_coluna_1_registro1*,
+            *valor_na_coluna_2_registro1*,…),  
+            (*valor_na_coluna_1_registro2*,
+            *valor_na_coluna_2_registro2*,…),  
             …;  
     -   Inserindo dados num campo com **AUTO_INCREMENT**.  
         -   Na coluna/campo em que tem **AUTO_INCREMENT**, insere-se o
@@ -501,14 +501,14 @@ Sem virgula entre eles.
         muitos problemas.  
 
     -   Sintaxe:  
-        **UPDATE** *tabela* **SET** *coluna_a\_atualizar* **=**
+        **UPDATE** *tabela* **SET** *coluna_a_atualizar* **=**
         *valor_atualizado*;  
 -   Para atualizar um determinado registro.  
     -   Para atualizar um determinado dado de uma coluna/campo, utilizar
         o **UPDATE** em conjunto com a instrução **WHERE**.  
 
     -   Sintaxe:  
-        **UPDATE** *tabela* **SET** *coluna_a\_atualizar* **=**
+        **UPDATE** *tabela* **SET** *coluna_a_atualizar* **=**
         *valor_atualizado*  
         **WHERE** *condição* **=** *valor*;  
 
@@ -804,15 +804,15 @@ armazenados nas tabelas do banco de dados.
     -   Sintaxe:  
         **INSERT INTO** *nome_da_tabela*  
         **VALUES**  
-        (*valor_na_coluna_1\_registro1*,
-        *valor_na_coluna_2\_registro1*,…),  
-        (*valor_na_coluna_1\_registro2*,
-        *valor_na_coluna_2\_registro2*,…),  
+        (*valor_na_coluna_1_registro1*,
+        *valor_na_coluna_2_registro1*,…),  
+        (*valor_na_coluna_1_registro2*,
+        *valor_na_coluna_2_registro2*,…),  
         …;  
 -   **UPDATE**  
     -   Altera os dados de um ou mais registros em uma tabela.  
     -   Sintaxe:  
-        **UPDATE** *tabela* **SET** *coluna_a\_atualizar* **=**
+        **UPDATE** *tabela* **SET** *coluna_a_atualizar* **=**
         *valor_atualizado*  
         **WHERE** *condição* **=** *valor*;  
 -   **DELETE**  
@@ -1191,7 +1191,8 @@ tempo.
     ![Atributos Croos](Imagens/Physical-ERD-Symbols.png)  
 
 -   Cardinalidade  
-    <img src="Imagens/ERD-Notation.PNG" style="width:10cm" alt="Cardinalidade Cross" />  
+    <img src="Imagens/ERD-Notation.PNG" style="width:10cm"
+    alt="Cardinalidade Cross" />  
     Obs.: Para inserir cardionalidade, deve clicar e arrastar o mouse
     entre as entidades.  
 
